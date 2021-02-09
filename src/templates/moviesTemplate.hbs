@@ -1,11 +1,14 @@
 {{#each this}}
-<li data-action='{{id}}'>
-    <div class="movie-card">
+<li id="{{id}}">
+    <div class="thumb">
         <img src="{{img}}" data-source="{{img}}"/>
+        <input class="input-checkbox" id="{{id}}" type="checkbox" value="Favourite">
+        <span class="star-icon"></span>       
+    </div>
     <p class="card__text">
       <span> {{name}}</span> 
       <span>{{year}}</span>
    </p>
-    </div>
+   
 </li>
 {{/each}}

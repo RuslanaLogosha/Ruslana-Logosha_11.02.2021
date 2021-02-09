@@ -9,6 +9,7 @@ body {
     Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
   line-height: 1.5;
   color: #2a2a2a;
+  /* max-width: 1050px; */
 }
 
 .main-title {
@@ -16,23 +17,24 @@ body {
 }
 
 .films-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  grid-gap: 20px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
   padding: 0;
   margin: 0;
   list-style: none;
-  max-width: calc(100vw - 80px);
+  max-width: 900px;
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: 30px;
 }
 
 .films-container li {
+  width: 200px;
   height: 350px;
   overflow: hidden;
   background-color: #a39a9c;
   border-radius: 5px;
+  margin: 10px;
 }
 
 .films-container img {
@@ -47,4 +49,48 @@ body {
 .films-container span {
   display: block;
   text-align: center;
+}
+.thumb {
+  position: relative;
+}
+
+.input-checkbox {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 30px;
+  height: 30px;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  outline: none;
+  z-index: 2;
+}
+
+.star-icon {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 30px;
+  height: 30px;
+  z-index: 1;
+  background-image: url(./images/white-star.svg);
+}
+
+.input-checkbox.checked + .star-icon {
+  background-image: url(./images/star.svg);
+}
+
+.side-bar {
+  display: block;
+  margin-top: 10px;
+  margin-right: 0;
+  min-width: 450px;
+  text-align: center;
+  background-color: #a39a9c;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
 }
