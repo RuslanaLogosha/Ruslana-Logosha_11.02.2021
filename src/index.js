@@ -74,3 +74,36 @@ function initStorageDelayed() {
 }
 
 initStorageDelayed();
+
+function manageCrossIconClick() {
+  refs.favouriteList.addEventListener('click', onCrossClick);
+
+  function onCrossClick(e) {
+    const item = e.target;
+    const id = e.target.id;
+
+    const itemBox = item.parentNode;
+    itemBox.remove();
+
+    const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+    const index = favorites.indexOf(id);
+    favorites.splice(index, 1);
+
+    console.log(favorites);
+    localStorage.setItem('favorites', JSON.stringify(favorites));
+
+    const arrayGalleryItems = Array.from(refs.filmsContainer.children);
+    console.log(arrayGalleryItems);
+    arrayGalleryItems.forEach(elem =>
+      elem.id === id ? elem.classList.add('cross-checked') : console.log('ok'),
+    );
+
+    const deletedFromFavListMovie = document.querySelector('.cross-checked');
+    const divElem = deletedFromFavListMovie.firstElementChild;
+    const imgElem = divElem.firstElementChild;
+    const inputElem = imgElem.nextElementSibling;
+    inputElem.classList.remove('checked');
+  }
+}
+
+manageCrossIconClick();
