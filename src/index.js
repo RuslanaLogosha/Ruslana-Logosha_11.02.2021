@@ -5,9 +5,32 @@ import favouriteTpl from './templates/listItemTemplate.hbs';
 
 const refs = getRefs();
 
+async function fetchMoviesGallery() {
+  const data = await fetchMovies();
+  const movies = appendMoviesGalleryMarkup(data);
+  return movies;
+}
+
+function appendMoviesGalleryMarkup(data) {
+  refs.filmsContainer.insertAdjacentHTML('beforeend', moviesTpl(data));
+}
+
+fetchMoviesGallery();
+
+async function fetchFavouriteMoviesList(id) {
+  const data = await fetchMoviesById(id);
+  // console.log(data);
+  const movies = appendFavouriteListMarkup(data);
+  return movies;
+}
+
+function appendFavouriteListMarkup(data) {
+  refs.favouriteList.insertAdjacentHTML('beforeend', favouriteTpl(data));
+}
+
 function initStorageDelayed() {
   setTimeout(() => {
-    var favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+    const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
 
     console.log(favorites);
     favorites.forEach(id => {
@@ -25,7 +48,6 @@ function initStorageDelayed() {
         const id = e.target.id,
           item = e.target,
           index = favorites.indexOf(id);
-        console.log(item);
 
         if (!id) return;
 
@@ -34,12 +56,15 @@ function initStorageDelayed() {
           favorites.push(id);
           item.classList.add('checked');
           console.log(favorites);
-
           fetchFavouriteMoviesList(id);
 
           // item is already favorite
         } else {
           favorites.splice(index, 1);
+          const list = refs.favouriteList;
+          const arrayElms = Array.from(list.children);
+          arrayElms.forEach(elem => elem.remove());
+          favorites.forEach(id => fetchFavouriteMoviesList(id));
           item.classList.remove('checked');
         }
         // store array in local storage
@@ -49,25 +74,3 @@ function initStorageDelayed() {
 }
 
 initStorageDelayed();
-
-async function fetchMoviesGallery() {
-  const data = await fetchMovies();
-  const movies = appendMoviesGalleryMarkup(data);
-  return movies;
-}
-
-function appendMoviesGalleryMarkup(data) {
-  refs.filmsContainer.insertAdjacentHTML('beforeend', moviesTpl(data));
-}
-
-fetchMoviesGallery();
-
-async function fetchFavouriteMoviesList(id) {
-  const data = await fetchMoviesById(id);
-  const movies = appendFavouriteListMarkup(data);
-  return movies;
-}
-
-function appendFavouriteListMarkup(data) {
-  refs.favouriteList.insertAdjacentHTML('beforeend', favouriteTpl(data));
-}

@@ -14,7 +14,6 @@ export async function fetchMoviesById(id) {
   try {
     const data = await fetch(`${url}/${id}`);
     const results = await data.json();
-    // console.log(results);
     return results;
   } catch (error) {
     console.log(error);

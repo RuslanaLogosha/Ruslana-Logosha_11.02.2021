@@ -81,6 +81,15 @@ body {
   background-image: url(./images/star.svg);
 }
 
+.cross-icon {
+  position: absolute;
+  bottom: 0;
+  right: 25px;
+  width: 20px;
+  height: 20px;
+  background-image: url(./images/cross.svg);
+}
+
 .side-bar {
   display: block;
   margin-top: 10px;
