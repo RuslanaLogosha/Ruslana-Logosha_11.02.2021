@@ -3,17 +3,17 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "homepage": "https://RuslanaLogosha.github.io/Ruslana-Logosha_date",
+  "homepage": "https://RuslanaLogosha.github.io/Ruslana-Logosha_11.02.2021",
   "scripts": {
     "dev": "parcel src/*.html",
     "build": "parcel build src/*.html",
-    "predeploy": "npm run build -- --public-url=/Ruslana-Logosha_date/",
+    "predeploy": "npm run build -- --public-url=/Ruslana-Logosha_11.02.2021/",
     "deploy": "gh-pages -d dist",
     "api-server": "json-server --port 4040 --delay 300 --watch db.json"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/RuslanaLogosha/Ruslana-Logosha_date.git"
+    "url": "git+https://github.com/RuslanaLogosha/Ruslana-Logosha_11.02.2021.git"
   },
   "keywords": [],
   "author": "Ruslana Logosha",
