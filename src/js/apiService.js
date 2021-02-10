@@ -1,4 +1,4 @@
-const url = 'http://my-json-server.typicode.com/moviedb-tech/movies/list';
+const url = 'http://localhost:4040/movies';
 
 export async function fetchMovies() {
   try {

@@ -20,7 +20,6 @@ fetchMoviesGallery();
 
 async function fetchFavouriteMoviesList(id) {
   const data = await fetchMoviesById(id);
-  // console.log(data);
   const movies = appendFavouriteListMarkup(data);
   return movies;
 }
@@ -31,9 +30,10 @@ function appendFavouriteListMarkup(data) {
 
 function initStorageDelayed() {
   setTimeout(() => {
+    delay2();
+
     const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
 
-    console.log(favorites);
     favorites.forEach(id => {
       fetchFavouriteMoviesList(id);
       const liElem = document.getElementById(id);
@@ -46,6 +46,8 @@ function initStorageDelayed() {
     document
       .querySelector('.gallery-list')
       .addEventListener('click', function (e) {
+        const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+
         const id = e.target.id,
           item = e.target,
           index = favorites.indexOf(id);
@@ -56,8 +58,8 @@ function initStorageDelayed() {
         if (index == -1) {
           favorites.push(id);
           item.classList.add('checked');
-          console.log(favorites);
           fetchFavouriteMoviesList(id);
+          delay2();
 
           // item is already favorite
         } else {
@@ -80,6 +82,25 @@ function manageCrossIconClick() {
   refs.favouriteList.addEventListener('click', onCrossClick);
 
   function onCrossClick(e) {
+    const nameField = document.querySelector('.fav-list-name');
+    const liField = document.querySelector('.fav-list-item');
+    const listField = document.querySelector('.fav-list');
+    const modalFavItem = document.querySelector('.modal-fav');
+    // modalFavItem.remove();
+
+    console.log(e.target);
+    if (
+      e.target === nameField ||
+      e.target === liField ||
+      e.target === listField
+    ) {
+      return;
+    }
+
+    // if (delay2()) {
+    //   return;
+    // }
+
     const item = e.target;
     const id = e.target.id;
 
@@ -88,13 +109,12 @@ function manageCrossIconClick() {
 
     const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
     const index = favorites.indexOf(id);
+
     favorites.splice(index, 1);
 
-    console.log(favorites);
     localStorage.setItem('favorites', JSON.stringify(favorites));
 
     const arrayGalleryItems = Array.from(refs.filmsContainer.children);
-    console.log(arrayGalleryItems);
     arrayGalleryItems.forEach(elem =>
       elem.id === id ? elem.classList.add('cross-checked') : console.log('ok'),
     );
@@ -106,38 +126,50 @@ function manageCrossIconClick() {
     inputElem.classList.remove('checked');
   }
 }
+function delayCrossIconClick() {
+  setTimeout(() => {
+    manageCrossIconClick();
+  }, 1000);
+}
 
-manageCrossIconClick();
+delayCrossIconClick();
 
 function manageModal() {
-  const movieItems = document.querySelectorAll('.modal-target');
-  const modalContainer = document.querySelector('.modal-container');
-  const arrMovieItems = Array.from(movieItems);
+  const modalTargetItems = document.querySelectorAll('.modal-target');
+  const arrMovieItems = Array.from(modalTargetItems);
   arrMovieItems.forEach(el => el.addEventListener('click', openModal));
 
+  // const modalFavItem = document.querySelector('.modal-fav');
+  // modalFavItem.addEventListener('click', openModal);
+
   function openModal(e) {
+    // const crossIconWrongTarget = document.querySelector('.cross-icon');
+    // if (e.target === crossIconWrongTarget) {
+    //   return;
+    // }
     e.preventDefault();
+    console.log('click to open modal');
     window.addEventListener('keydown', onEscPress);
-    modalContainer.classList.add('is-open');
+    const backdropContainer = document.querySelector('.backdrop');
+    backdropContainer.classList.add('is-open');
 
     const id = e.currentTarget.id;
 
     fetchMoviesInfoForModal(id);
     async function fetchMoviesInfoForModal(id) {
       const data = await fetchMoviesById(id);
-      console.log(data);
       const movies = appendModalMarkup(data);
       return movies;
     }
 
     function appendModalMarkup(data) {
-      modalContainer.insertAdjacentHTML('beforeEnd', modalTpl(data));
+      backdropContainer.insertAdjacentHTML('beforeEnd', modalTpl(data));
     }
 
-    function onCloseModal(event) {
+    function onCloseModal(e) {
       window.removeEventListener('keydown', onEscPress);
-      modalContainer.classList.remove('is-open');
-      modalContainer.innerHTML = '';
+      backdropContainer.classList.remove('is-open');
+      backdropContainer.innerHTML = '';
     }
 
     function onEscPress(event) {
@@ -156,3 +188,53 @@ function delay() {
 }
 
 delay();
+
+function manageModal2() {
+  const modalFavItem = document.querySelector('.fav-list-name');
+  if (modalFavItem) {
+    modalFavItem.addEventListener('click', openModal);
+  }
+
+  function openModal(e) {
+    e.preventDefault();
+    console.log('click to open modal');
+    console.log(e.target);
+    window.addEventListener('keydown', onEscPress);
+    const backdropContainer = document.querySelector('.backdrop');
+    backdropContainer.classList.add('is-open');
+
+    const id = e.target.id;
+
+    fetchMoviesInfoForModal(id);
+    async function fetchMoviesInfoForModal(id) {
+      const data = await fetchMoviesById(id);
+      const movies = appendModalMarkup(data);
+      return movies;
+    }
+
+    function appendModalMarkup(data) {
+      backdropContainer.insertAdjacentHTML('beforeEnd', modalTpl(data));
+    }
+
+    function onCloseModal(e) {
+      window.removeEventListener('keydown', onEscPress);
+      backdropContainer.classList.remove('is-open');
+      backdropContainer.innerHTML = '';
+    }
+
+    function onEscPress(event) {
+      const isEscKey = event.code === 'Escape';
+      if (isEscKey) {
+        onCloseModal();
+      }
+    }
+  }
+}
+
+function delay2() {
+  setTimeout(() => {
+    manageModal2();
+  }, 1000);
+}
+
+delay2();

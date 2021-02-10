@@ -3,19 +3,20 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "homepage": "https://RuslanaLogosha.github.io/Filmoteka",
+  "homepage": "https://RuslanaLogosha.github.io/Ruslana-Logosha_date",
   "scripts": {
     "dev": "parcel src/*.html",
     "build": "parcel build src/*.html",
-    "predeploy": "npm run build -- --public-url=/Filmoteka/",
-    "deploy": "gh-pages -d dist"
+    "predeploy": "npm run build -- --public-url=/Ruslana-Logosha_date/",
+    "deploy": "gh-pages -d dist",
+    "api-server": "json-server --port 4040 --delay 300 --watch db.json"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/RuslanaLogosha/Filmoteka.git"
+    "url": "git+https://github.com/RuslanaLogosha/Ruslana-Logosha_date.git"
   },
   "keywords": [],
-  "author": "Alexander Repeta <alexander.repeta@gmail.com>",
+  "author": "Ruslana Logosha",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/goitacademy/parcel-project-template/issues"
@@ -31,5 +32,8 @@
     "regenerator-runtime": "^0.13.7",
     "sass": "^1.26.9"
   },
-  "dependencies": {}
+  "dependencies": {
+    "json-server": "^0.16.1",
+    "gh-pages": "^3.1.0"
+  }
 }
