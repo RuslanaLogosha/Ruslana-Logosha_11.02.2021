@@ -2350,7 +2350,21 @@ const templateFunction = _handlebars.default.template({
       return undefined;
     };
 
-    return "<div class=\"thumb fav-list\"/>\n<li class=\"fav-list-item\" id=\"" + alias4((helper = (helper = lookupProperty(helpers, "id") || (depth0 != null ? lookupProperty(depth0, "id") : depth0)) != null ? helper : alias2, typeof helper === alias3 ? helper.call(alias1, {
+    return "<div class=\"thumb fav-list\" id=\"" + alias4((helper = (helper = lookupProperty(helpers, "id") || (depth0 != null ? lookupProperty(depth0, "id") : depth0)) != null ? helper : alias2, typeof helper === alias3 ? helper.call(alias1, {
+      "name": "id",
+      "hash": {},
+      "data": data,
+      "loc": {
+        "start": {
+          "line": 1,
+          "column": 32
+        },
+        "end": {
+          "line": 1,
+          "column": 38
+        }
+      }
+    }) : helper)) + "\"/>\n<li class=\"fav-list-item\" id=\"" + alias4((helper = (helper = lookupProperty(helpers, "id") || (depth0 != null ? lookupProperty(depth0, "id") : depth0)) != null ? helper : alias2, typeof helper === alias3 ? helper.call(alias1, {
       "name": "id",
       "hash": {},
       "data": data,
@@ -2364,18 +2378,32 @@ const templateFunction = _handlebars.default.template({
           "column": 36
         }
       }
-    }) : helper)) + "\">\n      <span>" + alias4((helper = (helper = lookupProperty(helpers, "name") || (depth0 != null ? lookupProperty(depth0, "name") : depth0)) != null ? helper : alias2, typeof helper === alias3 ? helper.call(alias1, {
+    }) : helper)) + "\">\n      <span class=\"fav-list-name\" id=\"" + alias4((helper = (helper = lookupProperty(helpers, "id") || (depth0 != null ? lookupProperty(depth0, "id") : depth0)) != null ? helper : alias2, typeof helper === alias3 ? helper.call(alias1, {
+      "name": "id",
+      "hash": {},
+      "data": data,
+      "loc": {
+        "start": {
+          "line": 3,
+          "column": 38
+        },
+        "end": {
+          "line": 3,
+          "column": 44
+        }
+      }
+    }) : helper)) + "\">" + alias4((helper = (helper = lookupProperty(helpers, "name") || (depth0 != null ? lookupProperty(depth0, "name") : depth0)) != null ? helper : alias2, typeof helper === alias3 ? helper.call(alias1, {
       "name": "name",
       "hash": {},
       "data": data,
       "loc": {
         "start": {
           "line": 3,
-          "column": 12
+          "column": 46
         },
         "end": {
           "line": 3,
-          "column": 20
+          "column": 54
         }
       }
     }) : helper)) + "</span> \n</li>\n<span id=\"" + alias4((helper = (helper = lookupProperty(helpers, "id") || (depth0 != null ? lookupProperty(depth0, "id") : depth0)) != null ? helper : alias2, typeof helper === alias3 ? helper.call(alias1, {
@@ -2412,9 +2440,13 @@ var _handlebars = _interopRequireDefault(require("handlebars/dist/handlebars.run
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 const templateFunction = _handlebars.default.template({
+  "1": function (container, depth0, helpers, partials, data) {
+    return "    <span>" + container.escapeExpression(container.lambda(depth0, depth0)) + "</span>\n";
+  },
   "compiler": [8, ">= 4.3.0"],
   "main": function (container, depth0, helpers, partials, data) {
-    var helper,
+    var stack1,
+        helper,
         alias1 = depth0 != null ? depth0 : container.nullContext || {},
         alias2 = container.hooks.helperMissing,
         alias3 = "function",
@@ -2427,32 +2459,60 @@ const templateFunction = _handlebars.default.template({
       return undefined;
     };
 
-    return "<div class=\"modal-main-container\">\n  <img src=\"" + alias4((helper = (helper = lookupProperty(helpers, "img") || (depth0 != null ? lookupProperty(depth0, "img") : depth0)) != null ? helper : alias2, typeof helper === alias3 ? helper.call(alias1, {
+    return "<div class=\"modal-container\" >\n  <span class=\"star-icon modal-icon\" id=\"" + alias4((helper = (helper = lookupProperty(helpers, "id") || (depth0 != null ? lookupProperty(depth0, "id") : depth0)) != null ? helper : alias2, typeof helper === alias3 ? helper.call(alias1, {
+      "name": "id",
+      "hash": {},
+      "data": data,
+      "loc": {
+        "start": {
+          "line": 2,
+          "column": 41
+        },
+        "end": {
+          "line": 2,
+          "column": 47
+        }
+      }
+    }) : helper)) + "\"></span>\n  <img src=\"" + alias4((helper = (helper = lookupProperty(helpers, "img") || (depth0 != null ? lookupProperty(depth0, "img") : depth0)) != null ? helper : alias2, typeof helper === alias3 ? helper.call(alias1, {
       "name": "img",
       "hash": {},
       "data": data,
       "loc": {
         "start": {
-          "line": 2,
+          "line": 3,
           "column": 12
         },
         "end": {
-          "line": 2,
+          "line": 3,
           "column": 19
         }
       }
-    }) : helper)) + "\">\n  <span>" + alias4((helper = (helper = lookupProperty(helpers, "name") || (depth0 != null ? lookupProperty(depth0, "name") : depth0)) != null ? helper : alias2, typeof helper === alias3 ? helper.call(alias1, {
+    }) : helper)) + "\"/>\n  <span class=\"modal-name\" id=\"" + alias4((helper = (helper = lookupProperty(helpers, "id") || (depth0 != null ? lookupProperty(depth0, "id") : depth0)) != null ? helper : alias2, typeof helper === alias3 ? helper.call(alias1, {
+      "name": "id",
+      "hash": {},
+      "data": data,
+      "loc": {
+        "start": {
+          "line": 4,
+          "column": 31
+        },
+        "end": {
+          "line": 4,
+          "column": 37
+        }
+      }
+    }) : helper)) + "\">" + alias4((helper = (helper = lookupProperty(helpers, "name") || (depth0 != null ? lookupProperty(depth0, "name") : depth0)) != null ? helper : alias2, typeof helper === alias3 ? helper.call(alias1, {
       "name": "name",
       "hash": {},
       "data": data,
       "loc": {
         "start": {
-          "line": 3,
-          "column": 8
+          "line": 4,
+          "column": 39
         },
         "end": {
-          "line": 3,
-          "column": 16
+          "line": 4,
+          "column": 47
         }
       }
     }) : helper)) + "</span>\n  <div>" + alias4((helper = (helper = lookupProperty(helpers, "description") || (depth0 != null ? lookupProperty(depth0, "description") : depth0)) != null ? helper : alias2, typeof helper === alias3 ? helper.call(alias1, {
@@ -2461,43 +2521,75 @@ const templateFunction = _handlebars.default.template({
       "data": data,
       "loc": {
         "start": {
-          "line": 4,
+          "line": 5,
           "column": 7
         },
         "end": {
-          "line": 4,
+          "line": 5,
           "column": 22
         }
       }
-    }) : helper)) + "</div>\n  <span class=\"star-icon\"></span>\n  <span>" + alias4((helper = (helper = lookupProperty(helpers, "year") || (depth0 != null ? lookupProperty(depth0, "year") : depth0)) != null ? helper : alias2, typeof helper === alias3 ? helper.call(alias1, {
+    }) : helper)) + "</div>\n  \n  <span>" + alias4((helper = (helper = lookupProperty(helpers, "year") || (depth0 != null ? lookupProperty(depth0, "year") : depth0)) != null ? helper : alias2, typeof helper === alias3 ? helper.call(alias1, {
       "name": "year",
       "hash": {},
       "data": data,
       "loc": {
         "start": {
-          "line": 6,
+          "line": 7,
           "column": 8
         },
         "end": {
-          "line": 6,
+          "line": 7,
           "column": 16
         }
       }
-    }) : helper)) + "</span>\n  <p >\n  </p>\n\n  <span>Director</span> : <span>" + alias4((helper = (helper = lookupProperty(helpers, "director") || (depth0 != null ? lookupProperty(depth0, "director") : depth0)) != null ? helper : alias2, typeof helper === alias3 ? helper.call(alias1, {
+    }) : helper)) + "</span>\n  <p >\n" + ((stack1 = lookupProperty(helpers, "each").call(alias1, depth0 != null ? lookupProperty(depth0, "genres") : depth0, {
+      "name": "each",
+      "hash": {},
+      "fn": container.program(1, data, 0),
+      "inverse": container.noop,
+      "data": data,
+      "loc": {
+        "start": {
+          "line": 9,
+          "column": 4
+        },
+        "end": {
+          "line": 11,
+          "column": 15
+        }
+      }
+    })) != null ? stack1 : "") + "  </p>\n\n  <span>Director</span> : <span>" + alias4((helper = (helper = lookupProperty(helpers, "director") || (depth0 != null ? lookupProperty(depth0, "director") : depth0)) != null ? helper : alias2, typeof helper === alias3 ? helper.call(alias1, {
       "name": "director",
       "hash": {},
       "data": data,
       "loc": {
         "start": {
-          "line": 13,
+          "line": 14,
           "column": 32
         },
         "end": {
-          "line": 13,
+          "line": 14,
           "column": 44
         }
       }
-    }) : helper)) + "</span>\n  <div>\n    <span>Starring</span>\n  </div>\n</div>";
+    }) : helper)) + "</span>\n  <div>\n    <span>Starring</span>\n" + ((stack1 = lookupProperty(helpers, "each").call(alias1, depth0 != null ? lookupProperty(depth0, "starring") : depth0, {
+      "name": "each",
+      "hash": {},
+      "fn": container.program(1, data, 0),
+      "inverse": container.noop,
+      "data": data,
+      "loc": {
+        "start": {
+          "line": 17,
+          "column": 4
+        },
+        "end": {
+          "line": 19,
+          "column": 15
+        }
+      }
+    })) != null ? stack1 : "") + "  </div>\n</div>";
   },
   "useData": true
 });
@@ -2534,8 +2626,7 @@ function appendMoviesGalleryMarkup(data) {
 fetchMoviesGallery();
 
 async function fetchFavouriteMoviesList(id) {
-  const data = await (0, _apiService.fetchMoviesById)(id); // console.log(data);
-
+  const data = await (0, _apiService.fetchMoviesById)(id);
   const movies = appendFavouriteListMarkup(data);
   return movies;
 }
@@ -2546,8 +2637,8 @@ function appendFavouriteListMarkup(data) {
 
 function initStorageDelayed() {
   setTimeout(() => {
+    delay2();
     const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
-    console.log(favorites);
     favorites.forEach(id => {
       fetchFavouriteMoviesList(id);
       const liElem = document.getElementById(id);
@@ -2556,29 +2647,7 @@ function initStorageDelayed() {
       const inputElem = imgElem.nextElementSibling;
       inputElem.classList.add('checked');
     });
-    document.querySelector('.gallery-list').addEventListener('click', function (e) {
-      const id = e.target.id,
-            item = e.target,
-            index = favorites.indexOf(id);
-      if (!id) return; // item is not favorite
-
-      if (index == -1) {
-        favorites.push(id);
-        item.classList.add('checked');
-        console.log(favorites);
-        fetchFavouriteMoviesList(id); // item is already favorite
-      } else {
-        favorites.splice(index, 1);
-        const list = refs.favouriteList;
-        const arrayElms = Array.from(list.children);
-        arrayElms.forEach(elem => elem.remove());
-        favorites.forEach(id => fetchFavouriteMoviesList(id));
-        item.classList.remove('checked');
-      } // store array in local storage
-
-
-      localStorage.setItem('favorites', JSON.stringify(favorites));
-    });
+    document.querySelector('.gallery-list').addEventListener('click', onStarIconcheckOnGallery); // onStarIconcheck(e);
   }, 1000);
 }
 
@@ -2588,6 +2657,17 @@ function manageCrossIconClick() {
   refs.favouriteList.addEventListener('click', onCrossClick);
 
   function onCrossClick(e) {
+    const nameField = document.querySelector('.fav-list-name');
+    const liField = document.querySelector('.fav-list-item');
+    const listField = document.querySelector('.fav-list');
+    const modalFavItem = document.querySelector('.modal-fav'); // modalFavItem.remove();
+
+    console.log(e.target);
+
+    if (e.target === nameField || e.target === liField || e.target === listField) {
+      return;
+    }
+
     const item = e.target;
     const id = e.target.id;
     const itemBox = item.parentNode;
@@ -2595,10 +2675,8 @@ function manageCrossIconClick() {
     const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
     const index = favorites.indexOf(id);
     favorites.splice(index, 1);
-    console.log(favorites);
     localStorage.setItem('favorites', JSON.stringify(favorites));
     const arrayGalleryItems = Array.from(refs.filmsContainer.children);
-    console.log(arrayGalleryItems);
     arrayGalleryItems.forEach(elem => elem.id === id ? elem.classList.add('cross-checked') : console.log('ok'));
     const deletedFromFavListMovie = document.querySelector('.cross-checked');
     const divElem = deletedFromFavListMovie.firstElementChild;
@@ -2608,36 +2686,44 @@ function manageCrossIconClick() {
   }
 }
 
-manageCrossIconClick();
+function delayCrossIconClick() {
+  setTimeout(() => {
+    manageCrossIconClick();
+  }, 1000);
+}
+
+delayCrossIconClick();
 
 function manageModal() {
-  const movieItems = document.querySelectorAll('.modal-target');
-  const modalContainer = document.querySelector('.modal-container');
-  const arrMovieItems = Array.from(movieItems);
+  const modalTargetItems = document.querySelectorAll('.modal-target');
+  const arrMovieItems = Array.from(modalTargetItems);
   arrMovieItems.forEach(el => el.addEventListener('click', openModal));
 
   function openModal(e) {
     e.preventDefault();
+    console.log('click to open modal');
     window.addEventListener('keydown', onEscPress);
-    modalContainer.classList.add('is-open');
+    const backdropContainer = document.querySelector('.backdrop');
+    backdropContainer.classList.add('is-open');
     const id = e.currentTarget.id;
+    console.log(id);
     fetchMoviesInfoForModal(id);
+    delayModal(id);
 
     async function fetchMoviesInfoForModal(id) {
       const data = await (0, _apiService.fetchMoviesById)(id);
-      console.log(data);
       const movies = appendModalMarkup(data);
       return movies;
     }
 
     function appendModalMarkup(data) {
-      modalContainer.insertAdjacentHTML('beforeEnd', (0, _modalTemplate.default)(data));
+      backdropContainer.insertAdjacentHTML('beforeEnd', (0, _modalTemplate.default)(data));
     }
 
-    function onCloseModal(event) {
+    function onCloseModal(e) {
       window.removeEventListener('keydown', onEscPress);
-      modalContainer.classList.remove('is-open');
-      modalContainer.innerHTML = '';
+      backdropContainer.classList.remove('is-open');
+      backdropContainer.innerHTML = '';
     }
 
     function onEscPress(event) {
@@ -2646,6 +2732,24 @@ function manageModal() {
       if (isEscKey) {
         onCloseModal();
       }
+    }
+
+    function delayModal(id) {
+      setTimeout(() => {
+        function manageStarInModalFav(id) {
+          const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+          favorites.filter(favorite => {
+            if (favorite === id) {
+              const backdrop = document.querySelector('.backdrop.is-open');
+              const backdropChild = backdrop.querySelector('.modal-container');
+              const starIcon = backdropChild.querySelector('.modal-icon'); //starIcon.addEventListener('click', onStarIconcheckOnGallery);
+              // starIcon.classList.add('checked');
+            }
+          });
+        }
+
+        manageStarInModalFav(id);
+      }, 1000);
     }
   }
 }
@@ -2657,6 +2761,132 @@ function delay() {
 }
 
 delay();
+
+function manageModal2() {
+  const modalFavItem = document.querySelector('.fav-list-name');
+
+  if (modalFavItem) {
+    modalFavItem.addEventListener('click', openModal);
+  }
+
+  function openModal(e) {
+    e.preventDefault();
+    console.log('click to open modal');
+    console.log(e.target);
+    window.addEventListener('keydown', onEscPress);
+    const backdropContainer = document.querySelector('.backdrop');
+    backdropContainer.classList.add('is-open');
+    const id = e.target.id;
+    fetchMoviesInfoForModal(id);
+    delayModal(id);
+
+    async function fetchMoviesInfoForModal(id) {
+      const data = await (0, _apiService.fetchMoviesById)(id);
+      const movies = appendModalMarkup(data);
+      return movies;
+    }
+
+    function appendModalMarkup(data) {
+      backdropContainer.insertAdjacentHTML('beforeEnd', (0, _modalTemplate.default)(data));
+    }
+
+    function onCloseModal(e) {
+      window.removeEventListener('keydown', onEscPress);
+      backdropContainer.classList.remove('is-open');
+      backdropContainer.innerHTML = '';
+    }
+
+    function onEscPress(e) {
+      const isEscKey = e.code === 'Escape';
+
+      if (isEscKey) {
+        onCloseModal();
+      }
+    }
+
+    function delayModal(id) {
+      setTimeout(() => {
+        function manageStarInModalFav(id) {
+          const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+          favorites.filter(favorite => {
+            if (favorite === id) {
+              const backdrop = document.querySelector('.backdrop.is-open');
+              const backdropChild = backdrop.querySelector('.modal-container');
+              const starIcon = backdropChild.querySelector('.modal-icon');
+              starIcon.classList.add('checked');
+              starIcon.addEventListener('click', onStarIconcheck);
+            }
+          });
+        }
+
+        manageStarInModalFav(id);
+      }, 1000);
+    }
+  }
+}
+
+function delay2() {
+  setTimeout(() => {
+    manageModal2();
+  }, 1000);
+}
+
+delay2();
+
+function onStarIconcheck(e) {
+  console.log('click');
+  const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+  const id = e.target.id,
+        item = e.target,
+        index = favorites.indexOf(id);
+  console.log('onStarIconcheck');
+  if (!id) return; // item is not favorite
+
+  if (index == -1) {
+    favorites.push(id);
+    console.log('onStarIconcheck');
+    item.classList.add('checked');
+    fetchFavouriteMoviesList(id);
+    delay2(); // item is already favorite
+  } else {
+    favorites.splice(index, 1);
+    const list = refs.favouriteList;
+    const arrayElms = Array.from(list.children);
+    arrayElms.forEach(elem => elem.remove());
+    favorites.forEach(id => fetchFavouriteMoviesList(id));
+    item.classList.remove('checked');
+  } // store array in local storage
+
+
+  localStorage.setItem('favorites', JSON.stringify(favorites));
+}
+
+function onStarIconcheckOnGallery(e) {
+  const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+  const id = e.target.id,
+        item = e.target,
+        index = favorites.indexOf(id);
+  console.log(e.target.id);
+  console.log('onStarIconcheck1');
+  if (!id) return; // item is not favorite
+
+  if (index == -1) {
+    favorites.push(id);
+    item.classList.add('checked');
+    fetchFavouriteMoviesList(id);
+    delay2(); // item is already favorite
+  } else {
+    favorites.splice(index, 1);
+    const list = refs.favouriteList;
+    const arrayElms = Array.from(list.children);
+    arrayElms.forEach(elem => elem.remove());
+    favorites.forEach(id => fetchFavouriteMoviesList(id));
+    item.classList.remove('checked');
+  } // store array in local storage
+
+
+  localStorage.setItem('favorites', JSON.stringify(favorites));
+}
 },{"./js/get-refs":"js/get-refs.js","./js/apiService":"js/apiService.js","./templates/moviesTemplate.hbs":"templates/moviesTemplate.hbs","./templates/listItemTemplate.hbs":"templates/listItemTemplate.hbs","./templates/modalTemplate.hbs":"templates/modalTemplate.hbs"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -2685,7 +2915,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64248" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54948" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
