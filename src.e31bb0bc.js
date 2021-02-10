@@ -2473,31 +2473,31 @@ const templateFunction = _handlebars.default.template({
           "column": 47
         }
       }
-    }) : helper)) + "\"></span>\n  <img src=\"" + alias4((helper = (helper = lookupProperty(helpers, "img") || (depth0 != null ? lookupProperty(depth0, "img") : depth0)) != null ? helper : alias2, typeof helper === alias3 ? helper.call(alias1, {
+    }) : helper)) + "\"></span>\n  <span class=\"close-icon modal-icon\"></span>\n\n<div class=\"img-cover\">\n  <img class=\"modal-image\" src=\"" + alias4((helper = (helper = lookupProperty(helpers, "img") || (depth0 != null ? lookupProperty(depth0, "img") : depth0)) != null ? helper : alias2, typeof helper === alias3 ? helper.call(alias1, {
       "name": "img",
       "hash": {},
       "data": data,
       "loc": {
         "start": {
-          "line": 3,
-          "column": 12
+          "line": 6,
+          "column": 32
         },
         "end": {
-          "line": 3,
-          "column": 19
+          "line": 6,
+          "column": 39
         }
       }
-    }) : helper)) + "\"/>\n  <span class=\"modal-name\" id=\"" + alias4((helper = (helper = lookupProperty(helpers, "id") || (depth0 != null ? lookupProperty(depth0, "id") : depth0)) != null ? helper : alias2, typeof helper === alias3 ? helper.call(alias1, {
+    }) : helper)) + "\"/>\n</div>\n  <span class=\"modal-name\" id=\"" + alias4((helper = (helper = lookupProperty(helpers, "id") || (depth0 != null ? lookupProperty(depth0, "id") : depth0)) != null ? helper : alias2, typeof helper === alias3 ? helper.call(alias1, {
       "name": "id",
       "hash": {},
       "data": data,
       "loc": {
         "start": {
-          "line": 4,
+          "line": 8,
           "column": 31
         },
         "end": {
-          "line": 4,
+          "line": 8,
           "column": 37
         }
       }
@@ -2507,11 +2507,11 @@ const templateFunction = _handlebars.default.template({
       "data": data,
       "loc": {
         "start": {
-          "line": 4,
+          "line": 8,
           "column": 39
         },
         "end": {
-          "line": 4,
+          "line": 8,
           "column": 47
         }
       }
@@ -2521,11 +2521,11 @@ const templateFunction = _handlebars.default.template({
       "data": data,
       "loc": {
         "start": {
-          "line": 5,
+          "line": 9,
           "column": 7
         },
         "end": {
-          "line": 5,
+          "line": 9,
           "column": 22
         }
       }
@@ -2535,11 +2535,11 @@ const templateFunction = _handlebars.default.template({
       "data": data,
       "loc": {
         "start": {
-          "line": 7,
+          "line": 11,
           "column": 8
         },
         "end": {
-          "line": 7,
+          "line": 11,
           "column": 16
         }
       }
@@ -2551,11 +2551,11 @@ const templateFunction = _handlebars.default.template({
       "data": data,
       "loc": {
         "start": {
-          "line": 9,
+          "line": 13,
           "column": 4
         },
         "end": {
-          "line": 11,
+          "line": 15,
           "column": 15
         }
       }
@@ -2565,15 +2565,15 @@ const templateFunction = _handlebars.default.template({
       "data": data,
       "loc": {
         "start": {
-          "line": 14,
+          "line": 18,
           "column": 32
         },
         "end": {
-          "line": 14,
+          "line": 18,
           "column": 44
         }
       }
-    }) : helper)) + "</span>\n  <div>\n    <span>Starring</span>\n" + ((stack1 = lookupProperty(helpers, "each").call(alias1, depth0 != null ? lookupProperty(depth0, "starring") : depth0, {
+    }) : helper)) + "</span>\n  <div>\n    <span>Starring:</span>\n" + ((stack1 = lookupProperty(helpers, "each").call(alias1, depth0 != null ? lookupProperty(depth0, "starring") : depth0, {
       "name": "each",
       "hash": {},
       "fn": container.program(1, data, 0),
@@ -2581,11 +2581,11 @@ const templateFunction = _handlebars.default.template({
       "data": data,
       "loc": {
         "start": {
-          "line": 17,
+          "line": 21,
           "column": 4
         },
         "end": {
-          "line": 19,
+          "line": 23,
           "column": 15
         }
       }
@@ -2709,6 +2709,7 @@ function manageModal() {
     console.log(id);
     fetchMoviesInfoForModal(id);
     delayModal(id);
+    onPressDelay();
 
     async function fetchMoviesInfoForModal(id) {
       const data = await (0, _apiService.fetchMoviesById)(id);
@@ -2779,6 +2780,7 @@ function manageModal2() {
     const id = e.target.id;
     fetchMoviesInfoForModal(id);
     delayModal(id);
+    onPressDelay();
 
     async function fetchMoviesInfoForModal(id) {
       const data = await (0, _apiService.fetchMoviesById)(id);
@@ -2886,6 +2888,27 @@ function onStarIconcheckOnGallery(e) {
 
 
   localStorage.setItem('favorites', JSON.stringify(favorites));
+} // onPressDelay();
+
+
+function onPressDelay() {
+  setTimeout(() => {
+    function onCrossPress() {
+      const backdrop = document.querySelector('.backdrop');
+      const modalContainer = backdrop.firstElementChild;
+      const spanIconStar = modalContainer.firstElementChild;
+      const closeIcon = spanIconStar.nextElementSibling;
+      closeIcon.addEventListener('click', onCloseModal);
+
+      function onCloseModal(e) {
+        const backdropContainer = document.querySelector('.backdrop');
+        backdropContainer.classList.remove('is-open');
+        backdropContainer.innerHTML = '';
+      }
+    }
+
+    onCrossPress();
+  }, 1000);
 }
 },{"./js/get-refs":"js/get-refs.js","./js/apiService":"js/apiService.js","./templates/moviesTemplate.hbs":"templates/moviesTemplate.hbs","./templates/listItemTemplate.hbs":"templates/listItemTemplate.hbs","./templates/modalTemplate.hbs":"templates/modalTemplate.hbs"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
@@ -2915,7 +2938,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54948" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58372" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
