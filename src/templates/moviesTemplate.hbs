@@ -1,11 +1,11 @@
 {{#each this}}
 <li id="{{id}}">
     <div class="thumb">
-        <img src="{{img}}" data-source="{{img}}"/>
+        <img src="{{img}}"/>
         <input class="input-checkbox" id="{{id}}" type="checkbox" value="Favourite">
         <span class="star-icon"></span>       
     </div>
-    <p class="card__text">
+    <p class="card__text modal-target" id="{{id}}">
       <span> {{name}}</span> 
       <span>{{year}}</span>
    </p>

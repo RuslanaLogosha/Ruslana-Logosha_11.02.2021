@@ -2,6 +2,7 @@ import getRefs from './js/get-refs';
 import { fetchMovies, fetchMoviesById } from './js/apiService';
 import moviesTpl from './templates/moviesTemplate.hbs';
 import favouriteTpl from './templates/listItemTemplate.hbs';
+import modalTpl from './templates/modalTemplate.hbs';
 
 const refs = getRefs();
 
@@ -107,3 +108,51 @@ function manageCrossIconClick() {
 }
 
 manageCrossIconClick();
+
+function manageModal() {
+  const movieItems = document.querySelectorAll('.modal-target');
+  const modalContainer = document.querySelector('.modal-container');
+  const arrMovieItems = Array.from(movieItems);
+  arrMovieItems.forEach(el => el.addEventListener('click', openModal));
+
+  function openModal(e) {
+    e.preventDefault();
+    window.addEventListener('keydown', onEscPress);
+    modalContainer.classList.add('is-open');
+
+    const id = e.currentTarget.id;
+
+    fetchMoviesInfoForModal(id);
+    async function fetchMoviesInfoForModal(id) {
+      const data = await fetchMoviesById(id);
+      console.log(data);
+      const movies = appendModalMarkup(data);
+      return movies;
+    }
+
+    function appendModalMarkup(data) {
+      modalContainer.insertAdjacentHTML('beforeEnd', modalTpl(data));
+    }
+
+    function onCloseModal(event) {
+      window.removeEventListener('keydown', onEscPress);
+      modalContainer.classList.remove('is-open');
+      modalContainer.innerHTML = '';
+    }
+
+    function onEscPress(event) {
+      const isEscKey = event.code === 'Escape';
+      if (isEscKey) {
+        onCloseModal();
+      }
+    }
+  }
+}
+
+function delay() {
+  setTimeout(() => {
+    manageModal();
+  }, 1000);
+}
+
+delay();
