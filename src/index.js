@@ -121,6 +121,7 @@ function manageModal() {
 
     fetchMoviesInfoForModal(id);
     delayModal(id);
+    onPressDelay();
 
     async function fetchMoviesInfoForModal(id) {
       const data = await fetchMoviesById(id);
@@ -192,6 +193,7 @@ function manageModal2() {
 
     fetchMoviesInfoForModal(id);
     delayModal(id);
+    onPressDelay();
 
     async function fetchMoviesInfoForModal(id) {
       const data = await fetchMoviesById(id);
@@ -307,4 +309,24 @@ function onStarIconcheckOnGallery(e) {
   }
   // store array in local storage
   localStorage.setItem('favorites', JSON.stringify(favorites));
+}
+
+// onPressDelay();
+
+function onPressDelay() {
+  setTimeout(() => {
+    function onCrossPress() {
+      const backdrop = document.querySelector('.backdrop');
+      const modalContainer = backdrop.firstElementChild;
+      const spanIconStar = modalContainer.firstElementChild;
+      const closeIcon = spanIconStar.nextElementSibling;
+      closeIcon.addEventListener('click', onCloseModal);
+      function onCloseModal(e) {
+        const backdropContainer = document.querySelector('.backdrop');
+        backdropContainer.classList.remove('is-open');
+        backdropContainer.innerHTML = '';
+      }
+    }
+    onCrossPress();
+  }, 1000);
 }

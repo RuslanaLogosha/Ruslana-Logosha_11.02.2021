@@ -1,6 +1,10 @@
 <div class="modal-container" >
   <span class="star-icon modal-icon" id="{{id}}"></span>
-  <img src="{{img}}"/>
+  <span class="close-icon modal-icon"></span>
+
+<div class="img-cover">
+  <img class="modal-image" src="{{img}}"/>
+</div>
   <span class="modal-name" id="{{id}}">{{name}}</span>
   <div>{{description}}</div>
   
@@ -13,7 +17,7 @@
 
   <span>Director</span> : <span>{{director}}</span>
   <div>
-    <span>Starring</span>
+    <span>Starring:</span>
     {{#each starring}}
     <span>{{this}}</span>
       {{/each}}
