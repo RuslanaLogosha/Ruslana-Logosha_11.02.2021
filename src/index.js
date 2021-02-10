@@ -45,34 +45,8 @@ function initStorageDelayed() {
 
     document
       .querySelector('.gallery-list')
-      .addEventListener('click', function (e) {
-        const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
-
-        const id = e.target.id,
-          item = e.target,
-          index = favorites.indexOf(id);
-
-        if (!id) return;
-
-        // item is not favorite
-        if (index == -1) {
-          favorites.push(id);
-          item.classList.add('checked');
-          fetchFavouriteMoviesList(id);
-          delay2();
-
-          // item is already favorite
-        } else {
-          favorites.splice(index, 1);
-          const list = refs.favouriteList;
-          const arrayElms = Array.from(list.children);
-          arrayElms.forEach(elem => elem.remove());
-          favorites.forEach(id => fetchFavouriteMoviesList(id));
-          item.classList.remove('checked');
-        }
-        // store array in local storage
-        localStorage.setItem('favorites', JSON.stringify(favorites));
-      });
+      .addEventListener('click', onStarIconcheckOnGallery);
+    // onStarIconcheck(e);
   }, 1000);
 }
 
@@ -96,10 +70,6 @@ function manageCrossIconClick() {
     ) {
       return;
     }
-
-    // if (delay2()) {
-    //   return;
-    // }
 
     const item = e.target;
     const id = e.target.id;
@@ -139,14 +109,7 @@ function manageModal() {
   const arrMovieItems = Array.from(modalTargetItems);
   arrMovieItems.forEach(el => el.addEventListener('click', openModal));
 
-  // const modalFavItem = document.querySelector('.modal-fav');
-  // modalFavItem.addEventListener('click', openModal);
-
   function openModal(e) {
-    // const crossIconWrongTarget = document.querySelector('.cross-icon');
-    // if (e.target === crossIconWrongTarget) {
-    //   return;
-    // }
     e.preventDefault();
     console.log('click to open modal');
     window.addEventListener('keydown', onEscPress);
@@ -154,8 +117,11 @@ function manageModal() {
     backdropContainer.classList.add('is-open');
 
     const id = e.currentTarget.id;
+    console.log(id);
 
     fetchMoviesInfoForModal(id);
+    delayModal(id);
+
     async function fetchMoviesInfoForModal(id) {
       const data = await fetchMoviesById(id);
       const movies = appendModalMarkup(data);
@@ -177,6 +143,25 @@ function manageModal() {
       if (isEscKey) {
         onCloseModal();
       }
+    }
+
+    function delayModal(id) {
+      setTimeout(() => {
+        function manageStarInModalFav(id) {
+          const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+
+          favorites.filter(favorite => {
+            if (favorite === id) {
+              const backdrop = document.querySelector('.backdrop.is-open');
+              const backdropChild = backdrop.querySelector('.modal-container');
+              const starIcon = backdropChild.querySelector('.modal-icon');
+              //starIcon.addEventListener('click', onStarIconcheckOnGallery);
+              // starIcon.classList.add('checked');
+            }
+          });
+        }
+        manageStarInModalFav(id);
+      }, 1000);
     }
   }
 }
@@ -206,6 +191,8 @@ function manageModal2() {
     const id = e.target.id;
 
     fetchMoviesInfoForModal(id);
+    delayModal(id);
+
     async function fetchMoviesInfoForModal(id) {
       const data = await fetchMoviesById(id);
       const movies = appendModalMarkup(data);
@@ -222,11 +209,30 @@ function manageModal2() {
       backdropContainer.innerHTML = '';
     }
 
-    function onEscPress(event) {
-      const isEscKey = event.code === 'Escape';
+    function onEscPress(e) {
+      const isEscKey = e.code === 'Escape';
       if (isEscKey) {
         onCloseModal();
       }
+    }
+
+    function delayModal(id) {
+      setTimeout(() => {
+        function manageStarInModalFav(id) {
+          const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+
+          favorites.filter(favorite => {
+            if (favorite === id) {
+              const backdrop = document.querySelector('.backdrop.is-open');
+              const backdropChild = backdrop.querySelector('.modal-container');
+              const starIcon = backdropChild.querySelector('.modal-icon');
+              starIcon.classList.add('checked');
+              starIcon.addEventListener('click', onStarIconcheck);
+            }
+          });
+        }
+        manageStarInModalFav(id);
+      }, 1000);
     }
   }
 }
@@ -238,3 +244,67 @@ function delay2() {
 }
 
 delay2();
+
+function onStarIconcheck(e) {
+  console.log('click');
+  const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+
+  const id = e.target.id,
+    item = e.target,
+    index = favorites.indexOf(id);
+
+  console.log('onStarIconcheck');
+  if (!id) return;
+
+  // item is not favorite
+  if (index == -1) {
+    favorites.push(id);
+    console.log('onStarIconcheck');
+
+    item.classList.add('checked');
+    fetchFavouriteMoviesList(id);
+    delay2();
+
+    // item is already favorite
+  } else {
+    favorites.splice(index, 1);
+    const list = refs.favouriteList;
+    const arrayElms = Array.from(list.children);
+    arrayElms.forEach(elem => elem.remove());
+    favorites.forEach(id => fetchFavouriteMoviesList(id));
+    item.classList.remove('checked');
+  }
+  // store array in local storage
+  localStorage.setItem('favorites', JSON.stringify(favorites));
+}
+
+function onStarIconcheckOnGallery(e) {
+  const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+
+  const id = e.target.id,
+    item = e.target,
+    index = favorites.indexOf(id);
+  console.log(e.target.id);
+
+  console.log('onStarIconcheck1');
+  if (!id) return;
+
+  // item is not favorite
+  if (index == -1) {
+    favorites.push(id);
+    item.classList.add('checked');
+    fetchFavouriteMoviesList(id);
+    delay2();
+
+    // item is already favorite
+  } else {
+    favorites.splice(index, 1);
+    const list = refs.favouriteList;
+    const arrayElms = Array.from(list.children);
+    arrayElms.forEach(elem => elem.remove());
+    favorites.forEach(id => fetchFavouriteMoviesList(id));
+    item.classList.remove('checked');
+  }
+  // store array in local storage
+  localStorage.setItem('favorites', JSON.stringify(favorites));
+}

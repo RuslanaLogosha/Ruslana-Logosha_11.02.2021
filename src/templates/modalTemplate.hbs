@@ -1,20 +1,21 @@
-<div class="modal-container">
+<div class="modal-container" >
+  <span class="star-icon modal-icon" id="{{id}}"></span>
   <img src="{{img}}"/>
-  <span>{{name}}</span>
+  <span class="modal-name" id="{{id}}">{{name}}</span>
   <div>{{description}}</div>
-  <span class="star-icon"></span>
+  
   <span>{{year}}</span>
   <p >
-    {{!-- {{#each}}
-    <span>{{genres}}</span>
-      {{/each}} --}}
+    {{#each genres}}
+    <span>{{this}}</span>
+      {{/each}}
   </p>
 
   <span>Director</span> : <span>{{director}}</span>
   <div>
     <span>Starring</span>
-    {{!-- {{#each}}
-    <span>{{starring}}</span>
-      {{/each}} --}}
+    {{#each starring}}
+    <span>{{this}}</span>
+      {{/each}}
   </div>
 </div>

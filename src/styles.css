@@ -81,6 +81,21 @@ body {
   background-image: url(./images/star.svg);
 }
 
+/* .input-checkbox.checked + .star-icon.modal-icon {
+  background-image: url(./images/star.svg);
+} */
+
+.star-icon.modal-icon {
+  background-image: url(./images/white-star.svg);
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.star-icon.modal-icon.checked {
+  background-image: url(./images/star.svg);
+}
+
 .cross-icon {
   position: absolute;
   bottom: 0;
@@ -122,10 +137,18 @@ body {
 }
 
 .modal-container {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
   z-index: 4;
   display: block;
   width: 900px;
-  height: 700px;
+  height: 600px;
   background-color: white;
   opacity: 1;
+}
+
+.modal-name {
+  flex-direction: row;
+  flex-wrap: wrap;
 }
