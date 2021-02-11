@@ -139,7 +139,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.fetchMovies = fetchMovies;
 exports.fetchMoviesById = fetchMoviesById;
-const url = 'http://localhost:4040/movies';
+const url = 'http://my-json-server.typicode.com/moviedb-tech/movies/list';
 
 async function fetchMovies() {
   try {
@@ -2938,7 +2938,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52419" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55613" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
