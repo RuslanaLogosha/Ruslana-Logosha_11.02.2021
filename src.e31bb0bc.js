@@ -2216,7 +2216,7 @@ const templateFunction = _handlebars.default.template({
           "column": 14
         }
       }
-    }) : helper)) + "\">\n    <div class=\"thumb\">\n        <img src=\"" + alias4((helper = (helper = lookupProperty(helpers, "img") || (depth0 != null ? lookupProperty(depth0, "img") : depth0)) != null ? helper : alias2, typeof helper === alias3 ? helper.call(alias1, {
+    }) : helper)) + "\">\r\n    <div class=\"thumb\">\r\n        <img src=\"" + alias4((helper = (helper = lookupProperty(helpers, "img") || (depth0 != null ? lookupProperty(depth0, "img") : depth0)) != null ? helper : alias2, typeof helper === alias3 ? helper.call(alias1, {
       "name": "img",
       "hash": {},
       "data": data,
@@ -2230,7 +2230,7 @@ const templateFunction = _handlebars.default.template({
           "column": 25
         }
       }
-    }) : helper)) + "\"/>\n        <input class=\"input-checkbox\" id=\"" + alias4((helper = (helper = lookupProperty(helpers, "id") || (depth0 != null ? lookupProperty(depth0, "id") : depth0)) != null ? helper : alias2, typeof helper === alias3 ? helper.call(alias1, {
+    }) : helper)) + "\"/>\r\n        <input class=\"input-checkbox\" id=\"" + alias4((helper = (helper = lookupProperty(helpers, "id") || (depth0 != null ? lookupProperty(depth0, "id") : depth0)) != null ? helper : alias2, typeof helper === alias3 ? helper.call(alias1, {
       "name": "id",
       "hash": {},
       "data": data,
@@ -2244,7 +2244,7 @@ const templateFunction = _handlebars.default.template({
           "column": 48
         }
       }
-    }) : helper)) + "\" type=\"checkbox\" value=\"Favourite\">\n        <span class=\"star-icon\"></span>       \n    </div>\n    <p class=\"card__text modal-target\" id=\"" + alias4((helper = (helper = lookupProperty(helpers, "id") || (depth0 != null ? lookupProperty(depth0, "id") : depth0)) != null ? helper : alias2, typeof helper === alias3 ? helper.call(alias1, {
+    }) : helper)) + "\" type=\"checkbox\" value=\"Favourite\">\r\n        <span class=\"star-icon\"></span>       \r\n    </div>\r\n    <p class=\"card__text modal-target\" id=\"" + alias4((helper = (helper = lookupProperty(helpers, "id") || (depth0 != null ? lookupProperty(depth0, "id") : depth0)) != null ? helper : alias2, typeof helper === alias3 ? helper.call(alias1, {
       "name": "id",
       "hash": {},
       "data": data,
@@ -2258,7 +2258,7 @@ const templateFunction = _handlebars.default.template({
           "column": 49
         }
       }
-    }) : helper)) + "\">\n      <span> " + alias4((helper = (helper = lookupProperty(helpers, "name") || (depth0 != null ? lookupProperty(depth0, "name") : depth0)) != null ? helper : alias2, typeof helper === alias3 ? helper.call(alias1, {
+    }) : helper)) + "\">\r\n      <span> " + alias4((helper = (helper = lookupProperty(helpers, "name") || (depth0 != null ? lookupProperty(depth0, "name") : depth0)) != null ? helper : alias2, typeof helper === alias3 ? helper.call(alias1, {
       "name": "name",
       "hash": {},
       "data": data,
@@ -2272,7 +2272,7 @@ const templateFunction = _handlebars.default.template({
           "column": 21
         }
       }
-    }) : helper)) + "</span> \n      <span>" + alias4((helper = (helper = lookupProperty(helpers, "year") || (depth0 != null ? lookupProperty(depth0, "year") : depth0)) != null ? helper : alias2, typeof helper === alias3 ? helper.call(alias1, {
+    }) : helper)) + "</span> \r\n      <span>" + alias4((helper = (helper = lookupProperty(helpers, "year") || (depth0 != null ? lookupProperty(depth0, "year") : depth0)) != null ? helper : alias2, typeof helper === alias3 ? helper.call(alias1, {
       "name": "year",
       "hash": {},
       "data": data,
@@ -2286,7 +2286,7 @@ const templateFunction = _handlebars.default.template({
           "column": 20
         }
       }
-    }) : helper)) + "</span>\n   </p>\n   \n</li>\n";
+    }) : helper)) + "</span>\r\n   </p>\r\n   \r\n</li>\r\n";
   },
   "compiler": [8, ">= 4.3.0"],
   "main": function (container, depth0, helpers, partials, data) {
@@ -2364,7 +2364,7 @@ const templateFunction = _handlebars.default.template({
           "column": 38
         }
       }
-    }) : helper)) + "\"/>\n<li class=\"fav-list-item\" id=\"" + alias4((helper = (helper = lookupProperty(helpers, "id") || (depth0 != null ? lookupProperty(depth0, "id") : depth0)) != null ? helper : alias2, typeof helper === alias3 ? helper.call(alias1, {
+    }) : helper)) + "\"/>\r\n<li class=\"fav-list-item\" id=\"" + alias4((helper = (helper = lookupProperty(helpers, "id") || (depth0 != null ? lookupProperty(depth0, "id") : depth0)) != null ? helper : alias2, typeof helper === alias3 ? helper.call(alias1, {
       "name": "id",
       "hash": {},
       "data": data,
@@ -2378,7 +2378,7 @@ const templateFunction = _handlebars.default.template({
           "column": 36
         }
       }
-    }) : helper)) + "\">\n      <span class=\"fav-list-name\" id=\"" + alias4((helper = (helper = lookupProperty(helpers, "id") || (depth0 != null ? lookupProperty(depth0, "id") : depth0)) != null ? helper : alias2, typeof helper === alias3 ? helper.call(alias1, {
+    }) : helper)) + "\">\r\n      <span class=\"fav-list-name\" id=\"" + alias4((helper = (helper = lookupProperty(helpers, "id") || (depth0 != null ? lookupProperty(depth0, "id") : depth0)) != null ? helper : alias2, typeof helper === alias3 ? helper.call(alias1, {
       "name": "id",
       "hash": {},
       "data": data,
@@ -2406,7 +2406,7 @@ const templateFunction = _handlebars.default.template({
           "column": 54
         }
       }
-    }) : helper)) + "</span> \n</li>\n<span id=\"" + alias4((helper = (helper = lookupProperty(helpers, "id") || (depth0 != null ? lookupProperty(depth0, "id") : depth0)) != null ? helper : alias2, typeof helper === alias3 ? helper.call(alias1, {
+    }) : helper)) + "</span> \r\n</li>\r\n<span id=\"" + alias4((helper = (helper = lookupProperty(helpers, "id") || (depth0 != null ? lookupProperty(depth0, "id") : depth0)) != null ? helper : alias2, typeof helper === alias3 ? helper.call(alias1, {
       "name": "id",
       "hash": {},
       "data": data,
@@ -2420,7 +2420,7 @@ const templateFunction = _handlebars.default.template({
           "column": 16
         }
       }
-    }) : helper)) + "\" class=\"cross-icon\"></span>       \n</div>\n";
+    }) : helper)) + "\" class=\"cross-icon\"></span>       \r\n</div>\r\n";
   },
   "useData": true
 });
@@ -2441,7 +2441,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 const templateFunction = _handlebars.default.template({
   "1": function (container, depth0, helpers, partials, data) {
-    return "    <span>" + container.escapeExpression(container.lambda(depth0, depth0)) + "</span>\n";
+    return "    <span>" + container.escapeExpression(container.lambda(depth0, depth0)) + "</span>\r\n";
   },
   "compiler": [8, ">= 4.3.0"],
   "main": function (container, depth0, helpers, partials, data) {
@@ -2459,7 +2459,7 @@ const templateFunction = _handlebars.default.template({
       return undefined;
     };
 
-    return "<div class=\"modal-container\" >\n  <span class=\"star-icon modal-icon\" id=\"" + alias4((helper = (helper = lookupProperty(helpers, "id") || (depth0 != null ? lookupProperty(depth0, "id") : depth0)) != null ? helper : alias2, typeof helper === alias3 ? helper.call(alias1, {
+    return "<div class=\"modal-container\" >\r\n  <span class=\"star-icon modal-icon\" id=\"" + alias4((helper = (helper = lookupProperty(helpers, "id") || (depth0 != null ? lookupProperty(depth0, "id") : depth0)) != null ? helper : alias2, typeof helper === alias3 ? helper.call(alias1, {
       "name": "id",
       "hash": {},
       "data": data,
@@ -2473,7 +2473,7 @@ const templateFunction = _handlebars.default.template({
           "column": 47
         }
       }
-    }) : helper)) + "\"></span>\n  <span class=\"close-icon modal-icon\"></span>\n\n<div class=\"img-cover\">\n  <img class=\"modal-image\" src=\"" + alias4((helper = (helper = lookupProperty(helpers, "img") || (depth0 != null ? lookupProperty(depth0, "img") : depth0)) != null ? helper : alias2, typeof helper === alias3 ? helper.call(alias1, {
+    }) : helper)) + "\"></span>\r\n  <span class=\"close-icon modal-icon\"></span>\r\n\r\n<div class=\"img-cover\">\r\n  <img class=\"modal-image\" src=\"" + alias4((helper = (helper = lookupProperty(helpers, "img") || (depth0 != null ? lookupProperty(depth0, "img") : depth0)) != null ? helper : alias2, typeof helper === alias3 ? helper.call(alias1, {
       "name": "img",
       "hash": {},
       "data": data,
@@ -2487,7 +2487,7 @@ const templateFunction = _handlebars.default.template({
           "column": 39
         }
       }
-    }) : helper)) + "\"/>\n</div>\n  <span class=\"modal-name\" id=\"" + alias4((helper = (helper = lookupProperty(helpers, "id") || (depth0 != null ? lookupProperty(depth0, "id") : depth0)) != null ? helper : alias2, typeof helper === alias3 ? helper.call(alias1, {
+    }) : helper)) + "\"/>\r\n</div>\r\n  <span class=\"modal-name\" id=\"" + alias4((helper = (helper = lookupProperty(helpers, "id") || (depth0 != null ? lookupProperty(depth0, "id") : depth0)) != null ? helper : alias2, typeof helper === alias3 ? helper.call(alias1, {
       "name": "id",
       "hash": {},
       "data": data,
@@ -2515,7 +2515,7 @@ const templateFunction = _handlebars.default.template({
           "column": 47
         }
       }
-    }) : helper)) + "</span>\n  <div>" + alias4((helper = (helper = lookupProperty(helpers, "description") || (depth0 != null ? lookupProperty(depth0, "description") : depth0)) != null ? helper : alias2, typeof helper === alias3 ? helper.call(alias1, {
+    }) : helper)) + "</span>\r\n  <div>" + alias4((helper = (helper = lookupProperty(helpers, "description") || (depth0 != null ? lookupProperty(depth0, "description") : depth0)) != null ? helper : alias2, typeof helper === alias3 ? helper.call(alias1, {
       "name": "description",
       "hash": {},
       "data": data,
@@ -2529,7 +2529,7 @@ const templateFunction = _handlebars.default.template({
           "column": 22
         }
       }
-    }) : helper)) + "</div>\n  \n  <span>" + alias4((helper = (helper = lookupProperty(helpers, "year") || (depth0 != null ? lookupProperty(depth0, "year") : depth0)) != null ? helper : alias2, typeof helper === alias3 ? helper.call(alias1, {
+    }) : helper)) + "</div>\r\n  \r\n  <span>" + alias4((helper = (helper = lookupProperty(helpers, "year") || (depth0 != null ? lookupProperty(depth0, "year") : depth0)) != null ? helper : alias2, typeof helper === alias3 ? helper.call(alias1, {
       "name": "year",
       "hash": {},
       "data": data,
@@ -2543,7 +2543,7 @@ const templateFunction = _handlebars.default.template({
           "column": 16
         }
       }
-    }) : helper)) + "</span>\n  <p >\n" + ((stack1 = lookupProperty(helpers, "each").call(alias1, depth0 != null ? lookupProperty(depth0, "genres") : depth0, {
+    }) : helper)) + "</span>\r\n  <p >\r\n" + ((stack1 = lookupProperty(helpers, "each").call(alias1, depth0 != null ? lookupProperty(depth0, "genres") : depth0, {
       "name": "each",
       "hash": {},
       "fn": container.program(1, data, 0),
@@ -2559,7 +2559,7 @@ const templateFunction = _handlebars.default.template({
           "column": 15
         }
       }
-    })) != null ? stack1 : "") + "  </p>\n\n  <span>Director</span> : <span>" + alias4((helper = (helper = lookupProperty(helpers, "director") || (depth0 != null ? lookupProperty(depth0, "director") : depth0)) != null ? helper : alias2, typeof helper === alias3 ? helper.call(alias1, {
+    })) != null ? stack1 : "") + "  </p>\r\n\r\n  <span>Director</span> : <span>" + alias4((helper = (helper = lookupProperty(helpers, "director") || (depth0 != null ? lookupProperty(depth0, "director") : depth0)) != null ? helper : alias2, typeof helper === alias3 ? helper.call(alias1, {
       "name": "director",
       "hash": {},
       "data": data,
@@ -2573,7 +2573,7 @@ const templateFunction = _handlebars.default.template({
           "column": 44
         }
       }
-    }) : helper)) + "</span>\n  <div>\n    <span>Starring:</span>\n" + ((stack1 = lookupProperty(helpers, "each").call(alias1, depth0 != null ? lookupProperty(depth0, "starring") : depth0, {
+    }) : helper)) + "</span>\r\n  <div>\r\n    <span>Starring:</span>\r\n" + ((stack1 = lookupProperty(helpers, "each").call(alias1, depth0 != null ? lookupProperty(depth0, "starring") : depth0, {
       "name": "each",
       "hash": {},
       "fn": container.program(1, data, 0),
@@ -2589,7 +2589,7 @@ const templateFunction = _handlebars.default.template({
           "column": 15
         }
       }
-    })) != null ? stack1 : "") + "  </div>\n</div>";
+    })) != null ? stack1 : "") + "  </div>\r\n</div>";
   },
   "useData": true
 });
@@ -2938,7 +2938,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58372" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52419" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
