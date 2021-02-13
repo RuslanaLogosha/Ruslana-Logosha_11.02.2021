@@ -3,12 +3,12 @@
   <span class="close-icon modal-icon"></span>
 
 <div class="img-cover">
-  <img class="modal-image" src="{{img}}"/>
+  <img class="modal-image" src="https://image.tmdb.org/t/p/w500{{poster_path}}"/>
 </div>
-  <span class="modal-name" id="{{id}}">{{name}}</span>
-  <div>{{description}}</div>
+  <span class="modal-name" id="{{id}}">{{title}}</span>
+  <div>{{overview}}</div>
   
-  <span>{{year}}</span>
+  <span>{{release_date}}</span>
   <p >
     {{#each genres}}
     <span>{{this}}</span>
