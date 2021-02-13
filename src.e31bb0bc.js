@@ -2700,14 +2700,11 @@ var _modalCrossIconClick = require("./modalCrossIconClick");
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function onFavListModal() {
-  console.log('modal');
   const modalFavItem = document.querySelector('.fav-list-name');
 
   if (modalFavItem) {
     modalFavItem.addEventListener('click', openModal);
   }
-
-  console.log(modalFavItem);
 
   function openModal(e) {
     e.preventDefault();
@@ -2789,8 +2786,8 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 const refs = (0, _getRefs.default)();
 
 function onStarIconcheck(e) {
-  const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
-  console.log('in starIconClick' + ' ' + favorites.length);
+  const favorites = JSON.parse(localStorage.getItem('favorites')) || []; // console.log('in starIconClick' + ' ' + favorites.length);
+
   const id = e.target.id,
         item = e.target,
         index = favorites.indexOf(id);
@@ -2866,17 +2863,15 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 function onGalleryModal() {
   const modalTargetItems = document.querySelectorAll('.modal-target');
   const arrMovieItems = Array.from(modalTargetItems);
-  console.log(arrMovieItems);
   arrMovieItems.forEach(el => el.addEventListener('click', openModal));
 
   function openModal(e) {
+    console.log(e.target);
     e.preventDefault();
-    console.log('click to open modal');
     window.addEventListener('keydown', onEscPress);
     const backdropContainer = document.querySelector('.backdrop');
     backdropContainer.classList.add('is-open');
     const id = e.currentTarget.id;
-    console.log(id);
     fetchMoviesInfoForModal(id);
     delayModal(id);
     (0, _modalCrossIconClick.onCrossPress)();
@@ -2920,6 +2915,7 @@ function delayModal(id) {
         }
       });
       starIcon.addEventListener('click', _starIconClick.onStarIconcheck);
+      console.log(favorites);
     }
 
     manageStarInModalFav(id);
@@ -3027,7 +3023,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59895" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "60785" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
