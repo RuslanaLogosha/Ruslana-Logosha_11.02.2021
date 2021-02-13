@@ -4,12 +4,10 @@ import { onStarIconcheck } from './starIconClick';
 import { onCrossPress } from './modalCrossIconClick';
 
 function onFavListModal() {
-  console.log('modal');
   const modalFavItem = document.querySelector('.fav-list-name');
   if (modalFavItem) {
     modalFavItem.addEventListener('click', openModal);
   }
-  console.log(modalFavItem);
 
   function openModal(e) {
     e.preventDefault();

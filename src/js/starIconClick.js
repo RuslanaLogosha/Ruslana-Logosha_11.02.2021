@@ -7,7 +7,7 @@ const refs = getRefs();
 export function onStarIconcheck(e) {
   const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
 
-  console.log('in starIconClick' + ' ' + favorites.length);
+  // console.log('in starIconClick' + ' ' + favorites.length);
 
   const id = e.target.id,
     item = e.target,

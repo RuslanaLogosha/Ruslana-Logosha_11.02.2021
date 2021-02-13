@@ -6,19 +6,18 @@ import { onStarIconcheck } from './starIconClick';
 function onGalleryModal() {
   const modalTargetItems = document.querySelectorAll('.modal-target');
   const arrMovieItems = Array.from(modalTargetItems);
-  console.log(arrMovieItems);
 
   arrMovieItems.forEach(el => el.addEventListener('click', openModal));
 
   function openModal(e) {
+    console.log(e.target);
     e.preventDefault();
-    console.log('click to open modal');
+
     window.addEventListener('keydown', onEscPress);
     const backdropContainer = document.querySelector('.backdrop');
     backdropContainer.classList.add('is-open');
 
     const id = e.currentTarget.id;
-    console.log(id);
 
     fetchMoviesInfoForModal(id);
     delayModal(id);
@@ -62,7 +61,9 @@ function delayModal(id) {
           starIcon.classList.add('checked');
         }
       });
+
       starIcon.addEventListener('click', onStarIconcheck);
+      console.log(favorites);
     }
     manageStarInModalFav(id);
   }, 1000);
