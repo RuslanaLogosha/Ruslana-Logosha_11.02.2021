@@ -1,8 +1,6 @@
 import getRefs from './get-refs';
 import { fetchFavouriteMoviesList } from './apiService';
-import { onCrossIconClick } from './crossIconClick';
 import { manageFavListModal } from './onFavListModal';
-import { manageGalleryModal } from './onGalleryModal';
 
 const refs = getRefs();
 
@@ -22,9 +20,7 @@ export function onStarIconcheck(e) {
     favorites.push(id);
     item.classList.add('checked');
     fetchFavouriteMoviesList(id);
-    onCrossIconClick();
     manageFavListModal();
-    // manageGalleryModal();
 
     // item is already favorite
   } else {
