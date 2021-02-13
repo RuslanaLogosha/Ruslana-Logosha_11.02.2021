@@ -117,50 +117,7 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"js/get-refs.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = getRefs;
-
-function getRefs() {
-  return {
-    filmsContainer: document.querySelector('.gallery'),
-    favouriteList: document.querySelector('.favourite-films-container')
-  };
-}
-},{}],"js/apiService.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.fetchMovies = fetchMovies;
-exports.fetchMoviesById = fetchMoviesById;
-const url = 'http://my-json-server.typicode.com/moviedb-tech/movies/list';
-
-async function fetchMovies() {
-  try {
-    const data = await fetch(url);
-    const results = await data.json();
-    return results;
-  } catch (error) {
-    console.log(error);
-  }
-}
-
-async function fetchMoviesById(id) {
-  try {
-    const data = await fetch("".concat(url, "/").concat(id));
-    const results = await data.json();
-    return results;
-  } catch (error) {
-    console.log(error);
-  }
-}
-},{}],"../node_modules/handlebars/dist/handlebars.runtime.js":[function(require,module,exports) {
+})({"../node_modules/handlebars/dist/handlebars.runtime.js":[function(require,module,exports) {
 var define;
 var global = arguments[3];
 /**!
@@ -2202,35 +2159,35 @@ const templateFunction = _handlebars.default.template({
       return undefined;
     };
 
-    return "<li id=\"" + alias4((helper = (helper = lookupProperty(helpers, "id") || (depth0 != null ? lookupProperty(depth0, "id") : depth0)) != null ? helper : alias2, typeof helper === alias3 ? helper.call(alias1, {
+    return "<li class=\"gallery-list-item\" id=\"" + alias4((helper = (helper = lookupProperty(helpers, "id") || (depth0 != null ? lookupProperty(depth0, "id") : depth0)) != null ? helper : alias2, typeof helper === alias3 ? helper.call(alias1, {
       "name": "id",
       "hash": {},
       "data": data,
       "loc": {
         "start": {
           "line": 2,
-          "column": 8
+          "column": 34
         },
         "end": {
           "line": 2,
-          "column": 14
+          "column": 40
         }
       }
-    }) : helper)) + "\">\r\n    <div class=\"thumb\">\r\n        <img src=\"" + alias4((helper = (helper = lookupProperty(helpers, "img") || (depth0 != null ? lookupProperty(depth0, "img") : depth0)) != null ? helper : alias2, typeof helper === alias3 ? helper.call(alias1, {
-      "name": "img",
+    }) : helper)) + "\">\n    <div class=\"thumb\">\n        <img src=\"https://image.tmdb.org/t/p/w500" + alias4((helper = (helper = lookupProperty(helpers, "poster_path") || (depth0 != null ? lookupProperty(depth0, "poster_path") : depth0)) != null ? helper : alias2, typeof helper === alias3 ? helper.call(alias1, {
+      "name": "poster_path",
       "hash": {},
       "data": data,
       "loc": {
         "start": {
           "line": 4,
-          "column": 18
+          "column": 49
         },
         "end": {
           "line": 4,
-          "column": 25
+          "column": 64
         }
       }
-    }) : helper)) + "\"/>\r\n        <input class=\"input-checkbox\" id=\"" + alias4((helper = (helper = lookupProperty(helpers, "id") || (depth0 != null ? lookupProperty(depth0, "id") : depth0)) != null ? helper : alias2, typeof helper === alias3 ? helper.call(alias1, {
+    }) : helper)) + "\"/>\n        <input class=\"input-checkbox\" id=\"" + alias4((helper = (helper = lookupProperty(helpers, "id") || (depth0 != null ? lookupProperty(depth0, "id") : depth0)) != null ? helper : alias2, typeof helper === alias3 ? helper.call(alias1, {
       "name": "id",
       "hash": {},
       "data": data,
@@ -2244,7 +2201,7 @@ const templateFunction = _handlebars.default.template({
           "column": 48
         }
       }
-    }) : helper)) + "\" type=\"checkbox\" value=\"Favourite\">\r\n        <span class=\"star-icon\"></span>       \r\n    </div>\r\n    <p class=\"card__text modal-target\" id=\"" + alias4((helper = (helper = lookupProperty(helpers, "id") || (depth0 != null ? lookupProperty(depth0, "id") : depth0)) != null ? helper : alias2, typeof helper === alias3 ? helper.call(alias1, {
+    }) : helper)) + "\" type=\"checkbox\" value=\"Favourite\">\n        <span class=\"star-icon\"></span>       \n    </div>\n    <p class=\"card__text modal-target\" id=\"" + alias4((helper = (helper = lookupProperty(helpers, "id") || (depth0 != null ? lookupProperty(depth0, "id") : depth0)) != null ? helper : alias2, typeof helper === alias3 ? helper.call(alias1, {
       "name": "id",
       "hash": {},
       "data": data,
@@ -2258,8 +2215,8 @@ const templateFunction = _handlebars.default.template({
           "column": 49
         }
       }
-    }) : helper)) + "\">\r\n      <span> " + alias4((helper = (helper = lookupProperty(helpers, "name") || (depth0 != null ? lookupProperty(depth0, "name") : depth0)) != null ? helper : alias2, typeof helper === alias3 ? helper.call(alias1, {
-      "name": "name",
+    }) : helper)) + "\">\n      <span> " + alias4((helper = (helper = lookupProperty(helpers, "title") || (depth0 != null ? lookupProperty(depth0, "title") : depth0)) != null ? helper : alias2, typeof helper === alias3 ? helper.call(alias1, {
+      "name": "title",
       "hash": {},
       "data": data,
       "loc": {
@@ -2269,11 +2226,11 @@ const templateFunction = _handlebars.default.template({
         },
         "end": {
           "line": 9,
-          "column": 21
+          "column": 22
         }
       }
-    }) : helper)) + "</span> \r\n      <span>" + alias4((helper = (helper = lookupProperty(helpers, "year") || (depth0 != null ? lookupProperty(depth0, "year") : depth0)) != null ? helper : alias2, typeof helper === alias3 ? helper.call(alias1, {
-      "name": "year",
+    }) : helper)) + " </span> \n      <span>" + alias4((helper = (helper = lookupProperty(helpers, "release_date") || (depth0 != null ? lookupProperty(depth0, "release_date") : depth0)) != null ? helper : alias2, typeof helper === alias3 ? helper.call(alias1, {
+      "name": "release_date",
       "hash": {},
       "data": data,
       "loc": {
@@ -2283,10 +2240,10 @@ const templateFunction = _handlebars.default.template({
         },
         "end": {
           "line": 10,
-          "column": 20
+          "column": 28
         }
       }
-    }) : helper)) + "</span>\r\n   </p>\r\n   \r\n</li>\r\n";
+    }) : helper)) + "</span>\n   </p>\n   \n</li>\n";
   },
   "compiler": [8, ">= 4.3.0"],
   "main": function (container, depth0, helpers, partials, data) {
@@ -2322,7 +2279,7 @@ const templateFunction = _handlebars.default.template({
 
 var _default = templateFunction;
 exports.default = _default;
-},{"handlebars/dist/handlebars.runtime":"../node_modules/handlebars/dist/handlebars.runtime.js"}],"templates/listItemTemplate.hbs":[function(require,module,exports) {
+},{"handlebars/dist/handlebars.runtime":"../node_modules/handlebars/dist/handlebars.runtime.js"}],"templates/favListItemTemplate.hbs":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -2364,7 +2321,7 @@ const templateFunction = _handlebars.default.template({
           "column": 38
         }
       }
-    }) : helper)) + "\"/>\r\n<li class=\"fav-list-item\" id=\"" + alias4((helper = (helper = lookupProperty(helpers, "id") || (depth0 != null ? lookupProperty(depth0, "id") : depth0)) != null ? helper : alias2, typeof helper === alias3 ? helper.call(alias1, {
+    }) : helper)) + "\"/>\n<li class=\"fav-list-item\" id=\"" + alias4((helper = (helper = lookupProperty(helpers, "id") || (depth0 != null ? lookupProperty(depth0, "id") : depth0)) != null ? helper : alias2, typeof helper === alias3 ? helper.call(alias1, {
       "name": "id",
       "hash": {},
       "data": data,
@@ -2378,7 +2335,7 @@ const templateFunction = _handlebars.default.template({
           "column": 36
         }
       }
-    }) : helper)) + "\">\r\n      <span class=\"fav-list-name\" id=\"" + alias4((helper = (helper = lookupProperty(helpers, "id") || (depth0 != null ? lookupProperty(depth0, "id") : depth0)) != null ? helper : alias2, typeof helper === alias3 ? helper.call(alias1, {
+    }) : helper)) + "\">\n      <span class=\"fav-list-name\" id=\"" + alias4((helper = (helper = lookupProperty(helpers, "id") || (depth0 != null ? lookupProperty(depth0, "id") : depth0)) != null ? helper : alias2, typeof helper === alias3 ? helper.call(alias1, {
       "name": "id",
       "hash": {},
       "data": data,
@@ -2392,8 +2349,8 @@ const templateFunction = _handlebars.default.template({
           "column": 44
         }
       }
-    }) : helper)) + "\">" + alias4((helper = (helper = lookupProperty(helpers, "name") || (depth0 != null ? lookupProperty(depth0, "name") : depth0)) != null ? helper : alias2, typeof helper === alias3 ? helper.call(alias1, {
-      "name": "name",
+    }) : helper)) + "\">" + alias4((helper = (helper = lookupProperty(helpers, "title") || (depth0 != null ? lookupProperty(depth0, "title") : depth0)) != null ? helper : alias2, typeof helper === alias3 ? helper.call(alias1, {
+      "name": "title",
       "hash": {},
       "data": data,
       "loc": {
@@ -2403,10 +2360,10 @@ const templateFunction = _handlebars.default.template({
         },
         "end": {
           "line": 3,
-          "column": 54
+          "column": 55
         }
       }
-    }) : helper)) + "</span> \r\n</li>\r\n<span id=\"" + alias4((helper = (helper = lookupProperty(helpers, "id") || (depth0 != null ? lookupProperty(depth0, "id") : depth0)) != null ? helper : alias2, typeof helper === alias3 ? helper.call(alias1, {
+    }) : helper)) + "</span> \n</li>\n<span id=\"" + alias4((helper = (helper = lookupProperty(helpers, "id") || (depth0 != null ? lookupProperty(depth0, "id") : depth0)) != null ? helper : alias2, typeof helper === alias3 ? helper.call(alias1, {
       "name": "id",
       "hash": {},
       "data": data,
@@ -2420,14 +2377,168 @@ const templateFunction = _handlebars.default.template({
           "column": 16
         }
       }
-    }) : helper)) + "\" class=\"cross-icon\"></span>       \r\n</div>\r\n";
+    }) : helper)) + "\" class=\"cross-icon\"></span>       \n</div>\n";
   },
   "useData": true
 });
 
 var _default = templateFunction;
 exports.default = _default;
-},{"handlebars/dist/handlebars.runtime":"../node_modules/handlebars/dist/handlebars.runtime.js"}],"templates/modalTemplate.hbs":[function(require,module,exports) {
+},{"handlebars/dist/handlebars.runtime":"../node_modules/handlebars/dist/handlebars.runtime.js"}],"js/get-refs.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = getRefs;
+
+function getRefs() {
+  return {
+    filmsContainer: document.querySelector('.gallery'),
+    favouriteList: document.querySelector('.favourite-films-container')
+  };
+}
+},{}],"js/apiService.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.fetchMovies = fetchMovies;
+exports.fetchMoviesGallery = fetchMoviesGallery;
+exports.fetchMoviesById = fetchMoviesById;
+exports.fetchFavouriteMoviesList = fetchFavouriteMoviesList;
+
+var _moviesTemplate = _interopRequireDefault(require("../templates/moviesTemplate.hbs"));
+
+var _favListItemTemplate = _interopRequireDefault(require("../templates/favListItemTemplate.hbs"));
+
+var _getRefs = _interopRequireDefault(require("./get-refs"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+// const url = 'http://my-json-server.typicode.com/moviedb-tech/movies/list';
+// export async function fetchMovies() {
+//   try {
+//     const data = await fetch(url);
+//     const results = await data.json();
+//     return results;
+//   } catch (error) {
+//     console.log(error);
+//   }
+// }
+// export async function fetchMoviesById(id) {
+//   try {
+//     const data = await fetch(`${url}/${id}`);
+//     const results = await data.json();
+//     return results;
+//   } catch (error) {
+//     console.log(error);
+//   }
+// }
+const refs = (0, _getRefs.default)();
+const BASE_URL = "https://api.themoviedb.org/3";
+const KEY = "d91911ebb88751cf9e5c4b8fdf4412c9";
+
+async function fetchMovies() {
+  const url = "".concat(BASE_URL, "/movie/popular?api_key=").concat(KEY, "&language=en-US&page=1");
+
+  try {
+    const data = await fetch(url);
+    const {
+      results
+    } = await data.json();
+    return results;
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+async function fetchMoviesGallery() {
+  const data = await fetchMovies();
+  const movies = appendMoviesGalleryMarkup(data);
+  return movies;
+}
+
+function appendMoviesGalleryMarkup(data) {
+  refs.filmsContainer.insertAdjacentHTML('beforeend', (0, _moviesTemplate.default)(data));
+}
+
+async function fetchMoviesById(id) {
+  const url = "".concat(BASE_URL, "/movie/").concat(id, "?api_key=").concat(KEY, "&language=en-US");
+
+  try {
+    const data = await fetch(url);
+    const results = await data.json();
+    return results;
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+async function fetchFavouriteMoviesList(id) {
+  const data = await fetchMoviesById(id);
+  const movies = appendFavouriteListMarkup(data);
+  return movies;
+}
+
+function appendFavouriteListMarkup(data) {
+  refs.favouriteList.insertAdjacentHTML('beforeend', (0, _favListItemTemplate.default)(data));
+}
+},{"../templates/moviesTemplate.hbs":"templates/moviesTemplate.hbs","../templates/favListItemTemplate.hbs":"templates/favListItemTemplate.hbs","./get-refs":"js/get-refs.js"}],"js/crossIconClick.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.onCrossIconClick = onCrossIconClick;
+
+var _getRefs = _interopRequireDefault(require("./get-refs"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+const refs = (0, _getRefs.default)();
+
+function manageCrossIconClick() {
+  refs.favouriteList.addEventListener('click', onCrossClick);
+
+  function onCrossClick(e) {
+    const nameField = document.querySelector('.fav-list-name');
+    const liField = document.querySelector('.fav-list-item');
+    const listField = document.querySelector('.fav-list');
+
+    if (e.target === nameField || e.target === liField || e.target === listField) {
+      return;
+    }
+
+    const item = e.target;
+    const id = e.target.id;
+    const itemBox = item.parentNode;
+    itemBox.remove();
+    const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+    const index = favorites.indexOf(id);
+    favorites.splice(index, 1);
+    localStorage.setItem('favorites', JSON.stringify(favorites));
+    const arrayGalleryItems = Array.from(refs.filmsContainer.children);
+    arrayGalleryItems.forEach(elem => {
+      if (elem.id === id) {
+        elem.classList.add('cross-checked');
+      }
+    });
+    const deletedFromFavListMovie = document.querySelector('.cross-checked');
+    const divElem = deletedFromFavListMovie.firstElementChild;
+    const imgElem = divElem.firstElementChild;
+    const inputElem = imgElem.nextElementSibling;
+    inputElem.classList.remove('checked');
+  }
+}
+
+function onCrossIconClick() {
+  setTimeout(() => {
+    manageCrossIconClick();
+  }, 1000);
+}
+},{"./get-refs":"js/get-refs.js"}],"templates/modalTemplate.hbs":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -2441,7 +2552,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 const templateFunction = _handlebars.default.template({
   "1": function (container, depth0, helpers, partials, data) {
-    return "    <span>" + container.escapeExpression(container.lambda(depth0, depth0)) + "</span>\r\n";
+    return "    <span>" + container.escapeExpression(container.lambda(depth0, depth0)) + "</span>\n";
   },
   "compiler": [8, ">= 4.3.0"],
   "main": function (container, depth0, helpers, partials, data) {
@@ -2459,7 +2570,7 @@ const templateFunction = _handlebars.default.template({
       return undefined;
     };
 
-    return "<div class=\"modal-container\" >\r\n  <span class=\"star-icon modal-icon\" id=\"" + alias4((helper = (helper = lookupProperty(helpers, "id") || (depth0 != null ? lookupProperty(depth0, "id") : depth0)) != null ? helper : alias2, typeof helper === alias3 ? helper.call(alias1, {
+    return "<div class=\"modal-container\" >\n  <span class=\"star-icon modal-icon\" id=\"" + alias4((helper = (helper = lookupProperty(helpers, "id") || (depth0 != null ? lookupProperty(depth0, "id") : depth0)) != null ? helper : alias2, typeof helper === alias3 ? helper.call(alias1, {
       "name": "id",
       "hash": {},
       "data": data,
@@ -2473,21 +2584,21 @@ const templateFunction = _handlebars.default.template({
           "column": 47
         }
       }
-    }) : helper)) + "\"></span>\r\n  <span class=\"close-icon modal-icon\"></span>\r\n\r\n<div class=\"img-cover\">\r\n  <img class=\"modal-image\" src=\"" + alias4((helper = (helper = lookupProperty(helpers, "img") || (depth0 != null ? lookupProperty(depth0, "img") : depth0)) != null ? helper : alias2, typeof helper === alias3 ? helper.call(alias1, {
-      "name": "img",
+    }) : helper)) + "\"></span>\n  <span class=\"close-icon modal-icon\"></span>\n\n<div class=\"img-cover\">\n  <img class=\"modal-image\" src=\"https://image.tmdb.org/t/p/w500" + alias4((helper = (helper = lookupProperty(helpers, "poster_path") || (depth0 != null ? lookupProperty(depth0, "poster_path") : depth0)) != null ? helper : alias2, typeof helper === alias3 ? helper.call(alias1, {
+      "name": "poster_path",
       "hash": {},
       "data": data,
       "loc": {
         "start": {
           "line": 6,
-          "column": 32
+          "column": 63
         },
         "end": {
           "line": 6,
-          "column": 39
+          "column": 78
         }
       }
-    }) : helper)) + "\"/>\r\n</div>\r\n  <span class=\"modal-name\" id=\"" + alias4((helper = (helper = lookupProperty(helpers, "id") || (depth0 != null ? lookupProperty(depth0, "id") : depth0)) != null ? helper : alias2, typeof helper === alias3 ? helper.call(alias1, {
+    }) : helper)) + "\"/>\n</div>\n  <span class=\"modal-name\" id=\"" + alias4((helper = (helper = lookupProperty(helpers, "id") || (depth0 != null ? lookupProperty(depth0, "id") : depth0)) != null ? helper : alias2, typeof helper === alias3 ? helper.call(alias1, {
       "name": "id",
       "hash": {},
       "data": data,
@@ -2501,8 +2612,8 @@ const templateFunction = _handlebars.default.template({
           "column": 37
         }
       }
-    }) : helper)) + "\">" + alias4((helper = (helper = lookupProperty(helpers, "name") || (depth0 != null ? lookupProperty(depth0, "name") : depth0)) != null ? helper : alias2, typeof helper === alias3 ? helper.call(alias1, {
-      "name": "name",
+    }) : helper)) + "\">" + alias4((helper = (helper = lookupProperty(helpers, "title") || (depth0 != null ? lookupProperty(depth0, "title") : depth0)) != null ? helper : alias2, typeof helper === alias3 ? helper.call(alias1, {
+      "name": "title",
       "hash": {},
       "data": data,
       "loc": {
@@ -2512,11 +2623,11 @@ const templateFunction = _handlebars.default.template({
         },
         "end": {
           "line": 8,
-          "column": 47
+          "column": 48
         }
       }
-    }) : helper)) + "</span>\r\n  <div>" + alias4((helper = (helper = lookupProperty(helpers, "description") || (depth0 != null ? lookupProperty(depth0, "description") : depth0)) != null ? helper : alias2, typeof helper === alias3 ? helper.call(alias1, {
-      "name": "description",
+    }) : helper)) + "</span>\n  <div>" + alias4((helper = (helper = lookupProperty(helpers, "overview") || (depth0 != null ? lookupProperty(depth0, "overview") : depth0)) != null ? helper : alias2, typeof helper === alias3 ? helper.call(alias1, {
+      "name": "overview",
       "hash": {},
       "data": data,
       "loc": {
@@ -2526,11 +2637,11 @@ const templateFunction = _handlebars.default.template({
         },
         "end": {
           "line": 9,
-          "column": 22
+          "column": 19
         }
       }
-    }) : helper)) + "</div>\r\n  \r\n  <span>" + alias4((helper = (helper = lookupProperty(helpers, "year") || (depth0 != null ? lookupProperty(depth0, "year") : depth0)) != null ? helper : alias2, typeof helper === alias3 ? helper.call(alias1, {
-      "name": "year",
+    }) : helper)) + "</div>\n  \n  <span>" + alias4((helper = (helper = lookupProperty(helpers, "release_date") || (depth0 != null ? lookupProperty(depth0, "release_date") : depth0)) != null ? helper : alias2, typeof helper === alias3 ? helper.call(alias1, {
+      "name": "release_date",
       "hash": {},
       "data": data,
       "loc": {
@@ -2540,10 +2651,10 @@ const templateFunction = _handlebars.default.template({
         },
         "end": {
           "line": 11,
-          "column": 16
+          "column": 24
         }
       }
-    }) : helper)) + "</span>\r\n  <p >\r\n" + ((stack1 = lookupProperty(helpers, "each").call(alias1, depth0 != null ? lookupProperty(depth0, "genres") : depth0, {
+    }) : helper)) + "</span>\n  <p >\n" + ((stack1 = lookupProperty(helpers, "each").call(alias1, depth0 != null ? lookupProperty(depth0, "genres") : depth0, {
       "name": "each",
       "hash": {},
       "fn": container.program(1, data, 0),
@@ -2559,7 +2670,7 @@ const templateFunction = _handlebars.default.template({
           "column": 15
         }
       }
-    })) != null ? stack1 : "") + "  </p>\r\n\r\n  <span>Director</span> : <span>" + alias4((helper = (helper = lookupProperty(helpers, "director") || (depth0 != null ? lookupProperty(depth0, "director") : depth0)) != null ? helper : alias2, typeof helper === alias3 ? helper.call(alias1, {
+    })) != null ? stack1 : "") + "  </p>\n\n  <span>Director</span> : <span>" + alias4((helper = (helper = lookupProperty(helpers, "director") || (depth0 != null ? lookupProperty(depth0, "director") : depth0)) != null ? helper : alias2, typeof helper === alias3 ? helper.call(alias1, {
       "name": "director",
       "hash": {},
       "data": data,
@@ -2573,7 +2684,7 @@ const templateFunction = _handlebars.default.template({
           "column": 44
         }
       }
-    }) : helper)) + "</span>\r\n  <div>\r\n    <span>Starring:</span>\r\n" + ((stack1 = lookupProperty(helpers, "each").call(alias1, depth0 != null ? lookupProperty(depth0, "starring") : depth0, {
+    }) : helper)) + "</span>\n  <div>\n    <span>Starring:</span>\n" + ((stack1 = lookupProperty(helpers, "each").call(alias1, depth0 != null ? lookupProperty(depth0, "starring") : depth0, {
       "name": "each",
       "hash": {},
       "fn": container.program(1, data, 0),
@@ -2589,198 +2700,78 @@ const templateFunction = _handlebars.default.template({
           "column": 15
         }
       }
-    })) != null ? stack1 : "") + "  </div>\r\n</div>";
+    })) != null ? stack1 : "") + "  </div>\n</div>";
   },
   "useData": true
 });
 
 var _default = templateFunction;
 exports.default = _default;
-},{"handlebars/dist/handlebars.runtime":"../node_modules/handlebars/dist/handlebars.runtime.js"}],"index.js":[function(require,module,exports) {
+},{"handlebars/dist/handlebars.runtime":"../node_modules/handlebars/dist/handlebars.runtime.js"}],"js/modalCrossIconClick.js":[function(require,module,exports) {
 "use strict";
 
-var _getRefs = _interopRequireDefault(require("./js/get-refs"));
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.onCrossPress = onCrossPress;
 
-var _apiService = require("./js/apiService");
+function CrossPress() {
+  const backdrop = document.querySelector('.backdrop');
+  const modalContainer = backdrop.firstElementChild;
+  const spanIconStar = modalContainer.firstElementChild;
+  const closeIcon = spanIconStar.nextElementSibling;
+  closeIcon.addEventListener('click', onCloseModal);
 
-var _moviesTemplate = _interopRequireDefault(require("./templates/moviesTemplate.hbs"));
+  function onCloseModal(e) {
+    const backdropContainer = document.querySelector('.backdrop');
+    backdropContainer.classList.remove('is-open');
+    backdropContainer.innerHTML = '';
+  }
+}
 
-var _listItemTemplate = _interopRequireDefault(require("./templates/listItemTemplate.hbs"));
+function onCrossPress() {
+  setTimeout(() => {
+    CrossPress();
+  }, 1000);
+}
+},{}],"js/onFavListModal.js":[function(require,module,exports) {
+"use strict";
 
-var _modalTemplate = _interopRequireDefault(require("./templates/modalTemplate.hbs"));
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.manageFavListModal = manageFavListModal;
+
+var _apiService = require("./apiService");
+
+var _modalTemplate = _interopRequireDefault(require("../templates/modalTemplate.hbs"));
+
+var _starIconClick = require("./starIconClick");
+
+var _modalCrossIconClick = require("./modalCrossIconClick");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-const refs = (0, _getRefs.default)();
-
-async function fetchMoviesGallery() {
-  const data = await (0, _apiService.fetchMovies)();
-  const movies = appendMoviesGalleryMarkup(data);
-  return movies;
-}
-
-function appendMoviesGalleryMarkup(data) {
-  refs.filmsContainer.insertAdjacentHTML('beforeend', (0, _moviesTemplate.default)(data));
-}
-
-fetchMoviesGallery();
-
-async function fetchFavouriteMoviesList(id) {
-  const data = await (0, _apiService.fetchMoviesById)(id);
-  const movies = appendFavouriteListMarkup(data);
-  return movies;
-}
-
-function appendFavouriteListMarkup(data) {
-  refs.favouriteList.insertAdjacentHTML('beforeend', (0, _listItemTemplate.default)(data));
-}
-
-function initStorageDelayed() {
-  setTimeout(() => {
-    delay2();
-    const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
-    favorites.forEach(id => {
-      fetchFavouriteMoviesList(id);
-      const liElem = document.getElementById(id);
-      const divElem = liElem.firstElementChild;
-      const imgElem = divElem.firstElementChild;
-      const inputElem = imgElem.nextElementSibling;
-      inputElem.classList.add('checked');
-    });
-    document.querySelector('.gallery-list').addEventListener('click', onStarIconcheckOnGallery); // onStarIconcheck(e);
-  }, 1000);
-}
-
-initStorageDelayed();
-
-function manageCrossIconClick() {
-  refs.favouriteList.addEventListener('click', onCrossClick);
-
-  function onCrossClick(e) {
-    const nameField = document.querySelector('.fav-list-name');
-    const liField = document.querySelector('.fav-list-item');
-    const listField = document.querySelector('.fav-list');
-    const modalFavItem = document.querySelector('.modal-fav'); // modalFavItem.remove();
-
-    console.log(e.target);
-
-    if (e.target === nameField || e.target === liField || e.target === listField) {
-      return;
-    }
-
-    const item = e.target;
-    const id = e.target.id;
-    const itemBox = item.parentNode;
-    itemBox.remove();
-    const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
-    const index = favorites.indexOf(id);
-    favorites.splice(index, 1);
-    localStorage.setItem('favorites', JSON.stringify(favorites));
-    const arrayGalleryItems = Array.from(refs.filmsContainer.children);
-    arrayGalleryItems.forEach(elem => elem.id === id ? elem.classList.add('cross-checked') : console.log('ok'));
-    const deletedFromFavListMovie = document.querySelector('.cross-checked');
-    const divElem = deletedFromFavListMovie.firstElementChild;
-    const imgElem = divElem.firstElementChild;
-    const inputElem = imgElem.nextElementSibling;
-    inputElem.classList.remove('checked');
-  }
-}
-
-function delayCrossIconClick() {
-  setTimeout(() => {
-    manageCrossIconClick();
-  }, 1000);
-}
-
-delayCrossIconClick();
-
-function manageModal() {
-  const modalTargetItems = document.querySelectorAll('.modal-target');
-  const arrMovieItems = Array.from(modalTargetItems);
-  arrMovieItems.forEach(el => el.addEventListener('click', openModal));
-
-  function openModal(e) {
-    e.preventDefault();
-    console.log('click to open modal');
-    window.addEventListener('keydown', onEscPress);
-    const backdropContainer = document.querySelector('.backdrop');
-    backdropContainer.classList.add('is-open');
-    const id = e.currentTarget.id;
-    console.log(id);
-    fetchMoviesInfoForModal(id);
-    delayModal(id);
-    onPressDelay();
-
-    async function fetchMoviesInfoForModal(id) {
-      const data = await (0, _apiService.fetchMoviesById)(id);
-      const movies = appendModalMarkup(data);
-      return movies;
-    }
-
-    function appendModalMarkup(data) {
-      backdropContainer.insertAdjacentHTML('beforeEnd', (0, _modalTemplate.default)(data));
-    }
-
-    function onCloseModal(e) {
-      window.removeEventListener('keydown', onEscPress);
-      backdropContainer.classList.remove('is-open');
-      backdropContainer.innerHTML = '';
-    }
-
-    function onEscPress(event) {
-      const isEscKey = event.code === 'Escape';
-
-      if (isEscKey) {
-        onCloseModal();
-      }
-    }
-
-    function delayModal(id) {
-      setTimeout(() => {
-        function manageStarInModalFav(id) {
-          const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
-          favorites.filter(favorite => {
-            if (favorite === id) {
-              const backdrop = document.querySelector('.backdrop.is-open');
-              const backdropChild = backdrop.querySelector('.modal-container');
-              const starIcon = backdropChild.querySelector('.modal-icon'); //starIcon.addEventListener('click', onStarIconcheckOnGallery);
-              // starIcon.classList.add('checked');
-            }
-          });
-        }
-
-        manageStarInModalFav(id);
-      }, 1000);
-    }
-  }
-}
-
-function delay() {
-  setTimeout(() => {
-    manageModal();
-  }, 1000);
-}
-
-delay();
-
-function manageModal2() {
+function onFavListModal() {
+  console.log('modal');
   const modalFavItem = document.querySelector('.fav-list-name');
 
   if (modalFavItem) {
     modalFavItem.addEventListener('click', openModal);
   }
 
+  console.log(modalFavItem);
+
   function openModal(e) {
     e.preventDefault();
     console.log('click to open modal');
-    console.log(e.target);
     window.addEventListener('keydown', onEscPress);
     const backdropContainer = document.querySelector('.backdrop');
     backdropContainer.classList.add('is-open');
     const id = e.target.id;
     fetchMoviesInfoForModal(id);
     delayModal(id);
-    onPressDelay();
+    (0, _modalCrossIconClick.onCrossPress)();
 
     async function fetchMoviesInfoForModal(id) {
       const data = await (0, _apiService.fetchMoviesById)(id);
@@ -2805,112 +2796,213 @@ function manageModal2() {
         onCloseModal();
       }
     }
+  }
+}
 
-    function delayModal(id) {
-      setTimeout(() => {
-        function manageStarInModalFav(id) {
-          const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
-          favorites.filter(favorite => {
-            if (favorite === id) {
-              const backdrop = document.querySelector('.backdrop.is-open');
-              const backdropChild = backdrop.querySelector('.modal-container');
-              const starIcon = backdropChild.querySelector('.modal-icon');
-              starIcon.classList.add('checked');
-              starIcon.addEventListener('click', onStarIconcheck);
-            }
-          });
+function delayModal(id) {
+  setTimeout(() => {
+    function manageStarInModalFav(id) {
+      const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+      favorites.filter(favorite => {
+        if (favorite === id) {
+          const backdrop = document.querySelector('.backdrop.is-open');
+          const backdropChild = backdrop.querySelector('.modal-container');
+          const starIcon = backdropChild.querySelector('.modal-icon');
+          starIcon.classList.add('checked');
+          starIcon.addEventListener('click', _starIconClick.onStarIconcheck);
         }
+      });
+    }
 
-        manageStarInModalFav(id);
-      }, 1000);
+    manageStarInModalFav(id);
+  }, 1000);
+}
+
+function manageFavListModal() {
+  setTimeout(() => {
+    onFavListModal();
+  }, 1000);
+}
+},{"./apiService":"js/apiService.js","../templates/modalTemplate.hbs":"templates/modalTemplate.hbs","./starIconClick":"js/starIconClick.js","./modalCrossIconClick":"js/modalCrossIconClick.js"}],"js/onGalleryModal.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.manageGalleryModal = manageGalleryModal;
+
+var _modalCrossIconClick = require("./modalCrossIconClick");
+
+var _apiService = require("./apiService");
+
+var _modalTemplate = _interopRequireDefault(require("../templates/modalTemplate.hbs"));
+
+var _starIconClick = require("./starIconClick");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function onGalleryModal() {
+  const modalTargetItems = document.querySelectorAll('.modal-target');
+  const arrMovieItems = Array.from(modalTargetItems);
+  console.log(arrMovieItems);
+  arrMovieItems.forEach(el => el.addEventListener('click', openModal));
+
+  function openModal(e) {
+    e.preventDefault();
+    console.log('click to open modal');
+    window.addEventListener('keydown', onEscPress);
+    const backdropContainer = document.querySelector('.backdrop');
+    backdropContainer.classList.add('is-open');
+    const id = e.currentTarget.id;
+    console.log(id);
+    fetchMoviesInfoForModal(id);
+    delayModal(id);
+    (0, _modalCrossIconClick.onCrossPress)();
+
+    async function fetchMoviesInfoForModal(id) {
+      const data = await (0, _apiService.fetchMoviesById)(id);
+      const movies = appendModalMarkup(data);
+      return movies;
+    }
+
+    function appendModalMarkup(data) {
+      backdropContainer.insertAdjacentHTML('beforeEnd', (0, _modalTemplate.default)(data));
+    }
+
+    function onCloseModal(e) {
+      window.removeEventListener('keydown', onEscPress);
+      backdropContainer.classList.remove('is-open');
+      backdropContainer.innerHTML = '';
+    }
+
+    function onEscPress(event) {
+      const isEscKey = event.code === 'Escape';
+
+      if (isEscKey) {
+        onCloseModal();
+      }
     }
   }
 }
 
-function delay2() {
+function delayModal(id) {
   setTimeout(() => {
-    manageModal2();
-  }, 1000);
-}
-
-delay2();
-
-function onStarIconcheck(e) {
-  console.log('click');
-  const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
-  const id = e.target.id,
-        item = e.target,
-        index = favorites.indexOf(id);
-  console.log('onStarIconcheck');
-  if (!id) return; // item is not favorite
-
-  if (index == -1) {
-    favorites.push(id);
-    console.log('onStarIconcheck');
-    item.classList.add('checked');
-    fetchFavouriteMoviesList(id);
-    delay2(); // item is already favorite
-  } else {
-    favorites.splice(index, 1);
-    const list = refs.favouriteList;
-    const arrayElms = Array.from(list.children);
-    arrayElms.forEach(elem => elem.remove());
-    favorites.forEach(id => fetchFavouriteMoviesList(id));
-    item.classList.remove('checked');
-  } // store array in local storage
-
-
-  localStorage.setItem('favorites', JSON.stringify(favorites));
-}
-
-function onStarIconcheckOnGallery(e) {
-  const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
-  const id = e.target.id,
-        item = e.target,
-        index = favorites.indexOf(id);
-  console.log(e.target.id);
-  console.log('onStarIconcheck1');
-  if (!id) return; // item is not favorite
-
-  if (index == -1) {
-    favorites.push(id);
-    item.classList.add('checked');
-    fetchFavouriteMoviesList(id);
-    delay2(); // item is already favorite
-  } else {
-    favorites.splice(index, 1);
-    const list = refs.favouriteList;
-    const arrayElms = Array.from(list.children);
-    arrayElms.forEach(elem => elem.remove());
-    favorites.forEach(id => fetchFavouriteMoviesList(id));
-    item.classList.remove('checked');
-  } // store array in local storage
-
-
-  localStorage.setItem('favorites', JSON.stringify(favorites));
-} // onPressDelay();
-
-
-function onPressDelay() {
-  setTimeout(() => {
-    function onCrossPress() {
-      const backdrop = document.querySelector('.backdrop');
-      const modalContainer = backdrop.firstElementChild;
-      const spanIconStar = modalContainer.firstElementChild;
-      const closeIcon = spanIconStar.nextElementSibling;
-      closeIcon.addEventListener('click', onCloseModal);
-
-      function onCloseModal(e) {
-        const backdropContainer = document.querySelector('.backdrop');
-        backdropContainer.classList.remove('is-open');
-        backdropContainer.innerHTML = '';
-      }
+    function manageStarInModalFav(id) {
+      const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+      const backdrop = document.querySelector('.backdrop.is-open');
+      const backdropChild = backdrop.querySelector('.modal-container');
+      const starIcon = backdropChild.querySelector('.modal-icon');
+      favorites.filter(favorite => {
+        if (favorite === id) {
+          starIcon.classList.add('checked');
+        }
+      });
+      starIcon.addEventListener('click', _starIconClick.onStarIconcheck);
     }
 
-    onCrossPress();
+    manageStarInModalFav(id);
   }, 1000);
 }
-},{"./js/get-refs":"js/get-refs.js","./js/apiService":"js/apiService.js","./templates/moviesTemplate.hbs":"templates/moviesTemplate.hbs","./templates/listItemTemplate.hbs":"templates/listItemTemplate.hbs","./templates/modalTemplate.hbs":"templates/modalTemplate.hbs"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+
+function manageGalleryModal() {
+  setTimeout(() => {
+    onGalleryModal();
+  }, 1000);
+}
+},{"./modalCrossIconClick":"js/modalCrossIconClick.js","./apiService":"js/apiService.js","../templates/modalTemplate.hbs":"templates/modalTemplate.hbs","./starIconClick":"js/starIconClick.js"}],"js/starIconClick.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.onStarIconcheck = onStarIconcheck;
+
+var _getRefs = _interopRequireDefault(require("./get-refs"));
+
+var _apiService = require("./apiService");
+
+var _crossIconClick = require("./crossIconClick");
+
+var _onFavListModal = require("./onFavListModal");
+
+var _onGalleryModal = require("./onGalleryModal");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+const refs = (0, _getRefs.default)();
+
+function onStarIconcheck(e) {
+  const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+  console.log('in starIconClick' + ' ' + favorites.length);
+  const id = e.target.id,
+        item = e.target,
+        index = favorites.indexOf(id);
+  if (!id) return; // item is not favorite
+
+  if (index == -1) {
+    favorites.push(id);
+    item.classList.add('checked');
+    (0, _apiService.fetchFavouriteMoviesList)(id);
+    (0, _crossIconClick.onCrossIconClick)();
+    (0, _onFavListModal.manageFavListModal)(); // manageGalleryModal();
+    // item is already favorite
+  } else {
+    favorites.splice(index, 1);
+    const list = refs.favouriteList;
+    const arrayElms = Array.from(list.children);
+    arrayElms.forEach(elem => elem.remove());
+    favorites.forEach(id => (0, _apiService.fetchFavouriteMoviesList)(id));
+    item.classList.remove('checked');
+  } // store array in local storage
+
+
+  localStorage.setItem('favorites', JSON.stringify(favorites));
+}
+},{"./get-refs":"js/get-refs.js","./apiService":"js/apiService.js","./crossIconClick":"js/crossIconClick.js","./onFavListModal":"js/onFavListModal.js","./onGalleryModal":"js/onGalleryModal.js"}],"js/localStorage.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.initStorage = initStorage;
+
+var _apiService = require("./apiService");
+
+var _starIconClick = require("./starIconClick");
+
+// delay2();
+function initStorage() {
+  const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+  console.log('in initStorage' + ' ' + favorites.length);
+
+  if (favorites.length > 0) {
+    setTimeout(() => {
+      favorites.forEach(id => {
+        (0, _apiService.fetchFavouriteMoviesList)(id);
+        const liElem = document.getElementById(id);
+        const divElem = liElem.firstElementChild;
+        const imgElem = divElem.firstElementChild;
+        const inputElem = imgElem.nextElementSibling;
+        inputElem.classList.add('checked');
+      });
+    }, 1000);
+  }
+
+  document.querySelector('.gallery-list').addEventListener('click', _starIconClick.onStarIconcheck);
+}
+},{"./apiService":"js/apiService.js","./starIconClick":"js/starIconClick.js"}],"index.js":[function(require,module,exports) {
+"use strict";
+
+var _apiService = require("./js/apiService");
+
+var _localStorage = require("./js/localStorage");
+
+var _onGalleryModal = require("./js/onGalleryModal");
+
+(0, _apiService.fetchMoviesGallery)();
+(0, _localStorage.initStorage)();
+(0, _onGalleryModal.manageGalleryModal)();
+},{"./js/apiService":"js/apiService.js","./js/localStorage":"js/localStorage.js","./js/onGalleryModal":"js/onGalleryModal.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -2938,7 +3030,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55613" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50695" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
