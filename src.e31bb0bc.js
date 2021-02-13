@@ -2485,60 +2485,7 @@ async function fetchFavouriteMoviesList(id) {
 function appendFavouriteListMarkup(data) {
   refs.favouriteList.insertAdjacentHTML('beforeend', (0, _favListItemTemplate.default)(data));
 }
-},{"../templates/moviesTemplate.hbs":"templates/moviesTemplate.hbs","../templates/favListItemTemplate.hbs":"templates/favListItemTemplate.hbs","./get-refs":"js/get-refs.js"}],"js/crossIconClick.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.onCrossIconClick = onCrossIconClick;
-
-var _getRefs = _interopRequireDefault(require("./get-refs"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-const refs = (0, _getRefs.default)();
-
-function manageCrossIconClick() {
-  refs.favouriteList.addEventListener('click', onCrossClick);
-
-  function onCrossClick(e) {
-    const nameField = document.querySelector('.fav-list-name');
-    const liField = document.querySelector('.fav-list-item');
-    const listField = document.querySelector('.fav-list');
-
-    if (e.target === nameField || e.target === liField || e.target === listField) {
-      return;
-    }
-
-    const item = e.target;
-    const id = e.target.id;
-    const itemBox = item.parentNode;
-    itemBox.remove();
-    const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
-    const index = favorites.indexOf(id);
-    favorites.splice(index, 1);
-    localStorage.setItem('favorites', JSON.stringify(favorites));
-    const arrayGalleryItems = Array.from(refs.filmsContainer.children);
-    arrayGalleryItems.forEach(elem => {
-      if (elem.id === id) {
-        elem.classList.add('cross-checked');
-      }
-    });
-    const deletedFromFavListMovie = document.querySelector('.cross-checked');
-    const divElem = deletedFromFavListMovie.firstElementChild;
-    const imgElem = divElem.firstElementChild;
-    const inputElem = imgElem.nextElementSibling;
-    inputElem.classList.remove('checked');
-  }
-}
-
-function onCrossIconClick() {
-  setTimeout(() => {
-    manageCrossIconClick();
-  }, 1000);
-}
-},{"./get-refs":"js/get-refs.js"}],"templates/modalTemplate.hbs":[function(require,module,exports) {
+},{"../templates/moviesTemplate.hbs":"templates/moviesTemplate.hbs","../templates/favListItemTemplate.hbs":"templates/favListItemTemplate.hbs","./get-refs":"js/get-refs.js"}],"templates/modalTemplate.hbs":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -2823,7 +2770,82 @@ function manageFavListModal() {
     onFavListModal();
   }, 1000);
 }
-},{"./apiService":"js/apiService.js","../templates/modalTemplate.hbs":"templates/modalTemplate.hbs","./starIconClick":"js/starIconClick.js","./modalCrossIconClick":"js/modalCrossIconClick.js"}],"js/onGalleryModal.js":[function(require,module,exports) {
+},{"./apiService":"js/apiService.js","../templates/modalTemplate.hbs":"templates/modalTemplate.hbs","./starIconClick":"js/starIconClick.js","./modalCrossIconClick":"js/modalCrossIconClick.js"}],"js/starIconClick.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.onStarIconcheck = onStarIconcheck;
+
+var _getRefs = _interopRequireDefault(require("./get-refs"));
+
+var _apiService = require("./apiService");
+
+var _onFavListModal = require("./onFavListModal");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+const refs = (0, _getRefs.default)();
+
+function onStarIconcheck(e) {
+  const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+  console.log('in starIconClick' + ' ' + favorites.length);
+  const id = e.target.id,
+        item = e.target,
+        index = favorites.indexOf(id);
+  if (!id) return; // item is not favorite
+
+  if (index == -1) {
+    favorites.push(id);
+    item.classList.add('checked');
+    (0, _apiService.fetchFavouriteMoviesList)(id);
+    (0, _onFavListModal.manageFavListModal)(); // item is already favorite
+  } else {
+    favorites.splice(index, 1);
+    const list = refs.favouriteList;
+    const arrayElms = Array.from(list.children);
+    arrayElms.forEach(elem => elem.remove());
+    favorites.forEach(id => (0, _apiService.fetchFavouriteMoviesList)(id));
+    item.classList.remove('checked');
+  } // store array in local storage
+
+
+  localStorage.setItem('favorites', JSON.stringify(favorites));
+}
+},{"./get-refs":"js/get-refs.js","./apiService":"js/apiService.js","./onFavListModal":"js/onFavListModal.js"}],"js/localStorage.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.initStorage = initStorage;
+
+var _apiService = require("./apiService");
+
+var _starIconClick = require("./starIconClick");
+
+// delay2();
+function initStorage() {
+  const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+  console.log('in initStorage' + ' ' + favorites.length);
+
+  if (favorites.length > 0) {
+    setTimeout(() => {
+      favorites.forEach(id => {
+        (0, _apiService.fetchFavouriteMoviesList)(id);
+        const liElem = document.getElementById(id);
+        const divElem = liElem.firstElementChild;
+        const imgElem = divElem.firstElementChild;
+        const inputElem = imgElem.nextElementSibling;
+        inputElem.classList.add('checked');
+      });
+    }, 1000);
+  }
+
+  document.querySelector('.gallery-list').addEventListener('click', _starIconClick.onStarIconcheck);
+}
+},{"./apiService":"js/apiService.js","./starIconClick":"js/starIconClick.js"}],"js/onGalleryModal.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -2909,88 +2931,60 @@ function manageGalleryModal() {
     onGalleryModal();
   }, 1000);
 }
-},{"./modalCrossIconClick":"js/modalCrossIconClick.js","./apiService":"js/apiService.js","../templates/modalTemplate.hbs":"templates/modalTemplate.hbs","./starIconClick":"js/starIconClick.js"}],"js/starIconClick.js":[function(require,module,exports) {
+},{"./modalCrossIconClick":"js/modalCrossIconClick.js","./apiService":"js/apiService.js","../templates/modalTemplate.hbs":"templates/modalTemplate.hbs","./starIconClick":"js/starIconClick.js"}],"js/crossIconClick.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.onStarIconcheck = onStarIconcheck;
+exports.onCrossIconClick = onCrossIconClick;
 
 var _getRefs = _interopRequireDefault(require("./get-refs"));
-
-var _apiService = require("./apiService");
-
-var _crossIconClick = require("./crossIconClick");
-
-var _onFavListModal = require("./onFavListModal");
-
-var _onGalleryModal = require("./onGalleryModal");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 const refs = (0, _getRefs.default)();
 
-function onStarIconcheck(e) {
-  const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
-  console.log('in starIconClick' + ' ' + favorites.length);
-  const id = e.target.id,
-        item = e.target,
-        index = favorites.indexOf(id);
-  if (!id) return; // item is not favorite
+function manageCrossIconClick() {
+  refs.favouriteList.addEventListener('click', onCrossClick);
 
-  if (index == -1) {
-    favorites.push(id);
-    item.classList.add('checked');
-    (0, _apiService.fetchFavouriteMoviesList)(id);
-    (0, _crossIconClick.onCrossIconClick)();
-    (0, _onFavListModal.manageFavListModal)(); // manageGalleryModal();
-    // item is already favorite
-  } else {
+  function onCrossClick(e) {
+    const nameField = document.querySelector('.fav-list-name');
+    const liField = document.querySelector('.fav-list-item');
+    const listField = document.querySelector('.fav-list');
+
+    if (e.target === nameField || e.target === liField || e.target === listField) {
+      return;
+    }
+
+    const item = e.target;
+    const id = e.target.id;
+    const itemBox = item.parentNode;
+    itemBox.remove();
+    const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+    const index = favorites.indexOf(id);
     favorites.splice(index, 1);
-    const list = refs.favouriteList;
-    const arrayElms = Array.from(list.children);
-    arrayElms.forEach(elem => elem.remove());
-    favorites.forEach(id => (0, _apiService.fetchFavouriteMoviesList)(id));
-    item.classList.remove('checked');
-  } // store array in local storage
-
-
-  localStorage.setItem('favorites', JSON.stringify(favorites));
-}
-},{"./get-refs":"js/get-refs.js","./apiService":"js/apiService.js","./crossIconClick":"js/crossIconClick.js","./onFavListModal":"js/onFavListModal.js","./onGalleryModal":"js/onGalleryModal.js"}],"js/localStorage.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.initStorage = initStorage;
-
-var _apiService = require("./apiService");
-
-var _starIconClick = require("./starIconClick");
-
-// delay2();
-function initStorage() {
-  const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
-  console.log('in initStorage' + ' ' + favorites.length);
-
-  if (favorites.length > 0) {
-    setTimeout(() => {
-      favorites.forEach(id => {
-        (0, _apiService.fetchFavouriteMoviesList)(id);
-        const liElem = document.getElementById(id);
-        const divElem = liElem.firstElementChild;
-        const imgElem = divElem.firstElementChild;
-        const inputElem = imgElem.nextElementSibling;
-        inputElem.classList.add('checked');
-      });
-    }, 1000);
+    localStorage.setItem('favorites', JSON.stringify(favorites));
+    const arrayGalleryItems = Array.from(refs.filmsContainer.children);
+    arrayGalleryItems.forEach(elem => {
+      if (elem.id === id) {
+        elem.classList.add('cross-checked');
+      }
+    });
+    const deletedFromFavListMovie = document.querySelector('.cross-checked');
+    const divElem = deletedFromFavListMovie.firstElementChild;
+    const imgElem = divElem.firstElementChild;
+    const inputElem = imgElem.nextElementSibling;
+    inputElem.classList.remove('checked');
   }
-
-  document.querySelector('.gallery-list').addEventListener('click', _starIconClick.onStarIconcheck);
 }
-},{"./apiService":"js/apiService.js","./starIconClick":"js/starIconClick.js"}],"index.js":[function(require,module,exports) {
+
+function onCrossIconClick() {
+  setTimeout(() => {
+    manageCrossIconClick();
+  }, 1000);
+}
+},{"./get-refs":"js/get-refs.js"}],"index.js":[function(require,module,exports) {
 "use strict";
 
 var _apiService = require("./js/apiService");
@@ -2999,10 +2993,13 @@ var _localStorage = require("./js/localStorage");
 
 var _onGalleryModal = require("./js/onGalleryModal");
 
+var _crossIconClick = require("./js/crossIconClick");
+
 (0, _apiService.fetchMoviesGallery)();
 (0, _localStorage.initStorage)();
+(0, _crossIconClick.onCrossIconClick)();
 (0, _onGalleryModal.manageGalleryModal)();
-},{"./js/apiService":"js/apiService.js","./js/localStorage":"js/localStorage.js","./js/onGalleryModal":"js/onGalleryModal.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"./js/apiService":"js/apiService.js","./js/localStorage":"js/localStorage.js","./js/onGalleryModal":"js/onGalleryModal.js","./js/crossIconClick":"js/crossIconClick.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -3030,7 +3027,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50695" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59895" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
