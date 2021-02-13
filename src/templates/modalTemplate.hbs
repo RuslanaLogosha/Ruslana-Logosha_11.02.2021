@@ -11,15 +11,19 @@
   <span>{{release_date}}</span>
   <p >
     {{#each genres}}
-    <span>{{this}}</span>
+    <span>{{this.name}}</span>
       {{/each}}
   </p>
+<span>Production companies:</span>
+    {{#each production_companies}}
+    <li>{{this.name}}</li>
+      {{/each}}
 
-  <span>Director</span> : <span>{{director}}</span>
+  {{!-- <span>Director</span> : <span>{{director}}</span>
   <div>
     <span>Starring:</span>
     {{#each starring}}
     <span>{{this}}</span>
-      {{/each}}
+      {{/each}} --}}
   </div>
 </div>

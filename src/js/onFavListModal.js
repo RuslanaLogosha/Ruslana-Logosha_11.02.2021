@@ -26,10 +26,13 @@ function onFavListModal() {
     async function fetchMoviesInfoForModal(id) {
       const data = await fetchMoviesById(id);
       const movies = appendModalMarkup(data);
+      console.log(movies);
       return movies;
     }
 
     function appendModalMarkup(data) {
+      console.log(data);
+
       backdropContainer.insertAdjacentHTML('beforeEnd', modalTpl(data));
     }
 
