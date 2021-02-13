@@ -2499,7 +2499,26 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 const templateFunction = _handlebars.default.template({
   "1": function (container, depth0, helpers, partials, data) {
-    return "    <span>" + container.escapeExpression(container.lambda(depth0, depth0)) + "</span>\n";
+    var lookupProperty = container.lookupProperty || function (parent, propertyName) {
+      if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
+        return parent[propertyName];
+      }
+
+      return undefined;
+    };
+
+    return "    <span>" + container.escapeExpression(container.lambda(depth0 != null ? lookupProperty(depth0, "name") : depth0, depth0)) + "</span>\n";
+  },
+  "3": function (container, depth0, helpers, partials, data) {
+    var lookupProperty = container.lookupProperty || function (parent, propertyName) {
+      if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
+        return parent[propertyName];
+      }
+
+      return undefined;
+    };
+
+    return "    <li>" + container.escapeExpression(container.lambda(depth0 != null ? lookupProperty(depth0, "name") : depth0, depth0)) + "</li>\n";
   },
   "compiler": [8, ">= 4.3.0"],
   "main": function (container, depth0, helpers, partials, data) {
@@ -2617,37 +2636,23 @@ const templateFunction = _handlebars.default.template({
           "column": 15
         }
       }
-    })) != null ? stack1 : "") + "  </p>\n\n  <span>Director</span> : <span>" + alias4((helper = (helper = lookupProperty(helpers, "director") || (depth0 != null ? lookupProperty(depth0, "director") : depth0)) != null ? helper : alias2, typeof helper === alias3 ? helper.call(alias1, {
-      "name": "director",
-      "hash": {},
-      "data": data,
-      "loc": {
-        "start": {
-          "line": 18,
-          "column": 32
-        },
-        "end": {
-          "line": 18,
-          "column": 44
-        }
-      }
-    }) : helper)) + "</span>\n  <div>\n    <span>Starring:</span>\n" + ((stack1 = lookupProperty(helpers, "each").call(alias1, depth0 != null ? lookupProperty(depth0, "starring") : depth0, {
+    })) != null ? stack1 : "") + "  </p>\n<span>Production companies:</span>\n" + ((stack1 = lookupProperty(helpers, "each").call(alias1, depth0 != null ? lookupProperty(depth0, "production_companies") : depth0, {
       "name": "each",
       "hash": {},
-      "fn": container.program(1, data, 0),
+      "fn": container.program(3, data, 0),
       "inverse": container.noop,
       "data": data,
       "loc": {
         "start": {
-          "line": 21,
+          "line": 18,
           "column": 4
         },
         "end": {
-          "line": 23,
+          "line": 20,
           "column": 15
         }
       }
-    })) != null ? stack1 : "") + "  </div>\n</div>";
+    })) != null ? stack1 : "") + "\n  </div>\n</div>";
   },
   "useData": true
 });
@@ -2720,10 +2725,12 @@ function onFavListModal() {
     async function fetchMoviesInfoForModal(id) {
       const data = await (0, _apiService.fetchMoviesById)(id);
       const movies = appendModalMarkup(data);
+      console.log(movies);
       return movies;
     }
 
     function appendModalMarkup(data) {
+      console.log(data);
       backdropContainer.insertAdjacentHTML('beforeEnd', (0, _modalTemplate.default)(data));
     }
 
@@ -3023,7 +3030,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "60785" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49714" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
