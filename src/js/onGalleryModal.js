@@ -1,76 +1,57 @@
 import { onCrossPress } from './modalCrossIconClick';
-import { fetchMoviesById } from './apiService';
-import modalTpl from '../templates/modalTemplate.hbs';
 import { onStarIconcheck } from './starIconClick';
+import { fetchMoviesInfoForModal } from './apiService';
 
-function onGalleryModal() {
-  const modalTargetItems = document.querySelectorAll('.modal-target');
-  const arrMovieItems = Array.from(modalTargetItems);
+import getRefs from './get-refs';
+const refs = getRefs();
 
-  arrMovieItems.forEach(el => el.addEventListener('click', openModal));
+export function manageGalleryModal() {
+  refs.filmsContainer.addEventListener('click', openModal);
 
   async function openModal(e) {
+    const imgEl = document.querySelector('.img');
+    console.log(imgEl);
     console.log(e.target);
-    e.preventDefault();
+    console.log(e.target === imgEl);
 
-    window.addEventListener('keydown', onEscPress);
-    const backdropContainer = document.querySelector('.backdrop');
-    backdropContainer.classList.add('is-open');
+    if (e.target === imgEl) {
+      const id = e.target.id;
 
-    const id = e.currentTarget.id;
+      await fetchMoviesInfoForModal(id);
 
-    await fetchMoviesInfoForModal(id);
-    delayModal(id);
-    onCrossPress();
+      window.addEventListener('keydown', onEscPress);
+      refs.backdropContainer.classList.add('is-open');
 
-    async function fetchMoviesInfoForModal(id) {
-      const data = await fetchMoviesById(id);
-      const movies = appendModalMarkup(data);
-      return movies;
-    }
-
-    function appendModalMarkup(data) {
-      backdropContainer.insertAdjacentHTML('beforeEnd', modalTpl(data));
-    }
-
-    function onCloseModal(e) {
-      window.removeEventListener('keydown', onEscPress);
-      backdropContainer.classList.remove('is-open');
-      backdropContainer.innerHTML = '';
-    }
-
-    function onEscPress(event) {
-      const isEscKey = event.code === 'Escape';
-      if (isEscKey) {
-        onCloseModal();
-      }
+      manageStarInModalFav(id);
+      onCrossPress();
     }
   }
 }
 
-function delayModal(id) {
-  setTimeout(() => {
-    function manageStarInModalFav(id) {
-      const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
-      const backdrop = document.querySelector('.backdrop.is-open');
-      const backdropChild = backdrop.querySelector('.modal-container');
-      const starIcon = backdropChild.querySelector('.modal-icon');
-
-      favorites.filter(favorite => {
-        if (favorite === id) {
-          starIcon.classList.add('checked');
-        }
-      });
-
-      starIcon.addEventListener('click', onStarIconcheck);
-      console.log(favorites);
-    }
-    manageStarInModalFav(id);
-  }, 1000);
+function onCloseModal() {
+  window.removeEventListener('keydown', onEscPress);
+  refs.backdropContainer.classList.remove('is-open');
+  refs.backdropContainer.innerHTML = '';
 }
 
-export function manageGalleryModal() {
-  setTimeout(() => {
-    onGalleryModal();
-  }, 1000);
+function onEscPress(event) {
+  const isEscKey = event.code === 'Escape';
+  if (isEscKey) {
+    onCloseModal();
+  }
+}
+
+function manageStarInModalFav(id) {
+  const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+  const backdrop = document.querySelector('.backdrop.is-open');
+  const backdropChild = backdrop.querySelector('.modal-container');
+  const starIcon = backdropChild.querySelector('.modal-icon');
+
+  favorites.filter(favorite => {
+    if (favorite === id) {
+      starIcon.classList.add('checked');
+    }
+  });
+
+  starIcon.addEventListener('click', onStarIconcheck);
 }

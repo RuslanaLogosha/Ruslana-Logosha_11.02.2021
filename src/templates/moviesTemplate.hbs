@@ -1,13 +1,13 @@
 {{#each this}}
 <li class="gallery-list-item" id="{{id}}">
     <div class="thumb">
-        <img src="https://image.tmdb.org/t/p/w500{{poster_path}}"/>
+        <img class="img" src="https://image.tmdb.org/t/p/w500{{poster_path}}" id="{{id}}"/>
         <input class="input-checkbox" id="{{id}}" type="checkbox" value="Favourite">
         <span class="star-icon"></span>       
     </div>
-    <p class="card__text modal-target" id="{{id}}">
-      <span> {{title}} </span> 
-      <span>{{release_date}}</span>
+    <p class="card__text" id="{{id}}">
+      <span id="{{id}}"> {{title}} </span> 
+      <span id="{{id}}">{{release_date}}</span>
    </p>
    
 </li>

@@ -1,5 +1,6 @@
 import moviesTpl from '../templates/moviesTemplate.hbs';
 import favouriteTpl from '../templates/favListItemTemplate.hbs';
+import modalTpl from '../templates/modalTemplate.hbs';
 import getRefs from './get-refs';
 const refs = getRefs();
 
@@ -12,7 +13,6 @@ export async function fetchMovies() {
   try {
     const data = await fetch(url);
     const { results } = await data.json();
-    console.log(`inside fetchMovies: ${results}`);
     return results;
   } catch (error) {
     console.log(error);
@@ -20,11 +20,8 @@ export async function fetchMovies() {
 }
 
 export function fetchMoviesGallery() {
-  console.log(
-    `inside fetchMoviesGallery: ${fetchMovies().then(
-      appendMoviesGalleryMarkup,
-    )}`,
-  );
+  // fetch movies for gallery
+  fetchMovies().then(appendMoviesGalleryMarkup);
 }
 
 function appendMoviesGalleryMarkup(data) {
@@ -44,9 +41,19 @@ export async function fetchMoviesById(id) {
 }
 
 export function fetchFavouriteMoviesList(id) {
+  // fetch movies for favorite list
   return fetchMoviesById(id).then(appendFavouriteListMarkup);
 }
 
 function appendFavouriteListMarkup(data) {
   refs.favouriteList.insertAdjacentHTML('beforeend', favouriteTpl(data));
+}
+
+export function fetchMoviesInfoForModal(id) {
+  // fetch movies for Modal
+  return fetchMoviesById(id).then(appendModalMarkup);
+}
+
+function appendModalMarkup(data) {
+  refs.backdropContainer.insertAdjacentHTML('beforeEnd', modalTpl(data));
 }

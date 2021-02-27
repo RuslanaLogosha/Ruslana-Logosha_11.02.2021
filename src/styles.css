@@ -58,8 +58,8 @@ body {
   position: absolute;
   top: 0;
   right: 0;
-  width: 30px;
-  height: 30px;
+  width: 40px;
+  height: 40px;
   appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -71,8 +71,8 @@ body {
   position: absolute;
   top: 0;
   right: 0;
-  width: 30px;
-  height: 30px;
+  width: 40px;
+  height: 40px;
   z-index: 1;
   background-image: url(./images/white-star.svg);
 }

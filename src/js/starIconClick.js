@@ -5,31 +5,34 @@ import { manageFavListModal } from './onFavListModal';
 const refs = getRefs();
 
 export async function onStarIconcheck(e) {
-  const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+  const inputEl = document.querySelector('.input-checkbox');
+  const starEl = document.querySelector('.star-icon');
 
-  // console.log('in starIconClick' + ' ' + favorites.length);
+  const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
 
   const id = e.target.id,
     item = e.target,
     index = favorites.indexOf(id);
-
   if (!id) return;
 
-  // item is not favorite
-  if (index == -1) {
-    favorites.push(id);
-    item.classList.add('checked');
-    await fetchFavouriteMoviesList(id);
-    manageFavListModal();
+  console.log(e.target);
+  if (e.target === inputEl || e.target === starEl) {
+    // item is not in favourites
+    if (index == -1) {
+      favorites.push(id);
+      item.classList.add('checked');
+      await fetchFavouriteMoviesList(id);
+      manageFavListModal();
 
-    // item is already favorite
-  } else {
-    favorites.splice(index, 1);
-    const list = refs.favouriteList;
-    const arrayElms = Array.from(list.children);
-    arrayElms.forEach(elem => elem.remove());
-    favorites.forEach(id => fetchFavouriteMoviesList(id));
-    item.classList.remove('checked');
+      // item is already favorite
+    } else {
+      favorites.splice(index, 1);
+      const list = refs.favouriteList;
+      const arrayElms = Array.from(list.children);
+      arrayElms.forEach(elem => elem.remove());
+      favorites.forEach(id => fetchFavouriteMoviesList(id));
+      item.classList.remove('checked');
+    }
   }
   // store array in local storage
   localStorage.setItem('favorites', JSON.stringify(favorites));

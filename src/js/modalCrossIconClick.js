@@ -1,4 +1,4 @@
-function CrossPress() {
+export function onCrossPress() {
   const backdrop = document.querySelector('.backdrop');
   const modalContainer = backdrop.firstElementChild;
   const spanIconStar = modalContainer.firstElementChild;
@@ -9,10 +9,4 @@ function CrossPress() {
     backdropContainer.classList.remove('is-open');
     backdropContainer.innerHTML = '';
   }
-}
-
-export function onCrossPress() {
-  setTimeout(() => {
-    CrossPress();
-  }, 1000);
 }
