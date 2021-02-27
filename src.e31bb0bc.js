@@ -2615,7 +2615,7 @@ function getRefs() {
     backdropContainer: document.querySelector('.backdrop')
   };
 }
-},{}],"js/apiService.js":[function(require,module,exports) {
+},{}],"services/apiService.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -2633,7 +2633,7 @@ var _favListItemTemplate = _interopRequireDefault(require("../templates/favListI
 
 var _modalTemplate = _interopRequireDefault(require("../templates/modalTemplate.hbs"));
 
-var _getRefs = _interopRequireDefault(require("./get-refs"));
+var _getRefs = _interopRequireDefault(require("../js/get-refs"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -2677,7 +2677,7 @@ async function fetchMoviesById(id) {
 }
 
 function fetchFavouriteMoviesList(id) {
-  // fetch movies for favorite list
+  // fetch movies for favourite list in side bar
   return fetchMoviesById(id).then(appendFavouriteListMarkup);
 }
 
@@ -2693,7 +2693,7 @@ function fetchMoviesInfoForModal(id) {
 function appendModalMarkup(data) {
   refs.backdropContainer.insertAdjacentHTML('beforeEnd', (0, _modalTemplate.default)(data));
 }
-},{"../templates/moviesTemplate.hbs":"templates/moviesTemplate.hbs","../templates/favListItemTemplate.hbs":"templates/favListItemTemplate.hbs","../templates/modalTemplate.hbs":"templates/modalTemplate.hbs","./get-refs":"js/get-refs.js"}],"js/modalCrossIconClick.js":[function(require,module,exports) {
+},{"../templates/moviesTemplate.hbs":"templates/moviesTemplate.hbs","../templates/favListItemTemplate.hbs":"templates/favListItemTemplate.hbs","../templates/modalTemplate.hbs":"templates/modalTemplate.hbs","../js/get-refs":"js/get-refs.js"}],"js/modalCrossIconClick.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -2722,7 +2722,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.manageFavListModal = manageFavListModal;
 
-var _apiService = require("./apiService");
+var _apiService = require("../services/apiService");
 
 var _starIconClick = require("./starIconClick");
 
@@ -2777,7 +2777,7 @@ function onEscPress(e) {
     onCloseModal();
   }
 }
-},{"./apiService":"js/apiService.js","./starIconClick":"js/starIconClick.js","./modalCrossIconClick":"js/modalCrossIconClick.js","./get-refs":"js/get-refs.js"}],"js/starIconClick.js":[function(require,module,exports) {
+},{"../services/apiService":"services/apiService.js","./starIconClick":"js/starIconClick.js","./modalCrossIconClick":"js/modalCrossIconClick.js","./get-refs":"js/get-refs.js"}],"js/starIconClick.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -2787,7 +2787,7 @@ exports.onStarIconcheck = onStarIconcheck;
 
 var _getRefs = _interopRequireDefault(require("./get-refs"));
 
-var _apiService = require("./apiService");
+var _apiService = require("../services/apiService");
 
 var _onFavListModal = require("./onFavListModal");
 
@@ -2825,7 +2825,7 @@ async function onStarIconcheck(e) {
 
   localStorage.setItem('favorites', JSON.stringify(favorites));
 }
-},{"./get-refs":"js/get-refs.js","./apiService":"js/apiService.js","./onFavListModal":"js/onFavListModal.js"}],"js/localStorage.js":[function(require,module,exports) {
+},{"./get-refs":"js/get-refs.js","../services/apiService":"services/apiService.js","./onFavListModal":"js/onFavListModal.js"}],"js/localStorage.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -2833,7 +2833,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.initStorage = void 0;
 
-var _apiService = require("./apiService");
+var _apiService = require("../services/apiService");
 
 var _starIconClick = require("./starIconClick");
 
@@ -2856,7 +2856,7 @@ const initStorage = () => {
 };
 
 exports.initStorage = initStorage;
-},{"./apiService":"js/apiService.js","./starIconClick":"js/starIconClick.js"}],"js/onGalleryModal.js":[function(require,module,exports) {
+},{"../services/apiService":"services/apiService.js","./starIconClick":"js/starIconClick.js"}],"js/onGalleryModal.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -2868,7 +2868,7 @@ var _modalCrossIconClick = require("./modalCrossIconClick");
 
 var _starIconClick = require("./starIconClick");
 
-var _apiService = require("./apiService");
+var _apiService = require("../services/apiService");
 
 var _getRefs = _interopRequireDefault(require("./get-refs"));
 
@@ -2922,7 +2922,7 @@ function manageStarInModalFav(id) {
   });
   starIcon.addEventListener('click', _starIconClick.onStarIconcheck);
 }
-},{"./modalCrossIconClick":"js/modalCrossIconClick.js","./starIconClick":"js/starIconClick.js","./apiService":"js/apiService.js","./get-refs":"js/get-refs.js"}],"js/crossIconClick.js":[function(require,module,exports) {
+},{"./modalCrossIconClick":"js/modalCrossIconClick.js","./starIconClick":"js/starIconClick.js","../services/apiService":"services/apiService.js","./get-refs":"js/get-refs.js"}],"js/crossIconClick.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -2969,7 +2969,7 @@ function onCrossIconClick() {
 },{"./get-refs":"js/get-refs.js"}],"index.js":[function(require,module,exports) {
 "use strict";
 
-var _apiService = require("./js/apiService");
+var _apiService = require("./services/apiService");
 
 var _localStorage = require("./js/localStorage");
 
@@ -2989,7 +2989,7 @@ const initApp = async () => {
 };
 
 initApp();
-},{"./js/apiService":"js/apiService.js","./js/localStorage":"js/localStorage.js","./js/onGalleryModal":"js/onGalleryModal.js","./js/crossIconClick":"js/crossIconClick.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"./services/apiService":"services/apiService.js","./js/localStorage":"js/localStorage.js","./js/onGalleryModal":"js/onGalleryModal.js","./js/crossIconClick":"js/crossIconClick.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -3017,7 +3017,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56173" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "65306" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
