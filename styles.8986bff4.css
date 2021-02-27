@@ -81,13 +81,12 @@ body {
   background-image: url(/star.bd8406fa.svg);
 }
 
-/* .input-checkbox.checked + .star-icon.modal-icon {
-  background-image: url(./images/star.svg);
-} */
-
 .star-icon.modal-icon {
-  background-image: url(/white-star.797c099d.svg);
-  position: absolute;
+  top: 270px;
+  left: 30px;
+}
+
+.input-checkbox.modal-icon {
   top: 270px;
   left: 30px;
 }
@@ -176,6 +175,14 @@ body {
   height: 17px;
   padding: 10px;
   background-image: url(/cross.b107c138.svg);
+}
+
+.fav-list-item {
+  z-index: 4;
+}
+
+.fav-list-name {
+  z-index: 3;
 }
 
 

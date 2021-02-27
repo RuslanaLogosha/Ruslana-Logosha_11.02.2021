@@ -2477,17 +2477,31 @@ const templateFunction = _handlebars.default.template({
       return undefined;
     };
 
-    return "<div class=\"modal-container\" >\r\n  <span class=\"star-icon modal-icon\" id=\"" + alias4((helper = (helper = lookupProperty(helpers, "id") || (depth0 != null ? lookupProperty(depth0, "id") : depth0)) != null ? helper : alias2, typeof helper === alias3 ? helper.call(alias1, {
+    return "<div class=\"modal-container\" >\r\n  <input class=\"input-checkbox modal-icon\" id=\"" + alias4((helper = (helper = lookupProperty(helpers, "id") || (depth0 != null ? lookupProperty(depth0, "id") : depth0)) != null ? helper : alias2, typeof helper === alias3 ? helper.call(alias1, {
       "name": "id",
       "hash": {},
       "data": data,
       "loc": {
         "start": {
           "line": 2,
-          "column": 41
+          "column": 47
         },
         "end": {
           "line": 2,
+          "column": 53
+        }
+      }
+    }) : helper)) + "\" type=\"checkbox\" value=\"Favourite\">\r\n  <span class=\"star-icon modal-icon\" id=\"" + alias4((helper = (helper = lookupProperty(helpers, "id") || (depth0 != null ? lookupProperty(depth0, "id") : depth0)) != null ? helper : alias2, typeof helper === alias3 ? helper.call(alias1, {
+      "name": "id",
+      "hash": {},
+      "data": data,
+      "loc": {
+        "start": {
+          "line": 3,
+          "column": 41
+        },
+        "end": {
+          "line": 3,
           "column": 47
         }
       }
@@ -2497,11 +2511,11 @@ const templateFunction = _handlebars.default.template({
       "data": data,
       "loc": {
         "start": {
-          "line": 6,
+          "line": 7,
           "column": 63
         },
         "end": {
-          "line": 6,
+          "line": 7,
           "column": 78
         }
       }
@@ -2511,11 +2525,11 @@ const templateFunction = _handlebars.default.template({
       "data": data,
       "loc": {
         "start": {
-          "line": 8,
+          "line": 9,
           "column": 31
         },
         "end": {
-          "line": 8,
+          "line": 9,
           "column": 37
         }
       }
@@ -2525,11 +2539,11 @@ const templateFunction = _handlebars.default.template({
       "data": data,
       "loc": {
         "start": {
-          "line": 8,
+          "line": 9,
           "column": 39
         },
         "end": {
-          "line": 8,
+          "line": 9,
           "column": 48
         }
       }
@@ -2539,11 +2553,11 @@ const templateFunction = _handlebars.default.template({
       "data": data,
       "loc": {
         "start": {
-          "line": 9,
+          "line": 10,
           "column": 7
         },
         "end": {
-          "line": 9,
+          "line": 10,
           "column": 19
         }
       }
@@ -2553,11 +2567,11 @@ const templateFunction = _handlebars.default.template({
       "data": data,
       "loc": {
         "start": {
-          "line": 11,
+          "line": 12,
           "column": 8
         },
         "end": {
-          "line": 11,
+          "line": 12,
           "column": 24
         }
       }
@@ -2569,11 +2583,11 @@ const templateFunction = _handlebars.default.template({
       "data": data,
       "loc": {
         "start": {
-          "line": 13,
+          "line": 14,
           "column": 4
         },
         "end": {
-          "line": 15,
+          "line": 16,
           "column": 15
         }
       }
@@ -2585,11 +2599,11 @@ const templateFunction = _handlebars.default.template({
       "data": data,
       "loc": {
         "start": {
-          "line": 18,
+          "line": 19,
           "column": 4
         },
         "end": {
-          "line": 20,
+          "line": 21,
           "column": 15
         }
       }
@@ -2735,19 +2749,22 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 const refs = (0, _getRefs.default)();
 
 async function manageFavListModal() {
-  const modalFavItem = document.querySelector('.fav-list-name');
-
-  if (modalFavItem) {
-    modalFavItem.addEventListener('click', openModal);
-  }
+  refs.favouriteList.addEventListener('click', openModal);
 
   async function openModal(e) {
-    window.addEventListener('keydown', onEscPress);
-    refs.backdropContainer.classList.add('is-open');
-    const id = e.target.id;
-    await (0, _apiService.fetchMoviesInfoForModal)(id);
-    manageStarInModalFav(id);
-    (0, _modalCrossIconClick.onCrossPress)();
+    const modalFavList = document.querySelectorAll('.fav-list-name');
+    console.log(e.target);
+
+    for (let listItem of modalFavList) {
+      if (e.target === listItem) {
+        window.addEventListener('keydown', onEscPress);
+        refs.backdropContainer.classList.add('is-open');
+        const id = e.target.id;
+        await (0, _apiService.fetchMoviesInfoForModal)(id);
+        manageStarInModalFav(id);
+        (0, _modalCrossIconClick.onCrossPress)();
+      }
+    }
   }
 }
 
@@ -2796,8 +2813,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 const refs = (0, _getRefs.default)();
 
 async function onStarIconcheck(e) {
-  const inputEl = document.querySelector('.input-checkbox');
-  const starEl = document.querySelector('.star-icon');
+  const inputEl = document.querySelectorAll('.input-checkbox');
   const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
   const id = e.target.id,
         item = e.target,
@@ -2805,25 +2821,27 @@ async function onStarIconcheck(e) {
   if (!id) return;
   console.log(e.target);
 
-  if (e.target === inputEl || e.target === starEl) {
-    // item is not in favourites
-    if (index == -1) {
-      favorites.push(id);
-      item.classList.add('checked');
-      await (0, _apiService.fetchFavouriteMoviesList)(id);
-      (0, _onFavListModal.manageFavListModal)(); // item is already favorite
-    } else {
-      favorites.splice(index, 1);
-      const list = refs.favouriteList;
-      const arrayElms = Array.from(list.children);
-      arrayElms.forEach(elem => elem.remove());
-      favorites.forEach(id => (0, _apiService.fetchFavouriteMoviesList)(id));
-      item.classList.remove('checked');
-    }
-  } // store array in local storage
+  for (let input of inputEl) {
+    if (e.target === input) {
+      // item is not in favourites
+      if (index == -1) {
+        favorites.push(id);
+        item.classList.add('checked');
+        await (0, _apiService.fetchFavouriteMoviesList)(id);
+        (0, _onFavListModal.manageFavListModal)(); // item is already favorite
+      } else {
+        favorites.splice(index, 1);
+        const list = refs.favouriteList;
+        const arrayElms = Array.from(list.children);
+        arrayElms.forEach(elem => elem.remove());
+        favorites.forEach(id => (0, _apiService.fetchFavouriteMoviesList)(id));
+        item.classList.remove('checked');
+      }
+    } // store array in local storage
 
 
-  localStorage.setItem('favorites', JSON.stringify(favorites));
+    localStorage.setItem('favorites', JSON.stringify(favorites));
+  }
 }
 },{"./get-refs":"js/get-refs.js","../services/apiService":"services/apiService.js","./onFavListModal":"js/onFavListModal.js"}],"js/localStorage.js":[function(require,module,exports) {
 "use strict";
@@ -2880,18 +2898,17 @@ function manageGalleryModal() {
   refs.filmsContainer.addEventListener('click', openModal);
 
   async function openModal(e) {
-    const imgEl = document.querySelector('.img');
-    console.log(imgEl);
-    console.log(e.target);
-    console.log(e.target === imgEl);
+    const imgEls = document.querySelectorAll('.img');
 
-    if (e.target === imgEl) {
-      const id = e.target.id;
-      await (0, _apiService.fetchMoviesInfoForModal)(id);
-      window.addEventListener('keydown', onEscPress);
-      refs.backdropContainer.classList.add('is-open');
-      manageStarInModalFav(id);
-      (0, _modalCrossIconClick.onCrossPress)();
+    for (let img of imgEls) {
+      if (e.target === img) {
+        const id = e.target.id;
+        await (0, _apiService.fetchMoviesInfoForModal)(id);
+        window.addEventListener('keydown', onEscPress);
+        refs.backdropContainer.classList.add('is-open');
+        manageStarInModalFav(id);
+        (0, _modalCrossIconClick.onCrossPress)();
+      }
     }
   }
 }
@@ -2940,30 +2957,28 @@ function onCrossIconClick() {
   refs.favouriteList.addEventListener('click', onCrossClick);
 
   function onCrossClick(e) {
-    const nameField = document.querySelector('.fav-list-name');
-    const liField = document.querySelector('.fav-list-item');
-    const listField = document.querySelector('.fav-list');
+    const crossIcons = document.querySelectorAll('.cross-icon');
 
-    if (e.target === nameField || e.target === liField || e.target === listField) {
-      return;
+    for (let icon of crossIcons) {
+      if (e.target === icon) {
+        const item = e.target;
+        const id = e.target.id;
+        const itemBox = item.parentNode;
+        itemBox.remove(); //remove item from favoriteList in side bar
+
+        const liElem = document.getElementById(id); // remove "checked" yellow start from gallery
+
+        const divElem = liElem.firstElementChild;
+        const imgElem = divElem.firstElementChild;
+        const inputElem = imgElem.nextElementSibling;
+        inputElem.classList.remove('checked');
+        const favorites = JSON.parse(localStorage.getItem('favorites')) || []; // remove deleted movie from local storage
+
+        const index = favorites.indexOf(id);
+        favorites.splice(index, 1);
+        localStorage.setItem('favorites', JSON.stringify(favorites));
+      }
     }
-
-    const item = e.target;
-    const id = e.target.id;
-    const itemBox = item.parentNode;
-    itemBox.remove(); //remove item from favoriteList in side bar
-
-    const liElem = document.getElementById(id); // remove "checked" yellow start from gallery
-
-    const divElem = liElem.firstElementChild;
-    const imgElem = divElem.firstElementChild;
-    const inputElem = imgElem.nextElementSibling;
-    inputElem.classList.remove('checked');
-    const favorites = JSON.parse(localStorage.getItem('favorites')) || []; // remove deleted movie from local storage
-
-    const index = favorites.indexOf(id);
-    favorites.splice(index, 1);
-    localStorage.setItem('favorites', JSON.stringify(favorites));
   }
 }
 },{"./get-refs":"js/get-refs.js"}],"index.js":[function(require,module,exports) {
@@ -3017,7 +3032,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "65306" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "65417" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
