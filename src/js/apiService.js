@@ -1,24 +1,3 @@
-// const url = 'http://my-json-server.typicode.com/moviedb-tech/movies/list';
-
-// export async function fetchMovies() {
-//   try {
-//     const data = await fetch(url);
-//     const results = await data.json();
-//     return results;
-//   } catch (error) {
-//     console.log(error);
-//   }
-// }
-
-// export async function fetchMoviesById(id) {
-//   try {
-//     const data = await fetch(`${url}/${id}`);
-//     const results = await data.json();
-//     return results;
-//   } catch (error) {
-//     console.log(error);
-//   }
-// }
 import moviesTpl from '../templates/moviesTemplate.hbs';
 import favouriteTpl from '../templates/favListItemTemplate.hbs';
 import getRefs from './get-refs';
@@ -33,16 +12,19 @@ export async function fetchMovies() {
   try {
     const data = await fetch(url);
     const { results } = await data.json();
+    console.log(`inside fetchMovies: ${results}`);
     return results;
   } catch (error) {
     console.log(error);
   }
 }
 
-export async function fetchMoviesGallery() {
-  const data = await fetchMovies();
-  const movies = appendMoviesGalleryMarkup(data);
-  return movies;
+export function fetchMoviesGallery() {
+  console.log(
+    `inside fetchMoviesGallery: ${fetchMovies().then(
+      appendMoviesGalleryMarkup,
+    )}`,
+  );
 }
 
 function appendMoviesGalleryMarkup(data) {
@@ -61,10 +43,8 @@ export async function fetchMoviesById(id) {
   }
 }
 
-export async function fetchFavouriteMoviesList(id) {
-  const data = await fetchMoviesById(id);
-  const movies = appendFavouriteListMarkup(data);
-  return movies;
+export function fetchFavouriteMoviesList(id) {
+  return fetchMoviesById(id).then(appendFavouriteListMarkup);
 }
 
 function appendFavouriteListMarkup(data) {

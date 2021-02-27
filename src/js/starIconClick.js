@@ -4,7 +4,7 @@ import { manageFavListModal } from './onFavListModal';
 
 const refs = getRefs();
 
-export function onStarIconcheck(e) {
+export async function onStarIconcheck(e) {
   const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
 
   // console.log('in starIconClick' + ' ' + favorites.length);
@@ -19,7 +19,7 @@ export function onStarIconcheck(e) {
   if (index == -1) {
     favorites.push(id);
     item.classList.add('checked');
-    fetchFavouriteMoviesList(id);
+    await fetchFavouriteMoviesList(id);
     manageFavListModal();
 
     // item is already favorite

@@ -3,10 +3,18 @@ import { initStorage } from './js/localStorage';
 import { manageGalleryModal } from './js/onGalleryModal';
 import { onCrossIconClick } from './js/crossIconClick';
 
-fetchMoviesGallery();
+const initApp = async () => {
+  try {
+    await fetchMoviesGallery();
 
-initStorage();
+    initStorage();
 
-onCrossIconClick();
+    onCrossIconClick();
 
-manageGalleryModal();
+    manageGalleryModal();
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+initApp();

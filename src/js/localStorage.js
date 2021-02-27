@@ -1,25 +1,22 @@
 import { fetchFavouriteMoviesList } from './apiService';
 import { onStarIconcheck } from './starIconClick';
-// delay2();
-export function initStorage() {
+
+export const initStorage = () => {
   const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
 
-  console.log('in initStorage' + ' ' + favorites.length);
-
   if (favorites.length > 0) {
-    setTimeout(() => {
-      favorites.forEach(id => {
-        fetchFavouriteMoviesList(id);
-        const liElem = document.getElementById(id);
-        const divElem = liElem.firstElementChild;
-        const imgElem = divElem.firstElementChild;
-        const inputElem = imgElem.nextElementSibling;
-        inputElem.classList.add('checked');
-      });
-    }, 1000);
+    // add yellow color to start in movies gallery
+    favorites.forEach(async id => {
+      await fetchFavouriteMoviesList(id);
+      const liElem = document.getElementById(id);
+      const divElem = liElem.firstElementChild;
+      const imgElem = divElem.firstElementChild;
+      const inputElem = imgElem.nextElementSibling;
+      inputElem.classList.add('checked');
+    });
   }
 
   document
     .querySelector('.gallery-list')
     .addEventListener('click', onStarIconcheck);
-}
+};

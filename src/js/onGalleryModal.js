@@ -9,7 +9,7 @@ function onGalleryModal() {
 
   arrMovieItems.forEach(el => el.addEventListener('click', openModal));
 
-  function openModal(e) {
+  async function openModal(e) {
     console.log(e.target);
     e.preventDefault();
 
@@ -19,7 +19,7 @@ function onGalleryModal() {
 
     const id = e.currentTarget.id;
 
-    fetchMoviesInfoForModal(id);
+    await fetchMoviesInfoForModal(id);
     delayModal(id);
     onCrossPress();
 

@@ -1,7 +1,7 @@
 import getRefs from './get-refs';
 const refs = getRefs();
 
-function manageCrossIconClick() {
+export function onCrossIconClick() {
   refs.favouriteList.addEventListener('click', onCrossClick);
 
   function onCrossClick(e) {
@@ -21,32 +21,19 @@ function manageCrossIconClick() {
     const id = e.target.id;
 
     const itemBox = item.parentNode;
-    itemBox.remove();
+    itemBox.remove(); //remove item from favoriteList in side bar
 
-    const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+    const liElem = document.getElementById(id); // remove "checked" yellow start from gallery
+    const divElem = liElem.firstElementChild;
+    const imgElem = divElem.firstElementChild;
+    const inputElem = imgElem.nextElementSibling;
+    inputElem.classList.remove('checked');
+
+    const favorites = JSON.parse(localStorage.getItem('favorites')) || []; // remove deleted movie from local storage
     const index = favorites.indexOf(id);
 
     favorites.splice(index, 1);
 
     localStorage.setItem('favorites', JSON.stringify(favorites));
-
-    const arrayGalleryItems = Array.from(refs.filmsContainer.children);
-    arrayGalleryItems.forEach(elem => {
-      if (elem.id === id) {
-        elem.classList.add('cross-checked');
-      }
-    });
-
-    const deletedFromFavListMovie = document.querySelector('.cross-checked');
-    const divElem = deletedFromFavListMovie.firstElementChild;
-    const imgElem = divElem.firstElementChild;
-    const inputElem = imgElem.nextElementSibling;
-    inputElem.classList.remove('checked');
   }
-}
-
-export function onCrossIconClick() {
-  setTimeout(() => {
-    manageCrossIconClick();
-  }, 1000);
 }
