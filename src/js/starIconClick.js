@@ -16,6 +16,8 @@ export async function onStarIconcheck(e) {
   if (!id) return;
 
   console.log(e.target);
+
+  //check that we click exactly on the star
   if (e.target === inputEl || e.target === starEl) {
     // item is not in favourites
     if (index == -1) {
