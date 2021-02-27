@@ -1,4 +1,4 @@
-import { fetchMoviesInfoForModal } from './apiService';
+import { fetchMoviesInfoForModal } from '../services/apiService';
 import { onStarIconcheck } from './starIconClick';
 import { onCrossPress } from './modalCrossIconClick';
 

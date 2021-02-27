@@ -1,4 +1,4 @@
-import { fetchFavouriteMoviesList } from './apiService';
+import { fetchFavouriteMoviesList } from '../services/apiService';
 import { onStarIconcheck } from './starIconClick';
 
 export const initStorage = () => {

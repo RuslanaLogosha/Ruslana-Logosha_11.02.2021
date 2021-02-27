@@ -1,5 +1,5 @@
 import getRefs from './get-refs';
-import { fetchFavouriteMoviesList } from './apiService';
+import { fetchFavouriteMoviesList } from '../services/apiService';
 import { manageFavListModal } from './onFavListModal';
 
 const refs = getRefs();

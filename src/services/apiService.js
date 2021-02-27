@@ -1,7 +1,7 @@
 import moviesTpl from '../templates/moviesTemplate.hbs';
 import favouriteTpl from '../templates/favListItemTemplate.hbs';
 import modalTpl from '../templates/modalTemplate.hbs';
-import getRefs from './get-refs';
+import getRefs from '../js/get-refs';
 const refs = getRefs();
 
 const BASE_URL = `https://api.themoviedb.org/3`;
@@ -41,7 +41,7 @@ export async function fetchMoviesById(id) {
 }
 
 export function fetchFavouriteMoviesList(id) {
-  // fetch movies for favorite list
+  // fetch movies for favourite list in side bar
   return fetchMoviesById(id).then(appendFavouriteListMarkup);
 }
 

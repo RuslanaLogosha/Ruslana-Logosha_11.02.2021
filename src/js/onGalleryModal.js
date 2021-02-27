@@ -1,6 +1,6 @@
 import { onCrossPress } from './modalCrossIconClick';
 import { onStarIconcheck } from './starIconClick';
-import { fetchMoviesInfoForModal } from './apiService';
+import { fetchMoviesInfoForModal } from '../services/apiService';
 
 import getRefs from './get-refs';
 const refs = getRefs();

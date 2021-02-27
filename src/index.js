@@ -1,4 +1,4 @@
-import { fetchMoviesGallery } from './js/apiService';
+import { fetchMoviesGallery } from './services/apiService';
 import { initStorage } from './js/localStorage';
 import { manageGalleryModal } from './js/onGalleryModal';
 import { onCrossIconClick } from './js/crossIconClick';
