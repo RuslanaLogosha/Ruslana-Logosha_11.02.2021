@@ -2173,21 +2173,35 @@ const templateFunction = _handlebars.default.template({
           "column": 40
         }
       }
-    }) : helper)) + "\">\n    <div class=\"thumb\">\n        <img src=\"https://image.tmdb.org/t/p/w500" + alias4((helper = (helper = lookupProperty(helpers, "poster_path") || (depth0 != null ? lookupProperty(depth0, "poster_path") : depth0)) != null ? helper : alias2, typeof helper === alias3 ? helper.call(alias1, {
+    }) : helper)) + "\">\r\n    <div class=\"thumb\">\r\n        <img class=\"img\" src=\"https://image.tmdb.org/t/p/w500" + alias4((helper = (helper = lookupProperty(helpers, "poster_path") || (depth0 != null ? lookupProperty(depth0, "poster_path") : depth0)) != null ? helper : alias2, typeof helper === alias3 ? helper.call(alias1, {
       "name": "poster_path",
       "hash": {},
       "data": data,
       "loc": {
         "start": {
           "line": 4,
-          "column": 49
+          "column": 61
         },
         "end": {
           "line": 4,
-          "column": 64
+          "column": 76
         }
       }
-    }) : helper)) + "\"/>\n        <input class=\"input-checkbox\" id=\"" + alias4((helper = (helper = lookupProperty(helpers, "id") || (depth0 != null ? lookupProperty(depth0, "id") : depth0)) != null ? helper : alias2, typeof helper === alias3 ? helper.call(alias1, {
+    }) : helper)) + "\" id=\"" + alias4((helper = (helper = lookupProperty(helpers, "id") || (depth0 != null ? lookupProperty(depth0, "id") : depth0)) != null ? helper : alias2, typeof helper === alias3 ? helper.call(alias1, {
+      "name": "id",
+      "hash": {},
+      "data": data,
+      "loc": {
+        "start": {
+          "line": 4,
+          "column": 82
+        },
+        "end": {
+          "line": 4,
+          "column": 88
+        }
+      }
+    }) : helper)) + "\"/>\r\n        <input class=\"input-checkbox\" id=\"" + alias4((helper = (helper = lookupProperty(helpers, "id") || (depth0 != null ? lookupProperty(depth0, "id") : depth0)) != null ? helper : alias2, typeof helper === alias3 ? helper.call(alias1, {
       "name": "id",
       "hash": {},
       "data": data,
@@ -2201,49 +2215,77 @@ const templateFunction = _handlebars.default.template({
           "column": 48
         }
       }
-    }) : helper)) + "\" type=\"checkbox\" value=\"Favourite\">\n        <span class=\"star-icon\"></span>       \n    </div>\n    <p class=\"card__text modal-target\" id=\"" + alias4((helper = (helper = lookupProperty(helpers, "id") || (depth0 != null ? lookupProperty(depth0, "id") : depth0)) != null ? helper : alias2, typeof helper === alias3 ? helper.call(alias1, {
+    }) : helper)) + "\" type=\"checkbox\" value=\"Favourite\">\r\n        <span class=\"star-icon\"></span>       \r\n    </div>\r\n    <p class=\"card__text\" id=\"" + alias4((helper = (helper = lookupProperty(helpers, "id") || (depth0 != null ? lookupProperty(depth0, "id") : depth0)) != null ? helper : alias2, typeof helper === alias3 ? helper.call(alias1, {
       "name": "id",
       "hash": {},
       "data": data,
       "loc": {
         "start": {
           "line": 8,
-          "column": 43
+          "column": 30
         },
         "end": {
           "line": 8,
-          "column": 49
+          "column": 36
         }
       }
-    }) : helper)) + "\">\n      <span> " + alias4((helper = (helper = lookupProperty(helpers, "title") || (depth0 != null ? lookupProperty(depth0, "title") : depth0)) != null ? helper : alias2, typeof helper === alias3 ? helper.call(alias1, {
-      "name": "title",
+    }) : helper)) + "\">\r\n      <span id=\"" + alias4((helper = (helper = lookupProperty(helpers, "id") || (depth0 != null ? lookupProperty(depth0, "id") : depth0)) != null ? helper : alias2, typeof helper === alias3 ? helper.call(alias1, {
+      "name": "id",
       "hash": {},
       "data": data,
       "loc": {
         "start": {
           "line": 9,
-          "column": 13
+          "column": 16
         },
         "end": {
           "line": 9,
           "column": 22
         }
       }
-    }) : helper)) + " </span> \n      <span>" + alias4((helper = (helper = lookupProperty(helpers, "release_date") || (depth0 != null ? lookupProperty(depth0, "release_date") : depth0)) != null ? helper : alias2, typeof helper === alias3 ? helper.call(alias1, {
+    }) : helper)) + "\"> " + alias4((helper = (helper = lookupProperty(helpers, "title") || (depth0 != null ? lookupProperty(depth0, "title") : depth0)) != null ? helper : alias2, typeof helper === alias3 ? helper.call(alias1, {
+      "name": "title",
+      "hash": {},
+      "data": data,
+      "loc": {
+        "start": {
+          "line": 9,
+          "column": 25
+        },
+        "end": {
+          "line": 9,
+          "column": 34
+        }
+      }
+    }) : helper)) + " </span> \r\n      <span id=\"" + alias4((helper = (helper = lookupProperty(helpers, "id") || (depth0 != null ? lookupProperty(depth0, "id") : depth0)) != null ? helper : alias2, typeof helper === alias3 ? helper.call(alias1, {
+      "name": "id",
+      "hash": {},
+      "data": data,
+      "loc": {
+        "start": {
+          "line": 10,
+          "column": 16
+        },
+        "end": {
+          "line": 10,
+          "column": 22
+        }
+      }
+    }) : helper)) + "\">" + alias4((helper = (helper = lookupProperty(helpers, "release_date") || (depth0 != null ? lookupProperty(depth0, "release_date") : depth0)) != null ? helper : alias2, typeof helper === alias3 ? helper.call(alias1, {
       "name": "release_date",
       "hash": {},
       "data": data,
       "loc": {
         "start": {
           "line": 10,
-          "column": 12
+          "column": 24
         },
         "end": {
           "line": 10,
-          "column": 28
+          "column": 40
         }
       }
-    }) : helper)) + "</span>\n   </p>\n   \n</li>\n";
+    }) : helper)) + "</span>\r\n   </p>\r\n   \r\n</li>\r\n";
   },
   "compiler": [8, ">= 4.3.0"],
   "main": function (container, depth0, helpers, partials, data) {
@@ -2321,7 +2363,7 @@ const templateFunction = _handlebars.default.template({
           "column": 38
         }
       }
-    }) : helper)) + "\"/>\n<li class=\"fav-list-item\" id=\"" + alias4((helper = (helper = lookupProperty(helpers, "id") || (depth0 != null ? lookupProperty(depth0, "id") : depth0)) != null ? helper : alias2, typeof helper === alias3 ? helper.call(alias1, {
+    }) : helper)) + "\"/>\r\n<li class=\"fav-list-item\" id=\"" + alias4((helper = (helper = lookupProperty(helpers, "id") || (depth0 != null ? lookupProperty(depth0, "id") : depth0)) != null ? helper : alias2, typeof helper === alias3 ? helper.call(alias1, {
       "name": "id",
       "hash": {},
       "data": data,
@@ -2335,7 +2377,7 @@ const templateFunction = _handlebars.default.template({
           "column": 36
         }
       }
-    }) : helper)) + "\">\n      <span class=\"fav-list-name\" id=\"" + alias4((helper = (helper = lookupProperty(helpers, "id") || (depth0 != null ? lookupProperty(depth0, "id") : depth0)) != null ? helper : alias2, typeof helper === alias3 ? helper.call(alias1, {
+    }) : helper)) + "\">\r\n      <span class=\"fav-list-name\" id=\"" + alias4((helper = (helper = lookupProperty(helpers, "id") || (depth0 != null ? lookupProperty(depth0, "id") : depth0)) != null ? helper : alias2, typeof helper === alias3 ? helper.call(alias1, {
       "name": "id",
       "hash": {},
       "data": data,
@@ -2363,7 +2405,7 @@ const templateFunction = _handlebars.default.template({
           "column": 55
         }
       }
-    }) : helper)) + "</span> \n</li>\n<span id=\"" + alias4((helper = (helper = lookupProperty(helpers, "id") || (depth0 != null ? lookupProperty(depth0, "id") : depth0)) != null ? helper : alias2, typeof helper === alias3 ? helper.call(alias1, {
+    }) : helper)) + "</span> \r\n</li>\r\n<span id=\"" + alias4((helper = (helper = lookupProperty(helpers, "id") || (depth0 != null ? lookupProperty(depth0, "id") : depth0)) != null ? helper : alias2, typeof helper === alias3 ? helper.call(alias1, {
       "name": "id",
       "hash": {},
       "data": data,
@@ -2377,115 +2419,14 @@ const templateFunction = _handlebars.default.template({
           "column": 16
         }
       }
-    }) : helper)) + "\" class=\"cross-icon\"></span>       \n</div>\n";
+    }) : helper)) + "\" class=\"cross-icon\"></span>       \r\n</div>\r\n";
   },
   "useData": true
 });
 
 var _default = templateFunction;
 exports.default = _default;
-},{"handlebars/dist/handlebars.runtime":"../node_modules/handlebars/dist/handlebars.runtime.js"}],"js/get-refs.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = getRefs;
-
-function getRefs() {
-  return {
-    filmsContainer: document.querySelector('.gallery'),
-    favouriteList: document.querySelector('.favourite-films-container')
-  };
-}
-},{}],"js/apiService.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.fetchMovies = fetchMovies;
-exports.fetchMoviesGallery = fetchMoviesGallery;
-exports.fetchMoviesById = fetchMoviesById;
-exports.fetchFavouriteMoviesList = fetchFavouriteMoviesList;
-
-var _moviesTemplate = _interopRequireDefault(require("../templates/moviesTemplate.hbs"));
-
-var _favListItemTemplate = _interopRequireDefault(require("../templates/favListItemTemplate.hbs"));
-
-var _getRefs = _interopRequireDefault(require("./get-refs"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-// const url = 'http://my-json-server.typicode.com/moviedb-tech/movies/list';
-// export async function fetchMovies() {
-//   try {
-//     const data = await fetch(url);
-//     const results = await data.json();
-//     return results;
-//   } catch (error) {
-//     console.log(error);
-//   }
-// }
-// export async function fetchMoviesById(id) {
-//   try {
-//     const data = await fetch(`${url}/${id}`);
-//     const results = await data.json();
-//     return results;
-//   } catch (error) {
-//     console.log(error);
-//   }
-// }
-const refs = (0, _getRefs.default)();
-const BASE_URL = "https://api.themoviedb.org/3";
-const KEY = "d91911ebb88751cf9e5c4b8fdf4412c9";
-
-async function fetchMovies() {
-  const url = "".concat(BASE_URL, "/movie/popular?api_key=").concat(KEY, "&language=en-US&page=1");
-
-  try {
-    const data = await fetch(url);
-    const {
-      results
-    } = await data.json();
-    return results;
-  } catch (error) {
-    console.log(error);
-  }
-}
-
-async function fetchMoviesGallery() {
-  const data = await fetchMovies();
-  const movies = appendMoviesGalleryMarkup(data);
-  return movies;
-}
-
-function appendMoviesGalleryMarkup(data) {
-  refs.filmsContainer.insertAdjacentHTML('beforeend', (0, _moviesTemplate.default)(data));
-}
-
-async function fetchMoviesById(id) {
-  const url = "".concat(BASE_URL, "/movie/").concat(id, "?api_key=").concat(KEY, "&language=en-US");
-
-  try {
-    const data = await fetch(url);
-    const results = await data.json();
-    return results;
-  } catch (error) {
-    console.log(error);
-  }
-}
-
-async function fetchFavouriteMoviesList(id) {
-  const data = await fetchMoviesById(id);
-  const movies = appendFavouriteListMarkup(data);
-  return movies;
-}
-
-function appendFavouriteListMarkup(data) {
-  refs.favouriteList.insertAdjacentHTML('beforeend', (0, _favListItemTemplate.default)(data));
-}
-},{"../templates/moviesTemplate.hbs":"templates/moviesTemplate.hbs","../templates/favListItemTemplate.hbs":"templates/favListItemTemplate.hbs","./get-refs":"js/get-refs.js"}],"templates/modalTemplate.hbs":[function(require,module,exports) {
+},{"handlebars/dist/handlebars.runtime":"../node_modules/handlebars/dist/handlebars.runtime.js"}],"templates/modalTemplate.hbs":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -2507,7 +2448,7 @@ const templateFunction = _handlebars.default.template({
       return undefined;
     };
 
-    return "    <span>" + container.escapeExpression(container.lambda(depth0 != null ? lookupProperty(depth0, "name") : depth0, depth0)) + "</span>\n";
+    return "    <span>" + container.escapeExpression(container.lambda(depth0 != null ? lookupProperty(depth0, "name") : depth0, depth0)) + "</span>\r\n";
   },
   "3": function (container, depth0, helpers, partials, data) {
     var lookupProperty = container.lookupProperty || function (parent, propertyName) {
@@ -2518,7 +2459,7 @@ const templateFunction = _handlebars.default.template({
       return undefined;
     };
 
-    return "    <li>" + container.escapeExpression(container.lambda(depth0 != null ? lookupProperty(depth0, "name") : depth0, depth0)) + "</li>\n";
+    return "    <li>" + container.escapeExpression(container.lambda(depth0 != null ? lookupProperty(depth0, "name") : depth0, depth0)) + "</li>\r\n";
   },
   "compiler": [8, ">= 4.3.0"],
   "main": function (container, depth0, helpers, partials, data) {
@@ -2536,7 +2477,7 @@ const templateFunction = _handlebars.default.template({
       return undefined;
     };
 
-    return "<div class=\"modal-container\" >\n  <span class=\"star-icon modal-icon\" id=\"" + alias4((helper = (helper = lookupProperty(helpers, "id") || (depth0 != null ? lookupProperty(depth0, "id") : depth0)) != null ? helper : alias2, typeof helper === alias3 ? helper.call(alias1, {
+    return "<div class=\"modal-container\" >\r\n  <span class=\"star-icon modal-icon\" id=\"" + alias4((helper = (helper = lookupProperty(helpers, "id") || (depth0 != null ? lookupProperty(depth0, "id") : depth0)) != null ? helper : alias2, typeof helper === alias3 ? helper.call(alias1, {
       "name": "id",
       "hash": {},
       "data": data,
@@ -2550,7 +2491,7 @@ const templateFunction = _handlebars.default.template({
           "column": 47
         }
       }
-    }) : helper)) + "\"></span>\n  <span class=\"close-icon modal-icon\"></span>\n\n<div class=\"img-cover\">\n  <img class=\"modal-image\" src=\"https://image.tmdb.org/t/p/w500" + alias4((helper = (helper = lookupProperty(helpers, "poster_path") || (depth0 != null ? lookupProperty(depth0, "poster_path") : depth0)) != null ? helper : alias2, typeof helper === alias3 ? helper.call(alias1, {
+    }) : helper)) + "\"></span>\r\n  <span class=\"close-icon modal-icon\"></span>\r\n\r\n<div class=\"img-cover\">\r\n  <img class=\"modal-image\" src=\"https://image.tmdb.org/t/p/w500" + alias4((helper = (helper = lookupProperty(helpers, "poster_path") || (depth0 != null ? lookupProperty(depth0, "poster_path") : depth0)) != null ? helper : alias2, typeof helper === alias3 ? helper.call(alias1, {
       "name": "poster_path",
       "hash": {},
       "data": data,
@@ -2564,7 +2505,7 @@ const templateFunction = _handlebars.default.template({
           "column": 78
         }
       }
-    }) : helper)) + "\"/>\n</div>\n  <span class=\"modal-name\" id=\"" + alias4((helper = (helper = lookupProperty(helpers, "id") || (depth0 != null ? lookupProperty(depth0, "id") : depth0)) != null ? helper : alias2, typeof helper === alias3 ? helper.call(alias1, {
+    }) : helper)) + "\"/>\r\n</div>\r\n  <span class=\"modal-name\" id=\"" + alias4((helper = (helper = lookupProperty(helpers, "id") || (depth0 != null ? lookupProperty(depth0, "id") : depth0)) != null ? helper : alias2, typeof helper === alias3 ? helper.call(alias1, {
       "name": "id",
       "hash": {},
       "data": data,
@@ -2592,7 +2533,7 @@ const templateFunction = _handlebars.default.template({
           "column": 48
         }
       }
-    }) : helper)) + "</span>\n  <div>" + alias4((helper = (helper = lookupProperty(helpers, "overview") || (depth0 != null ? lookupProperty(depth0, "overview") : depth0)) != null ? helper : alias2, typeof helper === alias3 ? helper.call(alias1, {
+    }) : helper)) + "</span>\r\n  <div>" + alias4((helper = (helper = lookupProperty(helpers, "overview") || (depth0 != null ? lookupProperty(depth0, "overview") : depth0)) != null ? helper : alias2, typeof helper === alias3 ? helper.call(alias1, {
       "name": "overview",
       "hash": {},
       "data": data,
@@ -2606,7 +2547,7 @@ const templateFunction = _handlebars.default.template({
           "column": 19
         }
       }
-    }) : helper)) + "</div>\n  \n  <span>" + alias4((helper = (helper = lookupProperty(helpers, "release_date") || (depth0 != null ? lookupProperty(depth0, "release_date") : depth0)) != null ? helper : alias2, typeof helper === alias3 ? helper.call(alias1, {
+    }) : helper)) + "</div>\r\n  \r\n  <span>" + alias4((helper = (helper = lookupProperty(helpers, "release_date") || (depth0 != null ? lookupProperty(depth0, "release_date") : depth0)) != null ? helper : alias2, typeof helper === alias3 ? helper.call(alias1, {
       "name": "release_date",
       "hash": {},
       "data": data,
@@ -2620,7 +2561,7 @@ const templateFunction = _handlebars.default.template({
           "column": 24
         }
       }
-    }) : helper)) + "</span>\n  <p >\n" + ((stack1 = lookupProperty(helpers, "each").call(alias1, depth0 != null ? lookupProperty(depth0, "genres") : depth0, {
+    }) : helper)) + "</span>\r\n  <p >\r\n" + ((stack1 = lookupProperty(helpers, "each").call(alias1, depth0 != null ? lookupProperty(depth0, "genres") : depth0, {
       "name": "each",
       "hash": {},
       "fn": container.program(1, data, 0),
@@ -2636,7 +2577,7 @@ const templateFunction = _handlebars.default.template({
           "column": 15
         }
       }
-    })) != null ? stack1 : "") + "  </p>\n<span>Production companies:</span>\n" + ((stack1 = lookupProperty(helpers, "each").call(alias1, depth0 != null ? lookupProperty(depth0, "production_companies") : depth0, {
+    })) != null ? stack1 : "") + "  </p>\r\n<span>Production companies:</span>\r\n" + ((stack1 = lookupProperty(helpers, "each").call(alias1, depth0 != null ? lookupProperty(depth0, "production_companies") : depth0, {
       "name": "each",
       "hash": {},
       "fn": container.program(3, data, 0),
@@ -2652,14 +2593,107 @@ const templateFunction = _handlebars.default.template({
           "column": 15
         }
       }
-    })) != null ? stack1 : "") + "\n  </div>\n</div>";
+    })) != null ? stack1 : "") + "\r\n  </div>\r\n</div>";
   },
   "useData": true
 });
 
 var _default = templateFunction;
 exports.default = _default;
-},{"handlebars/dist/handlebars.runtime":"../node_modules/handlebars/dist/handlebars.runtime.js"}],"js/modalCrossIconClick.js":[function(require,module,exports) {
+},{"handlebars/dist/handlebars.runtime":"../node_modules/handlebars/dist/handlebars.runtime.js"}],"js/get-refs.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = getRefs;
+
+function getRefs() {
+  return {
+    filmsContainer: document.querySelector('.gallery'),
+    favouriteList: document.querySelector('.favourite-films-container'),
+    backdropContainer: document.querySelector('.backdrop')
+  };
+}
+},{}],"js/apiService.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.fetchMovies = fetchMovies;
+exports.fetchMoviesGallery = fetchMoviesGallery;
+exports.fetchMoviesById = fetchMoviesById;
+exports.fetchFavouriteMoviesList = fetchFavouriteMoviesList;
+exports.fetchMoviesInfoForModal = fetchMoviesInfoForModal;
+
+var _moviesTemplate = _interopRequireDefault(require("../templates/moviesTemplate.hbs"));
+
+var _favListItemTemplate = _interopRequireDefault(require("../templates/favListItemTemplate.hbs"));
+
+var _modalTemplate = _interopRequireDefault(require("../templates/modalTemplate.hbs"));
+
+var _getRefs = _interopRequireDefault(require("./get-refs"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+const refs = (0, _getRefs.default)();
+const BASE_URL = "https://api.themoviedb.org/3";
+const KEY = "d91911ebb88751cf9e5c4b8fdf4412c9";
+
+async function fetchMovies() {
+  const url = "".concat(BASE_URL, "/movie/popular?api_key=").concat(KEY, "&language=en-US&page=1");
+
+  try {
+    const data = await fetch(url);
+    const {
+      results
+    } = await data.json();
+    return results;
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+function fetchMoviesGallery() {
+  // fetch movies for gallery
+  fetchMovies().then(appendMoviesGalleryMarkup);
+}
+
+function appendMoviesGalleryMarkup(data) {
+  refs.filmsContainer.insertAdjacentHTML('beforeend', (0, _moviesTemplate.default)(data));
+}
+
+async function fetchMoviesById(id) {
+  const url = "".concat(BASE_URL, "/movie/").concat(id, "?api_key=").concat(KEY, "&language=en-US");
+
+  try {
+    const data = await fetch(url);
+    const results = await data.json();
+    return results;
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+function fetchFavouriteMoviesList(id) {
+  // fetch movies for favorite list
+  return fetchMoviesById(id).then(appendFavouriteListMarkup);
+}
+
+function appendFavouriteListMarkup(data) {
+  refs.favouriteList.insertAdjacentHTML('beforeend', (0, _favListItemTemplate.default)(data));
+}
+
+function fetchMoviesInfoForModal(id) {
+  // fetch movies for Modal
+  return fetchMoviesById(id).then(appendModalMarkup);
+}
+
+function appendModalMarkup(data) {
+  refs.backdropContainer.insertAdjacentHTML('beforeEnd', (0, _modalTemplate.default)(data));
+}
+},{"../templates/moviesTemplate.hbs":"templates/moviesTemplate.hbs","../templates/favListItemTemplate.hbs":"templates/favListItemTemplate.hbs","../templates/modalTemplate.hbs":"templates/modalTemplate.hbs","./get-refs":"js/get-refs.js"}],"js/modalCrossIconClick.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -2667,7 +2701,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.onCrossPress = onCrossPress;
 
-function CrossPress() {
+function onCrossPress() {
   const backdrop = document.querySelector('.backdrop');
   const modalContainer = backdrop.firstElementChild;
   const spanIconStar = modalContainer.firstElementChild;
@@ -2680,12 +2714,6 @@ function CrossPress() {
     backdropContainer.innerHTML = '';
   }
 }
-
-function onCrossPress() {
-  setTimeout(() => {
-    CrossPress();
-  }, 1000);
-}
 },{}],"js/onFavListModal.js":[function(require,module,exports) {
 "use strict";
 
@@ -2696,85 +2724,60 @@ exports.manageFavListModal = manageFavListModal;
 
 var _apiService = require("./apiService");
 
-var _modalTemplate = _interopRequireDefault(require("../templates/modalTemplate.hbs"));
-
 var _starIconClick = require("./starIconClick");
 
 var _modalCrossIconClick = require("./modalCrossIconClick");
 
+var _getRefs = _interopRequireDefault(require("./get-refs"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function onFavListModal() {
+const refs = (0, _getRefs.default)();
+
+async function manageFavListModal() {
   const modalFavItem = document.querySelector('.fav-list-name');
 
   if (modalFavItem) {
     modalFavItem.addEventListener('click', openModal);
   }
 
-  function openModal(e) {
-    e.preventDefault();
-    console.log('click to open modal');
+  async function openModal(e) {
     window.addEventListener('keydown', onEscPress);
-    const backdropContainer = document.querySelector('.backdrop');
-    backdropContainer.classList.add('is-open');
+    refs.backdropContainer.classList.add('is-open');
     const id = e.target.id;
-    fetchMoviesInfoForModal(id);
-    delayModal(id);
+    await (0, _apiService.fetchMoviesInfoForModal)(id);
+    manageStarInModalFav(id);
     (0, _modalCrossIconClick.onCrossPress)();
-
-    async function fetchMoviesInfoForModal(id) {
-      const data = await (0, _apiService.fetchMoviesById)(id);
-      const movies = appendModalMarkup(data);
-      console.log(movies);
-      return movies;
-    }
-
-    function appendModalMarkup(data) {
-      console.log(data);
-      backdropContainer.insertAdjacentHTML('beforeEnd', (0, _modalTemplate.default)(data));
-    }
-
-    function onCloseModal(e) {
-      window.removeEventListener('keydown', onEscPress);
-      backdropContainer.classList.remove('is-open');
-      backdropContainer.innerHTML = '';
-    }
-
-    function onEscPress(e) {
-      const isEscKey = e.code === 'Escape';
-
-      if (isEscKey) {
-        onCloseModal();
-      }
-    }
   }
 }
 
-function delayModal(id) {
-  setTimeout(() => {
-    function manageStarInModalFav(id) {
-      const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
-      favorites.filter(favorite => {
-        if (favorite === id) {
-          const backdrop = document.querySelector('.backdrop.is-open');
-          const backdropChild = backdrop.querySelector('.modal-container');
-          const starIcon = backdropChild.querySelector('.modal-icon');
-          starIcon.classList.add('checked');
-          starIcon.addEventListener('click', _starIconClick.onStarIconcheck);
-        }
-      });
+function manageStarInModalFav(id) {
+  const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+  favorites.filter(favorite => {
+    if (favorite === id) {
+      const backdrop = document.querySelector('.backdrop.is-open');
+      const backdropChild = backdrop.querySelector('.modal-container');
+      const starIcon = backdropChild.querySelector('.modal-icon');
+      starIcon.classList.add('checked');
+      starIcon.addEventListener('click', _starIconClick.onStarIconcheck);
     }
-
-    manageStarInModalFav(id);
-  }, 1000);
+  });
 }
 
-function manageFavListModal() {
-  setTimeout(() => {
-    onFavListModal();
-  }, 1000);
+function onCloseModal() {
+  window.removeEventListener('keydown', onEscPress);
+  refs.backdropContainer.classList.remove('is-open');
+  refs.backdropContainer.innerHTML = '';
 }
-},{"./apiService":"js/apiService.js","../templates/modalTemplate.hbs":"templates/modalTemplate.hbs","./starIconClick":"js/starIconClick.js","./modalCrossIconClick":"js/modalCrossIconClick.js"}],"js/starIconClick.js":[function(require,module,exports) {
+
+function onEscPress(e) {
+  const isEscKey = e.code === 'Escape';
+
+  if (isEscKey) {
+    onCloseModal();
+  }
+}
+},{"./apiService":"js/apiService.js","./starIconClick":"js/starIconClick.js","./modalCrossIconClick":"js/modalCrossIconClick.js","./get-refs":"js/get-refs.js"}],"js/starIconClick.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -2792,26 +2795,31 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 const refs = (0, _getRefs.default)();
 
-function onStarIconcheck(e) {
-  const favorites = JSON.parse(localStorage.getItem('favorites')) || []; // console.log('in starIconClick' + ' ' + favorites.length);
-
+async function onStarIconcheck(e) {
+  const inputEl = document.querySelector('.input-checkbox');
+  const starEl = document.querySelector('.star-icon');
+  const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
   const id = e.target.id,
         item = e.target,
         index = favorites.indexOf(id);
-  if (!id) return; // item is not favorite
+  if (!id) return;
+  console.log(e.target);
 
-  if (index == -1) {
-    favorites.push(id);
-    item.classList.add('checked');
-    (0, _apiService.fetchFavouriteMoviesList)(id);
-    (0, _onFavListModal.manageFavListModal)(); // item is already favorite
-  } else {
-    favorites.splice(index, 1);
-    const list = refs.favouriteList;
-    const arrayElms = Array.from(list.children);
-    arrayElms.forEach(elem => elem.remove());
-    favorites.forEach(id => (0, _apiService.fetchFavouriteMoviesList)(id));
-    item.classList.remove('checked');
+  if (e.target === inputEl || e.target === starEl) {
+    // item is not in favourites
+    if (index == -1) {
+      favorites.push(id);
+      item.classList.add('checked');
+      await (0, _apiService.fetchFavouriteMoviesList)(id);
+      (0, _onFavListModal.manageFavListModal)(); // item is already favorite
+    } else {
+      favorites.splice(index, 1);
+      const list = refs.favouriteList;
+      const arrayElms = Array.from(list.children);
+      arrayElms.forEach(elem => elem.remove());
+      favorites.forEach(id => (0, _apiService.fetchFavouriteMoviesList)(id));
+      item.classList.remove('checked');
+    }
   } // store array in local storage
 
 
@@ -2823,32 +2831,31 @@ function onStarIconcheck(e) {
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.initStorage = initStorage;
+exports.initStorage = void 0;
 
 var _apiService = require("./apiService");
 
 var _starIconClick = require("./starIconClick");
 
-// delay2();
-function initStorage() {
+const initStorage = () => {
   const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
-  console.log('in initStorage' + ' ' + favorites.length);
 
   if (favorites.length > 0) {
-    setTimeout(() => {
-      favorites.forEach(id => {
-        (0, _apiService.fetchFavouriteMoviesList)(id);
-        const liElem = document.getElementById(id);
-        const divElem = liElem.firstElementChild;
-        const imgElem = divElem.firstElementChild;
-        const inputElem = imgElem.nextElementSibling;
-        inputElem.classList.add('checked');
-      });
-    }, 1000);
+    // add yellow color to start in movies gallery
+    favorites.forEach(async id => {
+      await (0, _apiService.fetchFavouriteMoviesList)(id);
+      const liElem = document.getElementById(id);
+      const divElem = liElem.firstElementChild;
+      const imgElem = divElem.firstElementChild;
+      const inputElem = imgElem.nextElementSibling;
+      inputElem.classList.add('checked');
+    });
   }
 
   document.querySelector('.gallery-list').addEventListener('click', _starIconClick.onStarIconcheck);
-}
+};
+
+exports.initStorage = initStorage;
 },{"./apiService":"js/apiService.js","./starIconClick":"js/starIconClick.js"}],"js/onGalleryModal.js":[function(require,module,exports) {
 "use strict";
 
@@ -2859,82 +2866,63 @@ exports.manageGalleryModal = manageGalleryModal;
 
 var _modalCrossIconClick = require("./modalCrossIconClick");
 
+var _starIconClick = require("./starIconClick");
+
 var _apiService = require("./apiService");
 
-var _modalTemplate = _interopRequireDefault(require("../templates/modalTemplate.hbs"));
-
-var _starIconClick = require("./starIconClick");
+var _getRefs = _interopRequireDefault(require("./get-refs"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function onGalleryModal() {
-  const modalTargetItems = document.querySelectorAll('.modal-target');
-  const arrMovieItems = Array.from(modalTargetItems);
-  arrMovieItems.forEach(el => el.addEventListener('click', openModal));
+const refs = (0, _getRefs.default)();
 
-  function openModal(e) {
+function manageGalleryModal() {
+  refs.filmsContainer.addEventListener('click', openModal);
+
+  async function openModal(e) {
+    const imgEl = document.querySelector('.img');
+    console.log(imgEl);
     console.log(e.target);
-    e.preventDefault();
-    window.addEventListener('keydown', onEscPress);
-    const backdropContainer = document.querySelector('.backdrop');
-    backdropContainer.classList.add('is-open');
-    const id = e.currentTarget.id;
-    fetchMoviesInfoForModal(id);
-    delayModal(id);
-    (0, _modalCrossIconClick.onCrossPress)();
+    console.log(e.target === imgEl);
 
-    async function fetchMoviesInfoForModal(id) {
-      const data = await (0, _apiService.fetchMoviesById)(id);
-      const movies = appendModalMarkup(data);
-      return movies;
-    }
-
-    function appendModalMarkup(data) {
-      backdropContainer.insertAdjacentHTML('beforeEnd', (0, _modalTemplate.default)(data));
-    }
-
-    function onCloseModal(e) {
-      window.removeEventListener('keydown', onEscPress);
-      backdropContainer.classList.remove('is-open');
-      backdropContainer.innerHTML = '';
-    }
-
-    function onEscPress(event) {
-      const isEscKey = event.code === 'Escape';
-
-      if (isEscKey) {
-        onCloseModal();
-      }
+    if (e.target === imgEl) {
+      const id = e.target.id;
+      await (0, _apiService.fetchMoviesInfoForModal)(id);
+      window.addEventListener('keydown', onEscPress);
+      refs.backdropContainer.classList.add('is-open');
+      manageStarInModalFav(id);
+      (0, _modalCrossIconClick.onCrossPress)();
     }
   }
 }
 
-function delayModal(id) {
-  setTimeout(() => {
-    function manageStarInModalFav(id) {
-      const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
-      const backdrop = document.querySelector('.backdrop.is-open');
-      const backdropChild = backdrop.querySelector('.modal-container');
-      const starIcon = backdropChild.querySelector('.modal-icon');
-      favorites.filter(favorite => {
-        if (favorite === id) {
-          starIcon.classList.add('checked');
-        }
-      });
-      starIcon.addEventListener('click', _starIconClick.onStarIconcheck);
-      console.log(favorites);
+function onCloseModal() {
+  window.removeEventListener('keydown', onEscPress);
+  refs.backdropContainer.classList.remove('is-open');
+  refs.backdropContainer.innerHTML = '';
+}
+
+function onEscPress(event) {
+  const isEscKey = event.code === 'Escape';
+
+  if (isEscKey) {
+    onCloseModal();
+  }
+}
+
+function manageStarInModalFav(id) {
+  const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+  const backdrop = document.querySelector('.backdrop.is-open');
+  const backdropChild = backdrop.querySelector('.modal-container');
+  const starIcon = backdropChild.querySelector('.modal-icon');
+  favorites.filter(favorite => {
+    if (favorite === id) {
+      starIcon.classList.add('checked');
     }
-
-    manageStarInModalFav(id);
-  }, 1000);
+  });
+  starIcon.addEventListener('click', _starIconClick.onStarIconcheck);
 }
-
-function manageGalleryModal() {
-  setTimeout(() => {
-    onGalleryModal();
-  }, 1000);
-}
-},{"./modalCrossIconClick":"js/modalCrossIconClick.js","./apiService":"js/apiService.js","../templates/modalTemplate.hbs":"templates/modalTemplate.hbs","./starIconClick":"js/starIconClick.js"}],"js/crossIconClick.js":[function(require,module,exports) {
+},{"./modalCrossIconClick":"js/modalCrossIconClick.js","./starIconClick":"js/starIconClick.js","./apiService":"js/apiService.js","./get-refs":"js/get-refs.js"}],"js/crossIconClick.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -2948,7 +2936,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 const refs = (0, _getRefs.default)();
 
-function manageCrossIconClick() {
+function onCrossIconClick() {
   refs.favouriteList.addEventListener('click', onCrossClick);
 
   function onCrossClick(e) {
@@ -2963,29 +2951,20 @@ function manageCrossIconClick() {
     const item = e.target;
     const id = e.target.id;
     const itemBox = item.parentNode;
-    itemBox.remove();
-    const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
-    const index = favorites.indexOf(id);
-    favorites.splice(index, 1);
-    localStorage.setItem('favorites', JSON.stringify(favorites));
-    const arrayGalleryItems = Array.from(refs.filmsContainer.children);
-    arrayGalleryItems.forEach(elem => {
-      if (elem.id === id) {
-        elem.classList.add('cross-checked');
-      }
-    });
-    const deletedFromFavListMovie = document.querySelector('.cross-checked');
-    const divElem = deletedFromFavListMovie.firstElementChild;
+    itemBox.remove(); //remove item from favoriteList in side bar
+
+    const liElem = document.getElementById(id); // remove "checked" yellow start from gallery
+
+    const divElem = liElem.firstElementChild;
     const imgElem = divElem.firstElementChild;
     const inputElem = imgElem.nextElementSibling;
     inputElem.classList.remove('checked');
-  }
-}
+    const favorites = JSON.parse(localStorage.getItem('favorites')) || []; // remove deleted movie from local storage
 
-function onCrossIconClick() {
-  setTimeout(() => {
-    manageCrossIconClick();
-  }, 1000);
+    const index = favorites.indexOf(id);
+    favorites.splice(index, 1);
+    localStorage.setItem('favorites', JSON.stringify(favorites));
+  }
 }
 },{"./get-refs":"js/get-refs.js"}],"index.js":[function(require,module,exports) {
 "use strict";
@@ -2998,10 +2977,18 @@ var _onGalleryModal = require("./js/onGalleryModal");
 
 var _crossIconClick = require("./js/crossIconClick");
 
-(0, _apiService.fetchMoviesGallery)();
-(0, _localStorage.initStorage)();
-(0, _crossIconClick.onCrossIconClick)();
-(0, _onGalleryModal.manageGalleryModal)();
+const initApp = async () => {
+  try {
+    await (0, _apiService.fetchMoviesGallery)();
+    (0, _localStorage.initStorage)();
+    (0, _crossIconClick.onCrossIconClick)();
+    (0, _onGalleryModal.manageGalleryModal)();
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+initApp();
 },{"./js/apiService":"js/apiService.js","./js/localStorage":"js/localStorage.js","./js/onGalleryModal":"js/onGalleryModal.js","./js/crossIconClick":"js/crossIconClick.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -3030,7 +3017,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49714" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56173" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
