@@ -9,21 +9,20 @@ export function manageGalleryModal() {
   refs.filmsContainer.addEventListener('click', openModal);
 
   async function openModal(e) {
-    const imgEl = document.querySelector('.img');
-    console.log(imgEl);
-    console.log(e.target);
-    console.log(e.target === imgEl);
+    const imgEls = document.querySelectorAll('.img');
 
-    if (e.target === imgEl) {
-      const id = e.target.id;
+    for (let img of imgEls) {
+      if (e.target === img) {
+        const id = e.target.id;
 
-      await fetchMoviesInfoForModal(id);
+        await fetchMoviesInfoForModal(id);
 
-      window.addEventListener('keydown', onEscPress);
-      refs.backdropContainer.classList.add('is-open');
+        window.addEventListener('keydown', onEscPress);
+        refs.backdropContainer.classList.add('is-open');
 
-      manageStarInModalFav(id);
-      onCrossPress();
+        manageStarInModalFav(id);
+        onCrossPress();
+      }
     }
   }
 }

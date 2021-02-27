@@ -6,20 +6,25 @@ import getRefs from './get-refs';
 const refs = getRefs();
 
 export async function manageFavListModal() {
-  const modalFavItem = document.querySelector('.fav-list-name');
-  if (modalFavItem) {
-    modalFavItem.addEventListener('click', openModal);
-  }
+  refs.favouriteList.addEventListener('click', openModal);
 
   async function openModal(e) {
-    window.addEventListener('keydown', onEscPress);
-    refs.backdropContainer.classList.add('is-open');
+    const modalFavList = document.querySelectorAll('.fav-list-name');
 
-    const id = e.target.id;
+    console.log(e.target);
 
-    await fetchMoviesInfoForModal(id);
-    manageStarInModalFav(id);
-    onCrossPress();
+    for (let listItem of modalFavList) {
+      if (e.target === listItem) {
+        window.addEventListener('keydown', onEscPress);
+        refs.backdropContainer.classList.add('is-open');
+
+        const id = e.target.id;
+
+        await fetchMoviesInfoForModal(id);
+        manageStarInModalFav(id);
+        onCrossPress();
+      }
+    }
   }
 }
 
